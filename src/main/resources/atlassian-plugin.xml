@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+  <plugin-info>
+    <description>${project.description}</description>
+    <version>${project.version}</version>
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+    <param name="plugin-icon">images/pluginIcon.png</param>
+    <param name="plugin-logo">images/pluginLogo.png</param>
+  </plugin-info>
+  <!-- add our i18n resource -->
+  <resource type="i18n" name="i18n" location="teamer-plugin"/>
+  <!-- add our web resources -->
+  <web-resource key="teamer-plugin-resources" name="teamer-plugin Web Resources">
+    <dependency>com.atlassian.auiplugin:ajs</dependency>
+    <resource type="download" name="teamer-plugin.css" location="/css/teamer-plugin.css"/>
+    <resource type="download" name="teamer-plugin.js" location="/js/teamer-plugin.js"/>
+    <resource type="download" name="images/" location="/images"/>
+    <context>teamer-plugin</context>
+  </web-resource>
+  <web-section name="My Links Main Section" i18n-name-key="my-links-main-section.name" key="my_links_section" location="my_links_link" weight="10"/>
+  <web-item key="my_links_link" name="Link on My Links Main Section" section="system.top.navigation.bar" weight="47">
+    <label>My Company</label>
+    <link linkId="my_links_link">http://www.atlassian.com</link>
+  </web-item>
+  <web-item key="website_link" name="Company Web Site" section="my_links_link/my_links_section" weight="10">
+    <label>Web Site</label>
+    <link linkId="website_link">http://www.atlassian.com</link>
+  </web-item>
+  <web-item key="documentation_link" name="Documentation Web Site" section="my_links_link/my_links_section" weight="10">
+    <label>Documentation</label>
+    <link linkId="documentation_link">http://confluence.atlassian.com</link>
+  </web-item>
+  <webwork1 key="teamer" name="teamer" i18n-name-key="teamer.name">
+    <description key="teamer.description">The teamer Plugin</description>
+    <actions>
+      <action name="teamerExt.jira.webwork.teamerAction" alias="teamerAction">
+        <view name="success">/templates/teamer/success.vm</view>
+        <view name="input">/templates/teamer/input.vm</view>
+        <view name="error">/templates/teamer/error.vm</view>
+        <view name="kitchen-duty-planning-success">/templates/kitchen-duty-planning-webwork-module/kitchen-duty-planning-success.vm</view>
+      </action>
+    </actions>
+  </webwork1>
+
+  <web-section key="admin_teamer-ext_planning_section"
+               name="admin_teamer-ext_planning_section"
+               location="admin_plugins_menu"
+               weight="20"
+               i18n-name-key="teamer-ext.admin.planning.page.web.section.name">
+    <label key="teamer-ext.admin.planning.page.web.section.name" />
+  </web-section>
+
+  <web-item key="admin_teamer-ext_planning_webitem"
+            name="admin_teamer-ext_planning_webitem"
+            section="admin_plugins_menu/admin_teamer-ext_planning_section"
+            weight="15"
+            i18n-name-key="teamer-ext.admin.planning.page.web.item.name">
+    <label key="teamer-ext.admin.planning.page.web.item.name" />
+    <link linkId="admin_teamer-ext_planning_webitem_link">/secure/teamerAction.jspa</link>
+  </web-item>
+
+
+</atlassian-plugin>

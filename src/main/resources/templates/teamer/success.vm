@@ -1,0 +1,56 @@
+<html>
+<head>
+    <title>$i18n.getText("teamer-ext.admin.planning.page.title")</title>
+    <meta name="decorator" content="atl.admin">
+</head>
+<body>
+<h1>$i18n.getText("teamer-ext.admin.planning.page.headline")</h1>
+
+
+<table class="aui aui-table-sortable">
+    <thead>
+    <tr>
+        <th class="aui-table-column-unsortable">Avatar</th>
+        <th class="aui-table-column-unsortable">Availability</th>
+        <th class="aui-table-column-unsortable">Description</th>
+    <tr>
+    </thead>
+    <tbody>
+        #foreach( $user in $action.users )
+        <tr>
+            <td><span class="aui-avatar aui-avatar-xsmall">
+            <span class="aui-avatar-inner">
+             <img src="$user.avatarUrl"></img>
+            </span>
+            </span>
+            </td>
+<td>$user.getFullAvailabilites()%</td>
+            <td></b>
+
+                    <span class="team-tooltip" title="
+#foreach($team in $user.getTeamList())
+Strix Team Name: $team.name
+Availability: $team.availability
+Role: $user.roleName
+#end
+
+          
+">
+                        <b>$user.displayName</b></span>
+            </td>
+
+
+        </tr>
+        #end
+
+    </tbody>
+</table>
+
+
+<p>Now it looks nice :)</p>
+<script>
+    AJS.$(".team-tooltip").tooltip();
+
+</script>
+</body>
+</html>

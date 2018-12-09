@@ -14,7 +14,7 @@ public class TeamerModel {
         HashMap<String, String> teams = new HashMap<String, String>();
 
         URLConnection url = new URLConnection();
-        StringBuffer response = url.sendGet("https://jira.abbc.pl/rest/tempo-teams/1/team");
+        StringBuffer response = url.sendGet("urltojira");
 
         JSONArray jsonArray = new JSONArray(response.toString());
 
@@ -34,7 +34,7 @@ public class TeamerModel {
         for(Map.Entry team : getTeams().entrySet()) {
 
             URLConnection url = new URLConnection();
-            StringBuffer response = url.sendGet("https://YOUR_JIRA/rest/tempo-teams/2/team/" + team.getKey() + "/member");
+            StringBuffer response = url.sendGet("urltojra/" + team.getKey() + "/member");
             JSONArray teamArray = new JSONArray(response.toString());
 
             for (int i=0; i<teamArray.length(); i++) {

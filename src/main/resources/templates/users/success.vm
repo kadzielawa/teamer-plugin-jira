@@ -1,0 +1,127 @@
+<html>
+<head>
+    <title>$i18n.getText("teamer-ext.admin.planning.page.title")</title>
+    <meta name="decorator" content="atl.admin">
+    $webResourceManager.requireResource("com.atlassian.auiplugin:dialog2")
+
+    $webResourceManager.requireResource("teamerExt.teamer-plugin:teamer-plugin-resources")
+
+    $webResourceManager.requireResource("com.atlassian.auiplugin:ajs")
+
+</head>
+<body>
+
+<nav class="aui-header">
+    <ul class="aui-nav">
+        <li><a href="/jira/secure/usersAction.jspa">Users</a></li>
+        <li class="aui-nav-selected"><a href="/jira/secure/projectsAction.jspa">Projects</a></li>
+        <li><a href="/jira/secure/teamAction.jspa">Teams</a></li>
+    </ul>
+</nav>
+
+<div class="aui-page-header-main">
+<h2>Pracownicy</h2>
+</div>
+<div class="aui-page-header-actions">
+    <div class="aui-buttons">
+
+        <a class="aui-button"  id="button-add-user">Dodaj pracownika</a>
+
+    </div><div style="position: fixed; z-index: -1; height: 1px; width: 1px; top: 215px; left: 1489.53px;"></div>
+</div>
+
+
+<section id="add-user-dialog" class="aui-dialog2 aui-dialog2-small aui-layer"   data-aui-modal="true" aria-hidden="true" role="dialog">
+    <!-- Dialog header -->
+    <header class="aui-dialog2-header">
+        <!-- The dialog's title -->
+        <h2 class="aui-dialog2-header-main">Dodaj pracownika</h2>
+
+        <!-- Close icon -->
+        <a class="aui-dialog2-header-close">
+            <span class="aui-icon aui-icon-small aui-iconfont-close-dialog">Close</span>
+        </a>
+    </header>
+    <form class="aui" method="post" action="/jira/plugins/servlet/adduser">
+
+    <!-- Main dialog content -->
+    <div class="aui-dialog2-content">
+
+        <div class="form-body" style="max-height:216px;">
+
+            <div class="field-group">
+                <label for="user-create-firstname">Imię<span class="aui-icon icon-required"> wymagane</span></label>
+                <input class="text" id="user-create-firstname" maxlength="255" name="firstname" type="text" >
+            </div>
+
+            <div class="field-group">
+                <label for="user-create-lastname">Nazwisko<span class="aui-icon icon-required"> wymagane</span></label>
+                <input class="text" id="user-create-lastname" maxlength="255" name="lastname" type="text" >
+            </div>
+
+            <div class="field-group">
+                <label for="user-create-role">Rola<span class="aui-icon icon-required"> wymagane</span></label>
+                <input class="text" id="user-create-role" maxlength="255" name="role" type="text" >
+            </div>
+
+            <div class="field-group">
+                <label for="user-create-salary">Zarobki<span class="aui-icon icon-required"> wymagane</span></label>
+                <input class="text" id="user-create-salary" maxlength="255" name="salary" type="text" >
+            </div>
+
+        </div>
+
+
+    </div>
+    <!-- Dialog footer -->
+    <footer class="aui-dialog2-footer">
+        <div class="buttons-container form-footer">
+            <div class="buttons"><span class="throbber"></span>
+
+                <input accesskey="s" class="aui-button aui-button-primary" id="user-create-submit" name="Update" title="Naciśnij Alt+s, aby przesłać ten formularz" type="submit" value="Dodaj">
+
+                <a accesskey="`" class="aui-button aui-button-link cancel" id="user-create-cancel" title="Naciśnij Alt+`, aby anulować">Anuluj</a>
+
+            </div>
+
+        </div>
+    </footer>
+    </form>
+
+</section>
+
+
+
+
+<table class="aui aui-table-sortable">
+    <thead>
+    <tr>
+        <th class="aui-table-column-unsortable">Name</th>
+        <th class="aui-table-column-unsortable">Role</th>
+        <th class="aui-table-column-unsortable">Salary</th>
+        <th class="aui-table-column-unsortable">Action</th>
+    <tr>
+    </thead>
+    <tbody>
+        #foreach( $user in $action.users )
+        <tr>
+            <td>
+                $user.getFirstname() $user.getLastname()
+            </td>
+            <td>
+                $user.getRole()
+            </td>
+            <td>
+                $user.getSalary()
+            </td>
+            <td><button class="aui-button aui-button-primary delete-user" data-user_id="$user.getID()">Delete</button></td>
+
+
+        </tr>
+        #end
+
+    </tbody>
+</table>
+
+</body>
+</html>

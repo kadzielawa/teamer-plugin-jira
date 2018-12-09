@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title>$i18n.getText("teamer-ext.admin.planning.page.title")</title>
+    <meta name="decorator" content="atl.admin">
+</head>
+<body>
+<h1>$i18n.getText("teamer-ext.admin.planning.page.headline")</h1>
+
+<form method="post" action="/jira/plugins/servlet/teameradd">
+podaj imie
+<input type="text" name="username">
+<input type="submit" value="wyslij">
+</form>
+
+
+
+<table class="aui aui-table-sortable">
+    <thead>
+    <tr>
+        <th class="aui-table-column-unsortable">description</th>
+
+    <tr>
+    </thead>
+    <tbody>
+        #foreach( $user in $action.users )
+        <tr>
+            <td><span class="aui-avatar aui-avatar-xsmall">
+            <span class="aui-avatar-inner">
+             $user.getDescription()
+            </span>
+            </span>
+            </td>
+
+
+        </tr>
+        #end
+
+    </tbody>
+</table>
+
+</body>
+</html>

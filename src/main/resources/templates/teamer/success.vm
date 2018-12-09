@@ -7,6 +7,14 @@
 <h1>$i18n.getText("teamer-ext.admin.planning.page.headline")</h1>
 
 
+<nav class="aui-header">
+    <ul class="aui-nav">
+        <li><a href="/jira/secure/usersAction.jspa">Users</a></li>
+        <li class="aui-nav-selected"><a href="/jira/secure/projectsAction.jspa">Projects</a></li>
+        <li><a href="/jira/secure/teamsAction.jspa">Teams</a></li>
+    </ul>
+</nav>
+
 <table class="aui aui-table-sortable">
     <thead>
     <tr>

@@ -53,7 +53,6 @@
             <version>1.5.7</version>
             <scope>provided</scope>
         </dependency>
-
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -137,16 +136,34 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>com.atlassian.plugins.rest</groupId>
+            <artifactId>atlassian-rest-common</artifactId>
+            <version>3.5.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
             <version>4.1.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>com.google.collections</groupId>
+            <artifactId>google-collections</artifactId>
+            <version>1.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-all</artifactId>
             <version>1.8.5</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.atlassian.activeobjects</groupId>
+            <artifactId>activeobjects-plugin</artifactId>
+            <version>${ao.version}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
     <build>
@@ -208,12 +225,11 @@
             </plugin>
         </plugins>
     </build>
-
-
-
     <properties>
+        <ao.version>1.2.3</ao.version>
+
         <jira.version>7.7.1</jira.version>
-        <amps.version>6.3.20</amps.version>
+        <amps.version>6.3.21</amps.version>
         <plugin.testrunner.version>1.2.3</plugin.testrunner.version>
         <atlassian.spring.scanner.version>1.2.13</atlassian.spring.scanner.version>
         <!-- This key is used to keep the consistency between the key in atlassian-plugin.xml and the key to generate bundle. -->
@@ -223,7 +239,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <atlassian.templaterenderer.version>1.3.1</atlassian.templaterenderer.version>
-
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 </project>

@@ -11,10 +11,25 @@
   <!-- add our i18n resource -->
   <resource type="i18n" name="i18n" location="teamer-plugin"/>
   <!-- add our web resources -->
+  <web-resource key="mustache" name="Space variables macro js resources">
+    <resource type="download" name="mustache" location="/js/mustache.js"/>
+    <context>editor</context>
+  </web-resource>
+  <web-resource key="mustache-templates" name="Space variables macro js resources">
+    <resource type="download" name="mustache-templates" location="/js/template/project.html"/>
+    <context>editor</context>
+  </web-resource>
+
   <web-resource key="teamer-plugin-resources" name="teamer-plugin Web Resources">
     <dependency>com.atlassian.auiplugin:ajs</dependency>
+    <dependency>teamerExt.teamer-plugin:mustache</dependency>
+    <dependency>teamerExt.teamer-plugin:mustache-templates</dependency>
     <resource type="download" name="teamer-plugin.css" location="/css/teamer-plugin.css"/>
     <resource type="download" name="teamer-plugin.js" location="/js/teamer-plugin.js"/>
+    <resource type="download" name="projects-manage.js" location="/js/projects-manage.js"/>
+    <resource type="download" name="team-manage.js" location="/js/team-manage.js"/>
+    <resource type="download" name="project-page.js" location="/js/project-page.js"/>
+
     <resource type="download" name="images/" location="/images"/>
     <context>teamer-plugin</context>
   </web-resource>
@@ -34,14 +49,59 @@
   <webwork1 key="teamer" name="teamer" i18n-name-key="teamer.name">
     <description key="teamer.description">The teamer Plugin</description>
     <actions>
+      <action name="teamerExt.jira.webwork.projectsAction" alias="projectsAction">
+        <view name="success">/templates/projects/success.vm</view>
+        <view name="input">/templates/projects/input.vm</view>
+        <view name="error">/templates/projects/error.vm</view>
+      </action>
+      <action name="teamerExt.jira.webwork.teamAction" alias="teamAction">
+        <view name="success">/templates/team/success.vm</view>
+        <view name="input">/templates/team/input.vm</view>
+        <view name="error">/templates/team/error.vm</view>
+      </action>
+      <action name="teamerExt.jira.webwork.usersAction" alias="usersAction">
+        <view name="success">/templates/users/success.vm</view>
+        <view name="input">/templates/users/input.vm</view>
+        <view name="error">/templates/users/error.vm</view>
+      </action>
+
       <action name="teamerExt.jira.webwork.teamerAction" alias="teamerAction">
         <view name="success">/templates/teamer/success.vm</view>
         <view name="input">/templates/teamer/input.vm</view>
         <view name="error">/templates/teamer/error.vm</view>
-        <view name="kitchen-duty-planning-success">/templates/kitchen-duty-planning-webwork-module/kitchen-duty-planning-success.vm</view>
       </action>
     </actions>
   </webwork1>
+
+  <ao key="ao-module">
+    <description>The module configuring the Active Objects service used by this plugin</description>
+    <entity>teamerExt.jira.webwork.Project.Project</entity>
+    <upgradeTask>teamerExt.jira.webwork.upgrade.v1.UserUpgradeTask001</upgradeTask>
+    <upgradeTask>teamerExt.jira.webwork.upgrade.v2.ProjectUpgradeTask002</upgradeTask>
+    <upgradeTask>teamerExt.jira.webwork.upgrade.v3.TeamUpgradeTask003</upgradeTask>
+    <upgradeTask>teamerExt.jira.webwork.upgrade.v4.ProjectUpgradeTask004</upgradeTask>
+    <upgradeTask>teamerExt.jira.webwork.upgrade.v5.ProjectUpgradeTask005</upgradeTask>
+    <upgradeTask>teamerExt.jira.webwork.upgrade.v6.ProjectUpgradeTask006</upgradeTask>
+    <upgradeTask>teamerExt.jira.webwork.upgrade.v10.ProjectUpgradeTask010</upgradeTask>
+
+  </ao>
+
+<!--
+  <servlet name="Hello World Servlet" key="helloWorld" class="teamerExt.jira.webwork.Project.ProjectServlet">
+    <description>Says Hello World, Australia or your name.</description>
+    <url-pattern>/teameradd</url-pattern>
+    <init-param>
+      <param-name>defaultName</param-name>
+      <param-value>Australia</param-value>
+    </init-param>
+  </servlet>-->
+
+  <servlet name="Hello World Servlet" key="add-project" class="teamerExt.jira.webwork.Project.ProjectServlet">
+    <url-pattern>/addproject</url-pattern>
+  </servlet>
+  <servlet name="Hello World Servlet" key="add-user" class="teamerExt.jira.webwork.User.UserServlet">
+    <url-pattern>/adduser</url-pattern>
+  </servlet>
 
   <web-section key="admin_teamer-ext_planning_section"
                name="admin_teamer-ext_planning_section"
@@ -60,5 +120,8 @@
     <link linkId="admin_teamer-ext_planning_webitem_link">/secure/teamerAction.jspa</link>
   </web-item>
 
+    <rest  key="projectmembersRest" path="/projectmembers" version="1.0"/>
+    <rest  key="projectRest" path="/project" version="1.0"/>
+    <rest  key="teamRest" path="/team" version="1.0"/>
 
 </atlassian-plugin>

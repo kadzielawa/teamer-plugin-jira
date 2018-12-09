@@ -1,7 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="04c17053-d2d8-4664-92d1-6fb10366b42f" name="Default" comment="" />
+    <list default="true" id="04c17053-d2d8-4664-92d1-6fb10366b42f" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Project/Project.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Project/ProjectMember.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Project/ProjectService.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Project/ProjectServiceImpl.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Project/ProjectServlet.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Project/ProjectTeam.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Team/Team.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Team/TeamService.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Team/TeamServiceImpl.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/User/User.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/User/UserService.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/User/UserServiceImpl.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/User/UserServlet.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/projectsAction.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/teamAction.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v1/User.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v1/UserUpgradeTask001.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v10/ProjectUpgradeTask010.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v10/Team.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v2/ProjectToUser.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v2/ProjectUpgradeTask002.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v3/Team.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v3/TeamUpgradeTask003.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v4/Project.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v4/ProjectToUser.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v4/ProjectUpgradeTask004.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v5/Project.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v5/ProjectMember.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v5/ProjectUpgradeTask005.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v5/User.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v6/Project.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v6/ProjectMember.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v6/ProjectUpgradeTask006.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v6/User.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/usersAction.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/rest/Project.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/rest/ProjectMemberModelXML.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/rest/ProjectMembers.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/rest/ProjectModel.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/rest/Team.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/rest/TeamModel.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/js/mustache.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/js/project-page.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/js/projects-manage.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/js/team-manage.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/js/template/project.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/projects/error.vm" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/projects/success.vm" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/team/success.vm" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/teamer/form.vm" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/users/success.vm" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Model/TeamerModel.java" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Model/TeamerModel.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/teamerExt/plannerApi/URLConnection.java" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/plannerApi/URLConnection.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/atlassian-plugin.xml" afterPath="$PROJECT_DIR$/src/main/resources/atlassian-plugin.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/teamer-plugin.css" afterPath="$PROJECT_DIR$/src/main/resources/css/teamer-plugin.css" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/js/teamer-plugin.js" afterPath="$PROJECT_DIR$/src/main/resources/js/teamer-plugin.js" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/teamer/success.vm" afterPath="$PROJECT_DIR$/src/main/resources/templates/teamer/success.vm" />
+      <change beforePath="$PROJECT_DIR$/teamer-plugin.iml" afterPath="$PROJECT_DIR$/teamer-plugin.iml" />
+    </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -12,260 +74,88 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="teamerAction.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/teamerAction.java">
+      <file leaf-file-name="Team.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Team/Team.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="21" column="33" lean-forward="false" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+            <state relative-caret-position="108">
+              <caret line="13" column="12" lean-forward="false" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TeamModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/rest/TeamModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#353#354#0" expanded="true" />
+                <element signature="e#380#381#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2700">
-              <caret line="150" column="19" lean-forward="false" selection-start-line="150" selection-start-column="19" selection-end-line="150" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyPluginComponent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/api/MyPluginComponent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Team.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Model/Team.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/rest/Team.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TeamerModel.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Model/TeamerModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="36" column="55" lean-forward="false" selection-start-line="36" selection-start-column="55" selection-end-line="36" selection-end-column="55" />
+            <state relative-caret-position="846">
+              <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Model/User.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/User/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="21" column="27" lean-forward="false" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+            <state relative-caret-position="72">
+              <caret line="10" column="7" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MyPluginComponentImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/impl/MyPluginComponentImpl.java">
+      <file leaf-file-name="team-manage.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/js/team-manage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="20" column="5" lean-forward="false" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+            <state relative-caret-position="178">
+              <caret line="143" column="14" lean-forward="false" selection-start-line="143" selection-start-column="14" selection-end-line="143" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="URLConnection.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/plannerApi/URLConnection.java">
+      <file leaf-file-name="success.vm" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/team/success.vm">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="29" column="48" lean-forward="false" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="48" />
+            <state relative-caret-position="1350">
+              <caret line="75" column="87" lean-forward="false" selection-start-line="75" selection-start-column="76" selection-end-line="75" selection-end-column="87" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Project.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/rest/Project.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="504">
+              <caret line="40" column="49" lean-forward="false" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="projects-manage.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/js/projects-manage.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <marker date="1544220626407" expanded="true" signature="4399:4415" ph="..." />
+                <marker date="1544220626407" expanded="true" signature="5019:5032" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JiraWebActionSupport.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/com/atlassian/jira/jira-api/7.7.1/jira-api-7.7.1.jar!/com/atlassian/jira/web/action/JiraWebActionSupport.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="86" column="13" lean-forward="false" selection-start-line="86" selection-start-column="13" selection-end-line="86" selection-end-column="13" />
-              <folding>
-                <marker date="1530978309283" expanded="false" signature="0:104" ph="/.../" />
-                <marker date="1530978309283" expanded="false" signature="153:3638" ph="..." />
-                <marker date="1530978309283" expanded="true" signature="3640:3665" ph="@{...}" />
-                <marker date="1530978309283" expanded="true" signature="4615:4633" ph="/**...*/" />
-                <marker date="1530978309283" expanded="true" signature="6071:6078" ph="{}" />
-                <marker date="1530978309283" expanded="false" signature="6124:6135" ph=" { " />
-                <marker date="1530978309283" expanded="false" signature="6201:6207" ph=" }" />
-                <marker date="1530978309283" expanded="true" signature="6213:6231" ph="/**...*/" />
-                <marker date="1530978309283" expanded="true" signature="6304:6386" ph="{...}" />
-                <marker date="1530978309283" expanded="false" signature="6420:6431" ph=" { " />
-                <marker date="1530978309283" expanded="false" signature="6509:6515" ph=" }" />
-                <marker date="1530978309283" expanded="true" signature="6572:6794" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="6845:6949" ph="{...}" />
-                <marker date="1530978309283" expanded="false" signature="6997:7008" ph=" { " />
-                <marker date="1530978309283" expanded="false" signature="7053:7059" ph=" }" />
-                <marker date="1530978309283" expanded="false" signature="7100:7111" ph=" { " />
-                <marker date="1530978309283" expanded="false" signature="7156:7162" ph=" }" />
-                <marker date="1530978309283" expanded="false" signature="7212:7223" ph=" { " />
-                <marker date="1530978309283" expanded="false" signature="7269:7275" ph=" }" />
-                <marker date="1530978309283" expanded="false" signature="7322:7333" ph=" { " />
-                <marker date="1530978309283" expanded="false" signature="7381:7387" ph=" }" />
-                <marker date="1530978309283" expanded="true" signature="7449:7686" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="7730:7922" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="7991:8238" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="8295:8512" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="8585:8842" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="8894:9106" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="9154:9356" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="9404:9606" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="9651:9843" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="9892:10094" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="10100:10118" ph="/**...*/" />
-                <marker date="1530978309283" expanded="true" signature="10175:10360" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="10417:10639" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="10693:10990" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="11043:11333" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="11387:11604" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="11646:11833" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="11883:12019" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="12076:12298" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="12349:12536" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="12599:12831" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="12882:13228" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="13308:14242" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="14293:14448" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="14505:14832" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="14886:15267" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="15273:15291" ph="/**...*/" />
-                <marker date="1530978309283" expanded="true" signature="15344:15427" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="15509:15604" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="15667:15756" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="15831:15926" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="15998:16093" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="16189:16291" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="16297:16315" ph="/**...*/" />
-                <marker date="1530978309283" expanded="true" signature="16392:16491" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="16593:16699" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="16744:16947" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="16953:16971" ph="/**...*/" />
-                <marker date="1530978309283" expanded="false" signature="17036:17047" ph=" { " />
-                <marker date="1530978309283" expanded="false" signature="17088:17094" ph=" }" />
-                <marker date="1530978309283" expanded="false" signature="17150:17161" ph=" { " />
-                <marker date="1530978309283" expanded="false" signature="17222:17228" ph=" }" />
-                <marker date="1530978309283" expanded="false" signature="17282:17293" ph=" { " />
-                <marker date="1530978309283" expanded="false" signature="17352:17358" ph=" }" />
-                <marker date="1530978309283" expanded="true" signature="17411:17796" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="17857:18012" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="18084:18162" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="18227:18305" ph="{...}" />
-                <marker date="1530978309283" expanded="false" signature="18347:18358" ph=" { " />
-                <marker date="1530978309283" expanded="false" signature="18383:18389" ph=" }" />
-                <marker date="1530978309283" expanded="false" signature="18438:18449" ph=" { " />
-                <marker date="1530978309283" expanded="false" signature="18478:18484" ph=" }" />
-                <marker date="1530978309283" expanded="false" signature="18533:18544" ph=" { " />
-                <marker date="1530978309283" expanded="false" signature="18567:18573" ph=" }" />
-                <marker date="1530978309283" expanded="false" signature="18610:18621" ph=" { " />
-                <marker date="1530978309283" expanded="false" signature="18641:18647" ph=" }" />
-                <marker date="1530978309283" expanded="false" signature="18685:18696" ph=" { " />
-                <marker date="1530978309283" expanded="false" signature="18739:18745" ph=" }" />
-                <marker date="1530978309283" expanded="true" signature="18826:18945" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="18951:18969" ph="/**...*/" />
-                <marker date="1530978309283" expanded="true" signature="19037:19146" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="19152:19170" ph="/**...*/" />
-                <marker date="1530978309283" expanded="true" signature="19237:19326" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="19332:19350" ph="/**...*/" />
-                <marker date="1530978309283" expanded="true" signature="19418:19527" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="19533:19551" ph="/**...*/" />
-                <marker date="1530978309283" expanded="true" signature="19618:19707" ph="{...}" />
-                <marker date="1530978309283" expanded="false" signature="19741:19752" ph=" { " />
-                <marker date="1530978309283" expanded="false" signature="19774:19780" ph=" }" />
-                <marker date="1530978309283" expanded="true" signature="19828:19990" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="20039:20279" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="20337:20474" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="20527:20581" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="20623:20840" ph="{...}" />
-                <marker date="1530978309283" expanded="false" signature="20887:20898" ph=" { " />
-                <marker date="1530978309283" expanded="false" signature="20931:20937" ph=" }" />
-                <marker date="1530978309283" expanded="true" signature="20985:21295" ph="{...}" />
-                <marker date="1530978309283" expanded="false" signature="21330:21341" ph=" { " />
-                <marker date="1530978309283" expanded="false" signature="21384:21390" ph=" }" />
-                <marker date="1530978309283" expanded="false" signature="21429:21440" ph=" { " />
-                <marker date="1530978309283" expanded="false" signature="21487:21493" ph=" }" />
-                <marker date="1530978309283" expanded="false" signature="21528:21539" ph=" { " />
-                <marker date="1530978309283" expanded="false" signature="21582:21588" ph=" }" />
-                <marker date="1530978309283" expanded="true" signature="21641:22611" ph="{...}" />
-                <marker date="1530978309283" expanded="false" signature="22648:22659" ph=" { " />
-                <marker date="1530978309283" expanded="false" signature="22701:22707" ph=" }" />
-                <marker date="1530978309283" expanded="false" signature="22740:22751" ph=" { " />
-                <marker date="1530978309283" expanded="false" signature="22801:22807" ph=" }" />
-                <marker date="1530978309283" expanded="true" signature="22863:22943" ph="{...}" />
-                <marker date="1530978309283" expanded="false" signature="23004:23015" ph=" { " />
-                <marker date="1530978309283" expanded="false" signature="23053:23059" ph=" }" />
-                <marker date="1530978309283" expanded="true" signature="23118:23342" ph="{...}" />
-                <marker date="1530978309283" expanded="false" signature="23383:23394" ph=" { " />
-                <marker date="1530978309283" expanded="false" signature="23413:23419" ph=" }" />
-                <marker date="1530978309283" expanded="true" signature="23473:23560" ph="{...}" />
-                <marker date="1530978309283" expanded="false" signature="23603:23614" ph=" { " />
-                <marker date="1530978309283" expanded="false" signature="23635:23641" ph=" }" />
-                <marker date="1530978309283" expanded="false" signature="23677:23688" ph=" { " />
-                <marker date="1530978309283" expanded="false" signature="23729:23735" ph=" }" />
-                <marker date="1530978309283" expanded="true" signature="23782:23896" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="23935:24073" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="24147:24296" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="24465:24584" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="24590:24608" ph="/**...*/" />
-                <marker date="1530978309283" expanded="true" signature="24750:25030" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="25036:25054" ph="/**...*/" />
-                <marker date="1530978309283" expanded="true" signature="25189:25302" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="25448:25544" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="25597:25799" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="25850:26125" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="26186:26395" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="26496:26867" ph="{...}" />
-                <marker date="1530978309283" expanded="false" signature="26929:26940" ph=" { " />
-                <marker date="1530978309283" expanded="false" signature="26990:26996" ph=" }" />
-                <marker date="1530978309283" expanded="true" signature="27067:27138" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="27206:27315" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="27391:27463" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="27554:27743" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="27804:28000" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="28048:28449" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="28489:28616" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="28694:28900" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="28990:29405" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="29481:29928" ph="{...}" />
-                <marker date="1530978309283" expanded="false" signature="29978:29989" ph=" { " />
-                <marker date="1530978309283" expanded="false" signature="30021:30027" ph=" }" />
-                <marker date="1530978309283" expanded="false" signature="30071:30082" ph=" { " />
-                <marker date="1530978309283" expanded="false" signature="30107:30113" ph=" }" />
-                <marker date="1530978309283" expanded="true" signature="30150:30361" ph="{...}" />
-                <marker date="1530978309283" expanded="true" signature="30232:30243" ph="{}" />
-                <marker date="1530978309283" expanded="false" signature="30283:30298" ph=" { " />
-                <marker date="1530978309283" expanded="false" signature="30345:30355" ph=" }" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="atlassian-plugin.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/atlassian-plugin.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="882">
-              <caret line="49" column="34" lean-forward="false" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -275,26 +165,52 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>action</find>
-      <find>kitchen-duty-planning-webwork-module</find>
-      <find>kitchen-duty-planning</find>
-      <find>admin_plugins_menu</find>
-      <find>sal</find>
-      <find>returnWebResponse</find>
-      <find>success</find>
-      <find>maven.plug</find>
-      <find>wojc</find>
-      <find>bold</find>
+      <find>getProjectMember</find>
+      <find>ActiveObject</find>
+      <find>private final ActiveObjects ao;</find>
+      <find>associateProjectToUser</find>
+      <find>ProjectMemberModelXML</find>
+      <find>role</find>
+      <find>spaceVariableView</find>
+      <find>ConfigurationDialog</find>
+      <find>teamv</find>
+      <find>Team</find>
+      <find>url</find>
+      <find>title</find>
+      <find>create</find>
+      <find>Teams</find>
+      <find>teamView</find>
+      <find>xx</find>
+      <find>getID</find>
+      <find>con</find>
+      <find>getProjectUrl</find>
+      <find>getId</find>
+      <find>add</find>
+      <find>'team_</find>
+      <find>'id</find>
+      <find>xxx</find>
+      <find>getTeamById</find>
+      <find>getTeamId</find>
+      <find>teamId</find>
+      <find>teamName</find>
+      <find>.get(</find>
+      <find>projectView</find>
     </findStrings>
     <dirStrings>
+      <dir>$PROJECT_DIR$/src/main</dir>
+      <dir>$PROJECT_DIR$/src/main/java</dir>
       <dir>$PROJECT_DIR$</dir>
     </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -304,22 +220,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/teamerExt/impl/MyPluginComponentImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/teamerExt/servlet/Teamer.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/kitchen-duty-planning-success.vm" />
-        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/TeamerWebworkAction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Project/ProjectMemberModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Project/ProjectToUser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Project/ProjectToMember.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v4/ProjectToUser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v4/Project.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v5/Project.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v5/ProjectUpgradeTask005.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v5/ProjectMember.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Project/ProjectMember.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/User/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v5/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Project/Project.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Project/ProjectService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/User/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/User/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/projectsAction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v6/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v6/Project.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v6/ProjectMember.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v6/ProjectUpgradeTask006.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/rest/ProjectMemberModelXML.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/rest/Project.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Project/ProjectServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/js/mustache.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/js/template/project.mst" />
+        <option value="$PROJECT_DIR$/src/main/resources/js/projects-manage.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/js/project-page.js" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Project/ProjectTeam.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v7/ProjectTeam.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v7/Team.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v7/ProjectUpgradeTask007.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/rest/ProjectMembers.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Team/TeamService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v8/v7/Team.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v8/ProjectUpgradeTask008.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v9/v8/Team.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v9/ProjectUpgradeTask008.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v9/Team.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Team/TeamServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v8/Team.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v10/v9/Team.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v10/ProjectUpgradeTask009.java" />
         <option value="$PROJECT_DIR$/src/main/resources/atlassian-plugin.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/teamer-plugin.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/teamerExt/plannerApi/HttpURLConnection.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/teamer/error.vm" />
-        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Model/Team.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/js/teamer-plugin.js" />
-        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Model/User.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/teamer/success.vm" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/teamerAction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/teamerExt/plannerApi/URLConnection.java" />
-        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Model/TeamerModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Team/Team.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v10/Team.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/rest/TeamModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teamerExt/rest/Team.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/projects/success.vm" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/users/success.vm" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/team/success.vm" />
+        <option value="$PROJECT_DIR$/src/main/resources/js/team-manage.js" />
       </list>
     </option>
   </component>
@@ -353,11 +304,12 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="128" />
-    <option name="y" value="247" />
-    <option name="width" value="1678" />
-    <option name="height" value="961" />
+    <option name="x" value="456" />
+    <option name="y" value="-4" />
+    <option name="width" value="842" />
+    <option name="height" value="875" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -373,6 +325,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -450,23 +405,251 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="teamerExt" type="462c0819:PsiDirectoryNode" />
+              <item name="webwork" type="462c0819:PsiDirectoryNode" />
+              <item name="Project" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamer-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teamer-plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="teamerExt" type="462c0819:PsiDirectoryNode" />
+              <item name="webwork" type="462c0819:PsiDirectoryNode" />
+              <item name="Team" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamer-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teamer-plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="teamerExt" type="462c0819:PsiDirectoryNode" />
+              <item name="webwork" type="462c0819:PsiDirectoryNode" />
+              <item name="upgrade" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamer-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teamer-plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="teamerExt" type="462c0819:PsiDirectoryNode" />
+              <item name="webwork" type="462c0819:PsiDirectoryNode" />
+              <item name="upgrade" type="462c0819:PsiDirectoryNode" />
+              <item name="v1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamer-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teamer-plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="teamerExt" type="462c0819:PsiDirectoryNode" />
+              <item name="webwork" type="462c0819:PsiDirectoryNode" />
+              <item name="upgrade" type="462c0819:PsiDirectoryNode" />
+              <item name="v10" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamer-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teamer-plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="teamerExt" type="462c0819:PsiDirectoryNode" />
+              <item name="webwork" type="462c0819:PsiDirectoryNode" />
+              <item name="User" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamer-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teamer-plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="teamerExt" type="462c0819:PsiDirectoryNode" />
               <item name="plannerApi" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamer-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teamer-plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="teamerExt" type="462c0819:PsiDirectoryNode" />
+              <item name="rest" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamer-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teamer-plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamer-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teamer-plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamer-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teamer-plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamer-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teamer-plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamer-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teamer-plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="template" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamer-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teamer-plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamer-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teamer-plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="projects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamer-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teamer-plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="team" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamer-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teamer-plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="teamer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamer-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teamer-plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamer-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="teamer-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="teamer-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamer-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamer-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="lang" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamer-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="lang" type="462c0819:PsiDirectoryNode" />
+              <item name="annotation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamer-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: com.atlassian.activeobjects:activeobjects-plugin:1.2.3" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="teamer-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: com.atlassian.activeobjects:activeobjects-plugin:1.2.3" type="70bed36:NamedLibraryElementNode" />
+              <item name="activeobjects-plugin-1.2.3.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamer-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: com.atlassian.activeobjects:activeobjects-plugin:1.2.3" type="70bed36:NamedLibraryElementNode" />
+              <item name="activeobjects-plugin-1.2.3.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="ao" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../strix-ext" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../refapp-ext/serverecosystem-ao-tutorial-c8ec3147f0d4" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/templates/teamer" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="teamerExt.jira.webwork.upgrade.v7" />
+      <recent name="teamerExt.jira.webwork.upgrade.v6" />
+      <recent name="teamerExt.jira.webwork.upgrade.v5" />
+      <recent name="teamerExt.jira.webwork.Team" />
+      <recent name="teamerExt.jira.webwork.Project" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v10" />
+      <recent name="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v9" />
+      <recent name="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade" />
+      <recent name="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v8" />
+      <recent name="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v4" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -598,31 +781,34 @@
       <workItem from="1531442357003" duration="958000" />
       <workItem from="1531681676690" duration="1491000" />
       <workItem from="1538763766501" duration="393000" />
-      <workItem from="1541801274527" duration="172000" />
+      <workItem from="1541801274527" duration="225000" />
+      <workItem from="1544030792044" duration="30529000" />
+      <workItem from="1544084422363" duration="40936000" />
+      <workItem from="1544184069080" duration="48307000" />
+      <workItem from="1544255289360" duration="17080000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23357000" />
+    <option name="totallyTimeSpent" value="160262000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="-4" width="1682" height="1055" extended-state="6" />
+    <frame x="456" y="-4" width="1682" height="1062" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947367" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3297619" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.314346" sideWeight="0.50238097" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.65990454" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947367" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32947367" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2742616" sideWeight="0.49761903" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25059524" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -634,15 +820,17 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947367" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.314346" sideWeight="0.50238097" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.65990454" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -652,15 +840,16 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32947367" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947367" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947367" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.314346" sideWeight="0.49761903" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25059524" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
@@ -674,675 +863,324 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/api/MyPluginComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/impl/MyPluginComponentImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="15" column="24" lean-forward="false" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/atlassian-plugin.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="30" column="32" lean-forward="false" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/teamer/success.vm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="34" lean-forward="false" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/teamer-plugin.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/teamerAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="18" column="30" lean-forward="true" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/net/URL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17586">
-          <caret line="977" column="25" lean-forward="false" selection-start-line="977" selection-start-column="25" selection-end-line="977" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/atlassian/jira/jira-api/7.7.1/jira-api-7.7.1.jar!/com/atlassian/jira/web/action/JiraWebActionSupport.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2934">
-          <caret line="253" column="13" lean-forward="false" selection-start-line="253" selection-start-column="13" selection-end-line="253" selection-end-column="13" />
-          <folding>
-            <marker date="1530978309283" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1530978309283" expanded="false" signature="153:3638" ph="..." />
-            <marker date="1530978309283" expanded="true" signature="3640:3665" ph="@{...}" />
-            <marker date="1530978309283" expanded="true" signature="4615:4633" ph="/**...*/" />
-            <marker date="1530978309283" expanded="true" signature="6071:6078" ph="{}" />
-            <marker date="1530978309283" expanded="false" signature="6124:6135" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="6201:6207" ph=" }" />
-            <marker date="1530978309283" expanded="true" signature="6213:6231" ph="/**...*/" />
-            <marker date="1530978309283" expanded="true" signature="6304:6386" ph="{...}" />
-            <marker date="1530978309283" expanded="false" signature="6420:6431" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="6509:6515" ph=" }" />
-            <marker date="1530978309283" expanded="true" signature="6572:6794" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="6845:6949" ph="{...}" />
-            <marker date="1530978309283" expanded="false" signature="6997:7008" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="7053:7059" ph=" }" />
-            <marker date="1530978309283" expanded="false" signature="7100:7111" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="7156:7162" ph=" }" />
-            <marker date="1530978309283" expanded="false" signature="7212:7223" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="7269:7275" ph=" }" />
-            <marker date="1530978309283" expanded="false" signature="7322:7333" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="7381:7387" ph=" }" />
-            <marker date="1530978309283" expanded="true" signature="7449:7686" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="7730:7922" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="7991:8238" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="8295:8512" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="8585:8842" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="8894:9106" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="9154:9356" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="9404:9606" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="9651:9843" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="9892:10094" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="10100:10118" ph="/**...*/" />
-            <marker date="1530978309283" expanded="true" signature="10175:10360" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="10417:10639" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="10693:10990" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="11043:11333" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="11387:11604" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="11646:11833" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="11883:12019" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="12076:12298" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="12349:12536" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="12599:12831" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="12882:13228" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="13308:14242" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="14293:14448" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="14505:14832" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="14886:15267" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="15273:15291" ph="/**...*/" />
-            <marker date="1530978309283" expanded="true" signature="15344:15427" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="15509:15604" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="15667:15756" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="15831:15926" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="15998:16093" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="16189:16291" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="16297:16315" ph="/**...*/" />
-            <marker date="1530978309283" expanded="true" signature="16392:16491" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="16593:16699" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="16744:16947" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="16953:16971" ph="/**...*/" />
-            <marker date="1530978309283" expanded="false" signature="17036:17047" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="17088:17094" ph=" }" />
-            <marker date="1530978309283" expanded="false" signature="17150:17161" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="17222:17228" ph=" }" />
-            <marker date="1530978309283" expanded="false" signature="17282:17293" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="17352:17358" ph=" }" />
-            <marker date="1530978309283" expanded="true" signature="17411:17796" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="17857:18012" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="18084:18162" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="18227:18305" ph="{...}" />
-            <marker date="1530978309283" expanded="false" signature="18347:18358" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="18383:18389" ph=" }" />
-            <marker date="1530978309283" expanded="false" signature="18438:18449" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="18478:18484" ph=" }" />
-            <marker date="1530978309283" expanded="false" signature="18533:18544" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="18567:18573" ph=" }" />
-            <marker date="1530978309283" expanded="false" signature="18610:18621" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="18641:18647" ph=" }" />
-            <marker date="1530978309283" expanded="false" signature="18685:18696" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="18739:18745" ph=" }" />
-            <marker date="1530978309283" expanded="true" signature="18826:18945" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="18951:18969" ph="/**...*/" />
-            <marker date="1530978309283" expanded="true" signature="19037:19146" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="19152:19170" ph="/**...*/" />
-            <marker date="1530978309283" expanded="true" signature="19237:19326" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="19332:19350" ph="/**...*/" />
-            <marker date="1530978309283" expanded="true" signature="19418:19527" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="19533:19551" ph="/**...*/" />
-            <marker date="1530978309283" expanded="true" signature="19618:19707" ph="{...}" />
-            <marker date="1530978309283" expanded="false" signature="19741:19752" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="19774:19780" ph=" }" />
-            <marker date="1530978309283" expanded="true" signature="19828:19990" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="20039:20279" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="20337:20474" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="20527:20581" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="20623:20840" ph="{...}" />
-            <marker date="1530978309283" expanded="false" signature="20887:20898" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="20931:20937" ph=" }" />
-            <marker date="1530978309283" expanded="true" signature="20985:21295" ph="{...}" />
-            <marker date="1530978309283" expanded="false" signature="21330:21341" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="21384:21390" ph=" }" />
-            <marker date="1530978309283" expanded="false" signature="21429:21440" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="21487:21493" ph=" }" />
-            <marker date="1530978309283" expanded="false" signature="21528:21539" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="21582:21588" ph=" }" />
-            <marker date="1530978309283" expanded="true" signature="21641:22611" ph="{...}" />
-            <marker date="1530978309283" expanded="false" signature="22648:22659" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="22701:22707" ph=" }" />
-            <marker date="1530978309283" expanded="false" signature="22740:22751" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="22801:22807" ph=" }" />
-            <marker date="1530978309283" expanded="true" signature="22863:22943" ph="{...}" />
-            <marker date="1530978309283" expanded="false" signature="23004:23015" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="23053:23059" ph=" }" />
-            <marker date="1530978309283" expanded="true" signature="23118:23342" ph="{...}" />
-            <marker date="1530978309283" expanded="false" signature="23383:23394" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="23413:23419" ph=" }" />
-            <marker date="1530978309283" expanded="true" signature="23473:23560" ph="{...}" />
-            <marker date="1530978309283" expanded="false" signature="23603:23614" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="23635:23641" ph=" }" />
-            <marker date="1530978309283" expanded="false" signature="23677:23688" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="23729:23735" ph=" }" />
-            <marker date="1530978309283" expanded="true" signature="23782:23896" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="23935:24073" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="24147:24296" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="24465:24584" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="24590:24608" ph="/**...*/" />
-            <marker date="1530978309283" expanded="true" signature="24750:25030" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="25036:25054" ph="/**...*/" />
-            <marker date="1530978309283" expanded="true" signature="25189:25302" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="25448:25544" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="25597:25799" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="25850:26125" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="26186:26395" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="26496:26867" ph="{...}" />
-            <marker date="1530978309283" expanded="false" signature="26929:26940" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="26990:26996" ph=" }" />
-            <marker date="1530978309283" expanded="true" signature="27067:27138" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="27206:27315" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="27391:27463" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="27554:27743" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="27804:28000" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="28048:28449" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="28489:28616" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="28694:28900" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="28990:29405" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="29481:29928" ph="{...}" />
-            <marker date="1530978309283" expanded="false" signature="29978:29989" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="30021:30027" ph=" }" />
-            <marker date="1530978309283" expanded="false" signature="30071:30082" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="30107:30113" ph=" }" />
-            <marker date="1530978309283" expanded="true" signature="30150:30361" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="30232:30243" ph="{}" />
-            <marker date="1530978309283" expanded="false" signature="30283:30298" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="30345:30355" ph=" }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="42" column="21" lean-forward="false" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/plannerApi/URLConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="27" column="32" lean-forward="false" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/api/MyPluginComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/atlassian-plugin.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="30" column="32" lean-forward="false" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/teamer/success.vm">
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v6/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
-          <caret line="6" column="29" lean-forward="false" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
+          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/teamer-plugin.properties">
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v6/ProjectUpgradeTask006.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <caret line="14" column="38" lean-forward="false" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v6/ProjectMember.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="42" column="21" lean-forward="false" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
-          <folding />
+        <state relative-caret-position="648">
+          <caret line="41" column="37" lean-forward="false" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/teamerAction.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v6/Project.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="7" column="54" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="270">
+          <caret line="21" column="34" lean-forward="false" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/api/MyPluginComponent.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/User/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        <state relative-caret-position="252">
+          <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/teamerAction.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/User/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="199">
+          <caret line="58" column="32" lean-forward="false" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/projectsAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1962">
-          <caret line="109" column="41" lean-forward="false" selection-start-line="109" selection-start-column="41" selection-end-line="109" selection-end-column="41" />
-          <folding />
+        <state relative-caret-position="166">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/kitchen-duty-planning-success.vm" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/atlassian-plugin.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/projects/form.vm" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/js/mustache.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="33" column="60" lean-forward="false" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/api/MyPluginComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/teamerAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1962">
-          <caret line="109" column="41" lean-forward="false" selection-start-line="109" selection-start-column="41" selection-end-line="109" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/kitchen-duty-planning-success.vm" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/atlassian-plugin.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="45" column="37" lean-forward="true" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/api/MyPluginComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/atlassian-plugin.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="90">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/js/teamer-plugin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/servlet/Teamer.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/servlet/Teamer.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/TeamerWebworkAction.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/teamer-module/teamerwebworkaction/teamer-success.vm" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/kitchen-duty-planning-success.vm" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/teamer-plugin.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/teamer/success.vm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="42" column="13" lean-forward="false" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/net/URL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16560">
-          <caret line="977" column="25" lean-forward="false" selection-start-line="977" selection-start-column="25" selection-end-line="977" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/js/teamer-plugin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/teamer/error.vm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="36" lean-forward="false" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/atlassian-plugin.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="882">
-          <caret line="49" column="34" lean-forward="false" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/atlassian/jira/jira-api/7.7.1/jira-api-7.7.1.jar!/com/atlassian/jira/web/action/JiraWebActionSupport.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="86" column="13" lean-forward="false" selection-start-line="86" selection-start-column="13" selection-end-line="86" selection-end-column="13" />
-          <folding>
-            <marker date="1530978309283" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1530978309283" expanded="false" signature="153:3638" ph="..." />
-            <marker date="1530978309283" expanded="true" signature="3640:3665" ph="@{...}" />
-            <marker date="1530978309283" expanded="true" signature="4615:4633" ph="/**...*/" />
-            <marker date="1530978309283" expanded="true" signature="6071:6078" ph="{}" />
-            <marker date="1530978309283" expanded="false" signature="6124:6135" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="6201:6207" ph=" }" />
-            <marker date="1530978309283" expanded="true" signature="6213:6231" ph="/**...*/" />
-            <marker date="1530978309283" expanded="true" signature="6304:6386" ph="{...}" />
-            <marker date="1530978309283" expanded="false" signature="6420:6431" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="6509:6515" ph=" }" />
-            <marker date="1530978309283" expanded="true" signature="6572:6794" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="6845:6949" ph="{...}" />
-            <marker date="1530978309283" expanded="false" signature="6997:7008" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="7053:7059" ph=" }" />
-            <marker date="1530978309283" expanded="false" signature="7100:7111" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="7156:7162" ph=" }" />
-            <marker date="1530978309283" expanded="false" signature="7212:7223" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="7269:7275" ph=" }" />
-            <marker date="1530978309283" expanded="false" signature="7322:7333" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="7381:7387" ph=" }" />
-            <marker date="1530978309283" expanded="true" signature="7449:7686" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="7730:7922" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="7991:8238" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="8295:8512" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="8585:8842" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="8894:9106" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="9154:9356" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="9404:9606" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="9651:9843" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="9892:10094" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="10100:10118" ph="/**...*/" />
-            <marker date="1530978309283" expanded="true" signature="10175:10360" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="10417:10639" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="10693:10990" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="11043:11333" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="11387:11604" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="11646:11833" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="11883:12019" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="12076:12298" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="12349:12536" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="12599:12831" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="12882:13228" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="13308:14242" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="14293:14448" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="14505:14832" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="14886:15267" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="15273:15291" ph="/**...*/" />
-            <marker date="1530978309283" expanded="true" signature="15344:15427" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="15509:15604" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="15667:15756" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="15831:15926" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="15998:16093" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="16189:16291" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="16297:16315" ph="/**...*/" />
-            <marker date="1530978309283" expanded="true" signature="16392:16491" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="16593:16699" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="16744:16947" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="16953:16971" ph="/**...*/" />
-            <marker date="1530978309283" expanded="false" signature="17036:17047" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="17088:17094" ph=" }" />
-            <marker date="1530978309283" expanded="false" signature="17150:17161" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="17222:17228" ph=" }" />
-            <marker date="1530978309283" expanded="false" signature="17282:17293" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="17352:17358" ph=" }" />
-            <marker date="1530978309283" expanded="true" signature="17411:17796" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="17857:18012" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="18084:18162" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="18227:18305" ph="{...}" />
-            <marker date="1530978309283" expanded="false" signature="18347:18358" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="18383:18389" ph=" }" />
-            <marker date="1530978309283" expanded="false" signature="18438:18449" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="18478:18484" ph=" }" />
-            <marker date="1530978309283" expanded="false" signature="18533:18544" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="18567:18573" ph=" }" />
-            <marker date="1530978309283" expanded="false" signature="18610:18621" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="18641:18647" ph=" }" />
-            <marker date="1530978309283" expanded="false" signature="18685:18696" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="18739:18745" ph=" }" />
-            <marker date="1530978309283" expanded="true" signature="18826:18945" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="18951:18969" ph="/**...*/" />
-            <marker date="1530978309283" expanded="true" signature="19037:19146" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="19152:19170" ph="/**...*/" />
-            <marker date="1530978309283" expanded="true" signature="19237:19326" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="19332:19350" ph="/**...*/" />
-            <marker date="1530978309283" expanded="true" signature="19418:19527" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="19533:19551" ph="/**...*/" />
-            <marker date="1530978309283" expanded="true" signature="19618:19707" ph="{...}" />
-            <marker date="1530978309283" expanded="false" signature="19741:19752" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="19774:19780" ph=" }" />
-            <marker date="1530978309283" expanded="true" signature="19828:19990" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="20039:20279" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="20337:20474" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="20527:20581" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="20623:20840" ph="{...}" />
-            <marker date="1530978309283" expanded="false" signature="20887:20898" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="20931:20937" ph=" }" />
-            <marker date="1530978309283" expanded="true" signature="20985:21295" ph="{...}" />
-            <marker date="1530978309283" expanded="false" signature="21330:21341" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="21384:21390" ph=" }" />
-            <marker date="1530978309283" expanded="false" signature="21429:21440" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="21487:21493" ph=" }" />
-            <marker date="1530978309283" expanded="false" signature="21528:21539" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="21582:21588" ph=" }" />
-            <marker date="1530978309283" expanded="true" signature="21641:22611" ph="{...}" />
-            <marker date="1530978309283" expanded="false" signature="22648:22659" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="22701:22707" ph=" }" />
-            <marker date="1530978309283" expanded="false" signature="22740:22751" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="22801:22807" ph=" }" />
-            <marker date="1530978309283" expanded="true" signature="22863:22943" ph="{...}" />
-            <marker date="1530978309283" expanded="false" signature="23004:23015" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="23053:23059" ph=" }" />
-            <marker date="1530978309283" expanded="true" signature="23118:23342" ph="{...}" />
-            <marker date="1530978309283" expanded="false" signature="23383:23394" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="23413:23419" ph=" }" />
-            <marker date="1530978309283" expanded="true" signature="23473:23560" ph="{...}" />
-            <marker date="1530978309283" expanded="false" signature="23603:23614" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="23635:23641" ph=" }" />
-            <marker date="1530978309283" expanded="false" signature="23677:23688" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="23729:23735" ph=" }" />
-            <marker date="1530978309283" expanded="true" signature="23782:23896" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="23935:24073" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="24147:24296" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="24465:24584" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="24590:24608" ph="/**...*/" />
-            <marker date="1530978309283" expanded="true" signature="24750:25030" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="25036:25054" ph="/**...*/" />
-            <marker date="1530978309283" expanded="true" signature="25189:25302" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="25448:25544" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="25597:25799" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="25850:26125" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="26186:26395" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="26496:26867" ph="{...}" />
-            <marker date="1530978309283" expanded="false" signature="26929:26940" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="26990:26996" ph=" }" />
-            <marker date="1530978309283" expanded="true" signature="27067:27138" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="27206:27315" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="27391:27463" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="27554:27743" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="27804:28000" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="28048:28449" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="28489:28616" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="28694:28900" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="28990:29405" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="29481:29928" ph="{...}" />
-            <marker date="1530978309283" expanded="false" signature="29978:29989" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="30021:30027" ph=" }" />
-            <marker date="1530978309283" expanded="false" signature="30071:30082" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="30107:30113" ph=" }" />
-            <marker date="1530978309283" expanded="true" signature="30150:30361" ph="{...}" />
-            <marker date="1530978309283" expanded="true" signature="30232:30243" ph="{}" />
-            <marker date="1530978309283" expanded="false" signature="30283:30298" ph=" { " />
-            <marker date="1530978309283" expanded="false" signature="30345:30355" ph=" }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2700">
-          <caret line="150" column="19" lean-forward="false" selection-start-line="150" selection-start-column="19" selection-end-line="150" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/-u">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/plannerApi/URLConnection.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/js/template/project.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="29" column="48" lean-forward="false" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/teamerAction.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v7/ProjectUpgradeTask007.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/com/atlassian/activeobjects/activeobjects-plugin/1.2.3/activeobjects-plugin-1.2.3.jar!/net/java/ao/RawEntity.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="33" lean-forward="false" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="108">
+          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Model/Team.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Project/ProjectServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="-252">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/api/MyPluginComponent.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/com/atlassian/activeobjects/activeobjects-plugin/1.2.3/activeobjects-plugin-1.2.3.jar!/net/java/ao/schema/AutoIncrement.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/atlassian/activeobjects/activeobjects-plugin/1.2.3/activeobjects-plugin-1.2.3.jar!/net/java/ao/schema/PrimaryKey.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
-          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-          <folding />
+          <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/impl/MyPluginComponentImpl.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/com/atlassian/activeobjects/activeobjects-plugin/1.2.3/activeobjects-plugin-1.2.3.jar!/net/java/ao/Entity.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="20" column="5" lean-forward="false" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-          <folding />
+        <state relative-caret-position="108">
+          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Model/User.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v8/ProjectTeam.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v8/ProjectUpgradeTask008.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Model/Team.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="21" column="27" lean-forward="false" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+        <state relative-caret-position="36">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/js/project-page.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="48" column="28" lean-forward="false" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v9/ProjectUpgradeTask009.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/rest/ProjectMembers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="52" column="59" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/rest/ProjectMemberModelXML.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="14" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/rest/ProjectModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v9/Team.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v7/ProjectTeam.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v7/Team.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v8/Team.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/atlassian-plugin.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="83" column="86" lean-forward="false" selection-start-line="83" selection-start-column="86" selection-end-line="83" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v10/ProjectUpgradeTask010.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="17" column="18" lean-forward="false" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Project/Project.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="15" column="23" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Project/ProjectService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Project/ProjectMember.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="13" column="11" lean-forward="false" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Project/ProjectServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="17" column="19" lean-forward="false" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Project/ProjectTeam.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="16" column="38" lean-forward="false" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Team/TeamService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="11" column="9" lean-forward="false" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Team/TeamServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="55" column="2" lean-forward="false" selection-start-line="55" selection-start-column="2" selection-end-line="55" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Team/Team.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="13" column="12" lean-forward="false" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Model/TeamerModel.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v1/UserUpgradeTask001.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v1/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v10/Team.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
-          <caret line="36" column="55" lean-forward="false" selection-start-line="36" selection-start-column="55" selection-end-line="36" selection-end-column="55" />
+          <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/js/projects-manage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <marker date="1544220626407" expanded="true" signature="4399:4415" ph="..." />
+            <marker date="1544220626407" expanded="true" signature="5019:5032" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/rest/Team.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="846">
+          <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/rest/TeamModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <element signature="e#353#354#0" expanded="true" />
+            <element signature="e#380#381#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/projects/success.vm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="20" column="38" lean-forward="false" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/users/success.vm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="38" lean-forward="false" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/User/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="10" column="7" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/rest/Project.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="40" column="49" lean-forward="false" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/team/success.vm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1350">
+          <caret line="75" column="87" lean-forward="false" selection-start-line="75" selection-start-column="76" selection-end-line="75" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/js/team-manage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="143" column="14" lean-forward="false" selection-start-line="143" selection-start-column="14" selection-end-line="143" selection-end-column="14" />
           <folding />
         </state>
       </provider>

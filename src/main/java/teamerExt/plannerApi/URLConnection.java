@@ -14,8 +14,8 @@ public class URLConnection {
     public  StringBuffer sendGet(String addressUrl) throws Exception {
 
         URL url = new URL(addressUrl);
-        String user = "xxx"; // username
-        String pass = "xxx"; // password or API token
+        String user = ""; // username
+        String pass = ""; // password or API token
         String authStr = user +":"+  pass;
         String encoding = DatatypeConverter.printBase64Binary(authStr.getBytes("utf-8"));
 

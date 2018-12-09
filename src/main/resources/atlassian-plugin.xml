@@ -15,20 +15,17 @@
     <resource type="download" name="mustache" location="/js/mustache.js"/>
     <context>editor</context>
   </web-resource>
-  <web-resource key="mustache-templates" name="Space variables macro js resources">
-    <resource type="download" name="mustache-templates" location="/js/template/project.html"/>
-    <context>editor</context>
-  </web-resource>
 
   <web-resource key="teamer-plugin-resources" name="teamer-plugin Web Resources">
     <dependency>com.atlassian.auiplugin:ajs</dependency>
     <dependency>teamerExt.teamer-plugin:mustache</dependency>
-    <dependency>teamerExt.teamer-plugin:mustache-templates</dependency>
     <resource type="download" name="teamer-plugin.css" location="/css/teamer-plugin.css"/>
     <resource type="download" name="teamer-plugin.js" location="/js/teamer-plugin.js"/>
     <resource type="download" name="projects-manage.js" location="/js/projects-manage.js"/>
     <resource type="download" name="team-manage.js" location="/js/team-manage.js"/>
     <resource type="download" name="project-page.js" location="/js/project-page.js"/>
+    <resource type="download" name="view/team.js" location="/js/view/team.js"/>
+    <resource type="download" name="view/project.js" location="/js/view/project.js"/>
 
     <resource type="download" name="images/" location="/images"/>
     <context>teamer-plugin</context>

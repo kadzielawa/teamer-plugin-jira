@@ -2,16 +2,61 @@
 <head>
     <title>$i18n.getText("teamer-ext.admin.planning.page.title")</title>
     <meta name="decorator" content="atl.admin">
+    $webResourceManager.requireResource("teamerExt.teamer-plugin:mustache-templates")
+
     $webResourceManager.requireResource("com.atlassian.auiplugin:aui-select")
     $webResourceManager.requireResource("com.atlassian.auiplugin:aui-page-layout")
     $webResourceManager.requireResource("com.atlassian.auiplugin:dialog2")
     $webResourceManager.requireResource("com.atlassian.auiplugin:aui-experimental-restfultable")
     $webResourceManager.requireResource("com.atlassian.auiplugin:aui-toggle")
     $webResourceManager.requireResource("com.atlassian.auiplugin:aui-forms")
-
-    $webResourceManager.requireResource("teamerExt.teamer-plugin:teamer-plugin-resources")
-    $webResourceManager.requireResource("com.atlassian.auiplugin:ajs")
     $webResourceManager.requireResource("com.atlassian.auiplugin:aui-select2")
+
+
+    <script type="text/template" id="team-row">
+        <div class="aui-group">
+            <div class="field-group top-label">
+                <label>Nazwa zespołu
+                    <span class="aui-icon icon-required"> required</span>
+                </label>
+                <input class="team-name" type="text" id="row-{{restfulTableId}}-id"
+                       name="row-{{restfulTableId}}-name" title="first name" value="{{teamName}}">
+                <div class="aui-page-header-actions">
+                    <form class="aui">
+                        <p>
+                            <aui-select id="select-get-team-{{restfulTableId}}"
+                                        placeholder="Wybierz projekt"
+                                        src="{{getProjectUrl}}">
+                            </aui-select>
+                        </p>
+                    </form>
+                    <div class="aui-buttons">
+
+                        <a class="aui-button button-add-project" >dodaj nowy projekt</a>
+                    </div>
+                    <div style="position: fixed; z-index: -1; height: 1px; width: 1px; top: 215px; left: 1489.53px;">
+                    </div>
+                </div>
+                <div class="aui-group project-list">
+
+                </div>
+            </div>
+            <button class="save" data-team_id="{{teamId}}">Zapisz zespół</button>
+            <button class="delete" data-team_id="{{teamId}}">Usuń zespół</button>
+            <div id="table-team-{{restfulTableId}}"/>
+        </div>
+    </script>
+
+    <script type="text/template" id="project-row">
+        <div class="aui-group">
+            <div class="field-group">
+                <label>Nazwa projektu
+                    <span class="aui-icon icon-required"> required</span>
+                </label>
+                <input class="project-name" type="text" title="first name" value="{{projectName}}">
+            </div>
+        </div>
+    </script>
 </head>
 <body>
 
@@ -36,48 +81,8 @@
 </div>
 
 
-<script type="text/template" id="team-row">
-    <div class="aui-group">
-        <div class="field-group top-label">
-           <label for="fname">Nazwa zespołu
-               <span class="aui-icon icon-required"> required</span>
-           </label>
-            <input class="team-name" type="text" id="row-{{restfulTableId}}-id"
-                   name="row-{{restfulTableId}}-name" title="first name" value="{{teamName}}">
-                <div class="aui-page-header-actions">
-                    <form class="aui">
-                            <p>
-                                    <aui-select id="select-get-team-{{restfulTableId}}"
-                                           placeholder="Wybierz projekt"
-                        src="{{getProjectUrl}}"
-                                    <aui-select>
-                                </p>
-                        </form>
-                    <div class="aui-buttons">
 
-                             <a class="aui-button button-add-project" >dodaj nowy projekt</a>
-                      </div>
-                    <div style="position: fixed; z-index: -1; height: 1px; width: 1px; top: 215px; left: 1489.53px;">
-                    </div>
-                </div>
-
-                     </div>
-        <button class="save" data-team_id="{{teamId}}">Zapisz zespół</button>
-        <button class="delete" data-team_id="{{teamId}}">Usuń zespół</button>
-        <div id="table-team-{{restfulTableId}}"/>
-</script>
-
-<script type="text/template" id="project-row">
-<div class="aui-group">
-    <div class="field-group">
-        <label for="fname">Nazwa projektu
-            <span class="aui-icon icon-required"> required</span>
-        </label>
-        <input class="project-name" type="text" title="first name" value="{{projectName}}">
-    </div>
-</div>
-    </script>
-
+    $webResourceManager.requireResource("teamerExt.teamer-plugin:teamer-plugin-resources")
 
 </body>
 </html>

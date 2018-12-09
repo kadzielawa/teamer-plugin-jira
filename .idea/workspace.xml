@@ -2,67 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04c17053-d2d8-4664-92d1-6fb10366b42f" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Project/Project.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Project/ProjectMember.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Project/ProjectService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Project/ProjectServiceImpl.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Project/ProjectServlet.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Project/ProjectTeam.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Team/Team.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Team/TeamService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Team/TeamServiceImpl.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/User/User.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/User/UserService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/User/UserServiceImpl.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/User/UserServlet.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/projectsAction.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/teamAction.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v1/User.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v1/UserUpgradeTask001.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v10/ProjectUpgradeTask010.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v10/Team.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v2/ProjectToUser.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v2/ProjectUpgradeTask002.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v3/Team.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v3/TeamUpgradeTask003.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v4/Project.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v4/ProjectToUser.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v4/ProjectUpgradeTask004.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v5/Project.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v5/ProjectMember.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v5/ProjectUpgradeTask005.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v5/User.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v6/Project.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v6/ProjectMember.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v6/ProjectUpgradeTask006.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v6/User.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/usersAction.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/rest/Project.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/rest/ProjectMemberModelXML.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/rest/ProjectMembers.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/rest/ProjectModel.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/rest/Team.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/rest/TeamModel.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/js/mustache.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/js/project-page.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/js/projects-manage.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/js/team-manage.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/js/template/project.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/projects/error.vm" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/projects/success.vm" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/team/success.vm" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/teamer/form.vm" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/users/success.vm" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/js/view/project.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/js/view/team.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Model/TeamerModel.java" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Model/TeamerModel.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/teamerExt/plannerApi/URLConnection.java" afterPath="$PROJECT_DIR$/src/main/java/teamerExt/plannerApi/URLConnection.java" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/atlassian-plugin.xml" afterPath="$PROJECT_DIR$/src/main/resources/atlassian-plugin.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/teamer-plugin.css" afterPath="$PROJECT_DIR$/src/main/resources/css/teamer-plugin.css" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/js/teamer-plugin.js" afterPath="$PROJECT_DIR$/src/main/resources/js/teamer-plugin.js" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/teamer/success.vm" afterPath="$PROJECT_DIR$/src/main/resources/templates/teamer/success.vm" />
-      <change beforePath="$PROJECT_DIR$/teamer-plugin.iml" afterPath="$PROJECT_DIR$/teamer-plugin.iml" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/js/team-manage.js" afterPath="$PROJECT_DIR$/src/main/resources/js/team-manage.js" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/js/template/project.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/team/success.vm" afterPath="$PROJECT_DIR$/src/main/resources/templates/team/success.vm" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -74,20 +20,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Team.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Team/Team.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="13" column="12" lean-forward="false" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="TeamModel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/rest/TeamModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
+            <state relative-caret-position="0">
               <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding>
                 <element signature="e#353#354#0" expanded="true" />
@@ -120,8 +56,28 @@
       <file leaf-file-name="team-manage.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/js/team-manage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="143" column="14" lean-forward="false" selection-start-line="143" selection-start-column="14" selection-end-line="143" selection-end-column="14" />
+            <state relative-caret-position="946">
+              <caret line="105" column="17" lean-forward="false" selection-start-line="105" selection-start-column="17" selection-end-line="105" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="team.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/js/view/team.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="900">
+              <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="project.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/js/view/project.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="6" column="39" lean-forward="false" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -130,8 +86,18 @@
       <file leaf-file-name="success.vm" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/team/success.vm">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1350">
-              <caret line="75" column="87" lean-forward="false" selection-start-line="75" selection-start-column="76" selection-end-line="75" selection-end-column="87" />
+            <state relative-caret-position="168">
+              <caret line="43" column="81" lean-forward="false" selection-start-line="43" selection-start-column="81" selection-end-line="43" selection-end-column="81" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="atlassian-plugin.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/atlassian-plugin.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="27" column="48" lean-forward="false" selection-start-line="27" selection-start-column="48" selection-end-line="27" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -143,19 +109,6 @@
             <state relative-caret-position="504">
               <caret line="40" column="49" lean-forward="false" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="49" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="projects-manage.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/js/projects-manage.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-              <folding>
-                <marker date="1544220626407" expanded="true" signature="4399:4415" ph="..." />
-                <marker date="1544220626407" expanded="true" signature="5019:5032" ph="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -172,21 +125,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getProjectMember</find>
-      <find>ActiveObject</find>
-      <find>private final ActiveObjects ao;</find>
-      <find>associateProjectToUser</find>
-      <find>ProjectMemberModelXML</find>
-      <find>role</find>
-      <find>spaceVariableView</find>
-      <find>ConfigurationDialog</find>
-      <find>teamv</find>
-      <find>Team</find>
-      <find>url</find>
-      <find>title</find>
       <find>create</find>
-      <find>Teams</find>
-      <find>teamView</find>
       <find>xx</find>
       <find>getID</find>
       <find>con</find>
@@ -202,6 +141,20 @@
       <find>teamName</find>
       <find>.get(</find>
       <find>projectView</find>
+      <find>projectColl</find>
+      <find>projectCollection</find>
+      <find>T</find>
+      <find>teamsView</find>
+      <find>Teams</find>
+      <find>new</find>
+      <find>teamCollection</find>
+      <find>allowToAdd</find>
+      <find>ProjectModel</find>
+      <find>teamView</find>
+      <find>allowT</find>
+      <find>mustache-templates</find>
+      <find>teamsViewRun</find>
+      <find>TeamModel</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/main</dir>
@@ -220,10 +173,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Project/ProjectMemberModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Project/ProjectToUser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Project/ProjectToMember.java" />
-        <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v4/ProjectToUser.java" />
         <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v4/Project.java" />
         <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v5/Project.java" />
         <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v5/ProjectUpgradeTask005.java" />
@@ -262,15 +211,19 @@
         <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v8/Team.java" />
         <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v10/v9/Team.java" />
         <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v10/ProjectUpgradeTask009.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/atlassian-plugin.xml" />
         <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/Team/Team.java" />
         <option value="$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v10/Team.java" />
         <option value="$PROJECT_DIR$/src/main/java/teamerExt/rest/TeamModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/teamerExt/rest/Team.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/projects/success.vm" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/users/success.vm" />
+        <option value="$PROJECT_DIR$/src/main/resources/js/view/team-view.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/js/template/project.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/team/success.vm" />
+        <option value="$PROJECT_DIR$/src/main/resources/atlassian-plugin.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/js/view/project.js" />
         <option value="$PROJECT_DIR$/src/main/resources/js/team-manage.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/js/view/team.js" />
       </list>
     </option>
   </component>
@@ -304,10 +257,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="456" />
-    <option name="y" value="-4" />
+    <option name="x" value="829" />
+    <option name="y" value="184" />
     <option name="width" value="842" />
-    <option name="height" value="875" />
+    <option name="height" value="868" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -325,9 +278,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -516,7 +468,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="template" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="teamer-plugin" type="b2602c69:ProjectViewProjectNode" />
@@ -624,6 +576,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -786,25 +739,29 @@
       <workItem from="1544084422363" duration="40936000" />
       <workItem from="1544184069080" duration="48307000" />
       <workItem from="1544255289360" duration="17080000" />
+      <workItem from="1544370255708" duration="233000" />
+      <workItem from="1544371041051" duration="9032000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="160262000" />
+    <option name="totallyTimeSpent" value="169527000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="456" y="-4" width="1682" height="1062" extended-state="6" />
+    <frame x="-1" y="-4" width="1682" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.314346" sideWeight="0.50238097" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.65990454" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947367" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2742616" sideWeight="0.49761903" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2742616" sideWeight="0.49761903" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25059524" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -820,7 +777,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947367" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -868,20 +824,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v6/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v6/ProjectUpgradeTask006.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="14" column="38" lean-forward="false" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v6/ProjectMember.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="648">
@@ -929,13 +871,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/js/template/project.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -1017,13 +952,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v7/ProjectTeam.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v7/Team.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v8/Team.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/atlassian-plugin.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="83" column="86" lean-forward="false" selection-start-line="83" selection-start-column="86" selection-end-line="83" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/jira/webwork/upgrade/v10/ProjectUpgradeTask010.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -1130,7 +1058,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/teamerExt/rest/TeamModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
+        <state relative-caret-position="0">
           <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding>
             <element signature="e#353#354#0" expanded="true" />
@@ -1169,18 +1097,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/js/template/project.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/atlassian-plugin.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="27" column="48" lean-forward="false" selection-start-line="27" selection-start-column="48" selection-end-line="27" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/team/success.vm">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="75" column="87" lean-forward="false" selection-start-line="75" selection-start-column="76" selection-end-line="75" selection-end-column="87" />
+        <state relative-caret-position="168">
+          <caret line="43" column="81" lean-forward="false" selection-start-line="43" selection-start-column="81" selection-end-line="43" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/js/view/team.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/js/view/project.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="39" lean-forward="false" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/js/team-manage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="143" column="14" lean-forward="false" selection-start-line="143" selection-start-column="14" selection-end-line="143" selection-end-column="14" />
+        <state relative-caret-position="946">
+          <caret line="105" column="17" lean-forward="false" selection-start-line="105" selection-start-column="17" selection-end-line="105" selection-end-column="17" />
           <folding />
         </state>
       </provider>

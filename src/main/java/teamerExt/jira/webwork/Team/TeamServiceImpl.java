@@ -53,23 +53,5 @@ public class TeamServiceImpl implements TeamService
         return team[0];
     }
 
-/*
-    private User getOrCreateUser(ActiveObjects ao, String userName)
-    {
-        User[] users = ao.find(User.class, Query.select().where("USERNAME = ?", userName));
-        if (users.length == 0) {
-            return createUser(ao, userName);
-        } else if (users.length == 1) {
-            return users[0];
-        } else {
-            throw new IllegalStateException("There shouldn't be 2 users with the same username! " + userName);
-        }
-    }
-*/
-
-/*    private User createUser(ActiveObjects ao, String userName)
-    {
-        return ao.create(User.class, ImmutableMap.<String, Object>of("USERNAME", userName));
-    }*/
 
 }

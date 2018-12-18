@@ -22,9 +22,9 @@ public class projectsAction extends JiraWebActionSupport
     private final ProjectService projectService;
     private final UserService userService;
 
-    public projectsAction(ProjectService projectService,UserService userService) {
-        this.projectService = projectService;
-        this.userService = userService;
+    public projectsAction(ProjectService projectServicec,UserService userServicec) {
+        projectService = projectServicec;
+        userService = userServicec;
     }
 
 

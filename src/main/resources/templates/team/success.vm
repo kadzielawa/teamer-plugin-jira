@@ -43,7 +43,6 @@
             </div>
             <button class="save" data-team_id="{{teamId}}">Zapisz zespół</button>
             <button class="delete" data-team_id="{{teamId}}">Usuń zespół</button>
-            <div id="table-team-{{restfulTableId}}"/>
         </div>
     </script>
 
@@ -56,7 +55,11 @@
                 <input class="project-name" type="text" title="first name" value="{{projectName}}">
             </div>
         </div>
+
+        <div class="aui-group person-list" id="person-list-{{teamId}}_{{restfulTableId}}">
+        </div>
     </script>
+
 </head>
 <body>
 

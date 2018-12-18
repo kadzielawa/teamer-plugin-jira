@@ -15,36 +15,7 @@ require(['jquery', 'backbone', 'mustache','view/team'], function($, Backbone, mu
             },
         });
 
-        var ProjectModel = Backbone.Model.extend({
-            defaults: function() {
-                return {
-                    name: "default project name",
-                    income: 22
-                };
-            }
-        });
-
-        var PersonModel = Backbone.Model.extend({
-            defaults: function() {
-                return {
-                    name: "jakub",
-                    role: "BE",
-                    billed: 1,
-                    availability: 100,
-                };
-            }
-        });
-
         /** Collection **/
-        var ProjectCollection = Backbone.Collection.extend({
-          //  url: AJS.contextPath() + '/rest/team/1.0/team',
-            model: ProjectModel,
-            teamId : null,
-            initialize: function (teamId) {
-               this.teamId = teamId;
-            }
-
-        });
 
         var TeamCollection = Backbone.Collection.extend({
 
@@ -57,17 +28,9 @@ require(['jquery', 'backbone', 'mustache','view/team'], function($, Backbone, mu
             },
         });
 
-        var PersonCollection = Backbone.Collection.extend({
-
-            url: AJS.contextPath() + '/rest/projectmembers/1.0/projectmembers',
-            model: PersonModel
-        });
-
 
         /** Instances **/
         var teamCollection = new TeamCollection();
-        var projectCollection = new ProjectCollection();
-        var personCollection = new PersonCollection();
 
         /** View **/
            var TeamsView = Backbone.View.extend({
@@ -118,6 +81,6 @@ require(['jquery', 'backbone', 'mustache','view/team'], function($, Backbone, mu
         var teamsView = new TeamsView({collection: teamCollection});
 
         /* Fetch data */
-       //teamCollection.fetch();
+       teamCollection.fetch();
     });
 });

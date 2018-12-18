@@ -22,4 +22,8 @@ public interface Team extends Entity {
 
     public String getName();
     void setName(String name);
+
+    //@OneToMany(reverse="ss")
+
+
 }

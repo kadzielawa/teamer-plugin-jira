@@ -18,8 +18,8 @@ public class usersAction extends JiraWebActionSupport
     public Iterable<User> users = new ArrayList<>();
     private final UserService userService;
 
-    public usersAction(UserService userService) {
-        this.userService = userService;
+    public usersAction(UserService userServicee) {
+        userService = userServicee;
     }
 
 
@@ -41,7 +41,7 @@ public class usersAction extends JiraWebActionSupport
         return users;
     }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
+    public void setUsers(List<User> userss) {
+        users = userss;
     }
 }

@@ -80,6 +80,7 @@
     <upgradeTask>teamerExt.jira.webwork.upgrade.v5.ProjectUpgradeTask005</upgradeTask>
     <upgradeTask>teamerExt.jira.webwork.upgrade.v6.ProjectUpgradeTask006</upgradeTask>
     <upgradeTask>teamerExt.jira.webwork.upgrade.v10.ProjectUpgradeTask010</upgradeTask>
+    <upgradeTask>teamerExt.jira.webwork.upgrade.v11.ProjectUpgradeTask011</upgradeTask>
 
   </ao>
 

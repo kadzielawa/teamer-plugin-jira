@@ -4,7 +4,38 @@ define('view/team', [
     'backbone',
     'mustache',
     'view/project'], function($, Backbone,mustache,projectView) {
-    return Backbone.View.extend({
+
+
+
+    var ProjectModel = Backbone.Model.extend({
+        initialize: function (options) {
+            this.collection = options.collection;
+          this.set('id',this.collection.nextId());
+        },
+        defaults: function() {
+            return {
+                name: "default project name",
+                income: 22
+            };
+        }
+    });
+
+    var ProjectCollection = Backbone.Collection.extend({
+        //  url: AJS.contextPath() + '/rest/team/1.0/team',
+        model: ProjectModel,
+        teamId : null,
+        initialize: function (teamId) {
+            this.teamId = teamId;
+        },
+        nextId: function() {
+            if (!this.length) return 1;
+            return this.last().get('id') + 1;
+        },
+
+
+    });
+
+    var TeamView = Backbone.View.extend({
         tagName: 'div',
         events: {
             'click .save': 'saveTeam',
@@ -17,20 +48,34 @@ define('view/team', [
         },
         initialize: function () {
             this.el.append(this.render());
-           this.listenTo(this.model, 'change', this.render);
+
+            this.listenTo(this.model, 'change', this.render);
+          //  this.listenTo(this.collection, 'add', this.addProject);
             //manage projects
+            console.log('tworzy project collection');
+            this.projectCollection = new ProjectCollection();
+
+
         },
         addProject: function (model) {
+            var view = new projectView(
+                {
+                    model: model,
+                });
 
-            var view = new projectView({model: model});
             $(".project-list").append(view.render().el);
         },
 
         addProjectToView: function () {
-         //   var newProject = new ProjectModel;
-         //   this.collection.add(newProject);
-            var teamId = this.model.get('id');
-            var view = new projectView({teamId:teamId});
+            var newProject = new ProjectModel({collection: this.projectCollection,teamId:this.model.get('id')});
+
+            var view = new projectView(
+                {
+                    model: newProject,
+                    collection: this.projectCollection
+                });
+
+            this.projectCollection.add(newProject);
             this.$el.find(".project-list").append(view.render().el);
         },
         removeFailed: function (model, response) {
@@ -77,4 +122,7 @@ define('view/team', [
             this.collection.allowToAdd = 1;
         }
     });
+
+    return TeamView;
+
 });

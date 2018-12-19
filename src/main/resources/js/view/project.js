@@ -56,7 +56,7 @@ define('view/project', ['jquery',  'backbone','mustache'], function($, Backbone,
         render: function () {
             this.$el.html(mustache.render(this.templates.projectContainer,this.projectData));
             var elVariable = "#person-list-" + this.projectData.teamId + "_" + this.projectData.restfulTableId;
-            this.$el.find(elVariable).html(this.addRESTfulTable(elVariable));
+          //  this.$el.find(elVariable).html(this.addRESTfulTable(elVariable));
             return this;
         }
     });

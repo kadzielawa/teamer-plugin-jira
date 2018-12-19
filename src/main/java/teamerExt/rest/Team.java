@@ -5,6 +5,7 @@ import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.plugins.rest.common.security.AnonymousAllowed;
 
 import teamerExt.jira.webwork.Project.ProjectMember;
+import teamerExt.jira.webwork.Project.ProjectTeam;
 import teamerExt.jira.webwork.Team.TeamService;
 
 import javax.ws.rs.*;
@@ -56,16 +57,31 @@ public class Team {
     @PUT
     @Path("{id}")
     public Response updateTeamIda(TeamModel teamModel){
-         teamerExt.jira.webwork.Team.Team team = ao.create(teamerExt.jira.webwork.Team.Team.class);
+
+        teamerExt.jira.webwork.Team.Team team = ao.create(teamerExt.jira.webwork.Team.Team.class);
         team.setName(teamModel.getName());
         team.save();
+
+        for (Integer projectId : teamModel.getProjectIds()) {
+            System.out.println("dodalo");
+            System.out.println(projectId);
+            ProjectTeam projectTeam = ao.create(ProjectTeam.class);
+            projectTeam.setProjectId(projectId);
+            projectTeam.setTeamId(team.getID());
+            projectTeam.save();
+        }
+
+
         return Response.ok("utworzono team - ID:"+ team.getID()).build();
     }
 
 
 
     @POST
-    public Response updateTeamId(TeamModel teamModel){
+    @Path("{id}")
+    public Response createTeamId(@PathParam("id") final int teamid, TeamModel teamModel){
+        System.out.println("tworze team");
+
         teamerExt.jira.webwork.Team.Team checkedTeam = teamService.getTeamById(teamModel.getId());
         int teamId;
         if(checkedTeam == null){
@@ -77,8 +93,19 @@ public class Team {
             checkedTeam.setName(teamModel.getName());
             checkedTeam.save();
             teamId = checkedTeam.getID();
-
         }
+
+
+        for (Integer projectId : teamModel.getProjectIds()) {
+            System.out.println("dodalo");
+            System.out.println(projectId);
+            ProjectTeam projectTeam = ao.create(ProjectTeam.class);
+            projectTeam.setProjectId(projectId);
+            projectTeam.setTeamId(teamId);
+            projectTeam.save();
+        }
+
+
 
         return Response.ok("utworzono team - ID:"+ teamId).build();
     }

@@ -13,10 +13,10 @@ public interface ProjectTeam  extends Entity {
     public int getID();
 
 
-    public String getProjectId();
-    void setProjectId(String projectId);
+    public Integer getProjectId();
+    void setProjectId(Integer projectId);
 
-    public String getTeamId();
-    void setTeamId(String teamId);
+    public Integer getTeamId();
+    void setTeamId(Integer teamId);
 
 }

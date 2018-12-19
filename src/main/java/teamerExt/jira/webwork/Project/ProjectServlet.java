@@ -38,7 +38,7 @@ public final class ProjectServlet extends HttpServlet
     protected void doDelete(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
     {
 
-        final String projectId = req.getParameter("project_id");
+        final Integer projectId = Integer.parseInt(req.getParameter("project_id"));
         projectService.delete(projectService.getProjectById(projectId));
     }
     @Override

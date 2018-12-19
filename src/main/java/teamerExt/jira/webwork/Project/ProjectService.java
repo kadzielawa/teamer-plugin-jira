@@ -12,9 +12,12 @@ public interface ProjectService {
 
         Iterable<Project> all();
 
-        Project getProjectById(String projectId);
+        Iterable<ProjectTeam>  allProjectsByTeam(String teamId);
+
+        Project getProjectById(Integer projectId);
 
         void delete(Project project);
 
         ArrayList<ProjectMember> getProjectMembersByProjectId(String projectId);
+
 }

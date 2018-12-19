@@ -22,14 +22,14 @@
                 <input class="team-name" type="text" id="row-{{restfulTableId}}-id"
                        name="row-{{restfulTableId}}-name" title="first name" value="{{teamName}}">
                 <div class="aui-page-header-actions">
-                    <form class="aui">
+                  #*  <form class="aui">
                         <p>
                             <aui-select id="select-get-team-{{restfulTableId}}"
                                         placeholder="Wybierz projekt"
                                         src="{{getProjectUrl}}">
                             </aui-select>
                         </p>
-                    </form>
+                    </form>*#
                     <div class="aui-buttons">
 
                         <a class="aui-button button-add-project" >dodaj nowy projekt</a>

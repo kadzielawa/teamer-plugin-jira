@@ -1,4 +1,4 @@
-package teamerExt.jira.webwork.upgrade.v11;
+package teamerExt.jira.webwork.upgrade.v12;
 
 import net.java.ao.Entity;
 import net.java.ao.schema.AutoIncrement;

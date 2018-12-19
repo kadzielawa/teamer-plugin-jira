@@ -10,8 +10,10 @@ define('view/team', [
     var ProjectModel = Backbone.Model.extend({
         initialize: function (options) {
             this.collection = options.collection;
-          this.set('id',this.collection.nextId());
+       //   this.set('id',this.collection.nextId());
         },
+        isUpdated:  0,
+
         defaults: function() {
             return {
                 name: "default project name",
@@ -21,11 +23,12 @@ define('view/team', [
     });
 
     var ProjectCollection = Backbone.Collection.extend({
-        //  url: AJS.contextPath() + '/rest/team/1.0/team',
         model: ProjectModel,
         teamId : null,
-        initialize: function (teamId) {
-            this.teamId = teamId;
+        allowToAdd: 1,
+        initialize: function (options) {
+            this.teamId = options.teamId;
+            this.url = AJS.contextPath() + '/rest/project/1.0/project/'+options.teamId;
         },
         nextId: function() {
             if (!this.length) return 1;
@@ -49,35 +52,49 @@ define('view/team', [
         initialize: function () {
             this.el.append(this.render());
 
-            this.listenTo(this.model, 'change', this.render);
-          //  this.listenTo(this.collection, 'add', this.addProject);
+         //   this.listenTo(this.model, 'change', this.render);
             //manage projects
             console.log('tworzy project collection');
-            this.projectCollection = new ProjectCollection();
-
+            console.log(this.model);
+            var teamId = this.model.get('id');
+            this.projectCollection = new ProjectCollection({teamId: teamId});
+            this.listenTo(this.projectCollection, 'add', this.addProject);
+            this.projectCollection.fetch();
 
         },
         addProject: function (model) {
-            var view = new projectView(
-                {
-                    model: model,
-                });
-
-            $(".project-list").append(view.render().el);
+            if(model.isUpdated === 0) {
+                var view = new projectView({model: model, collection: this.projectCollection});
+                this.$el.find(".project-list").append(view.render().el);
+            }
         },
 
         addProjectToView: function () {
-            var newProject = new ProjectModel({collection: this.projectCollection,teamId:this.model.get('id')});
-
+            if(this.projectCollection.allowToAdd === 0 ){
+                return false;
+            }
+            this.projectCollection.allowToAdd =0;
+            var newProject = new ProjectModel({teamId:this.model.get('id')});
+            var that = this;
+            newProject.isUpdated = 1;
+            this.projectCollection.create(newProject,
+                {'wait':true,'success': this.callbackAddProjectToView.bind(that)}
+                );
+        },
+        //set id from added to database projectId
+        callbackAddProjectToView:function (newProject,resp) {
+            var projectId = resp.projectId;
+            newProject.set('id',projectId);
             var view = new projectView(
                 {
                     model: newProject,
                     collection: this.projectCollection
                 });
 
-            this.projectCollection.add(newProject);
             this.$el.find(".project-list").append(view.render().el);
+
         },
+
         removeFailed: function (model, response) {
             var myFlag = AJS.flag({
                 type: 'success',
@@ -117,9 +134,17 @@ define('view/team', [
 
         saveTeam: function () {
             this.model.isUpdated = 1;
+
+            var projectIds = [];
+            this.projectCollection.each(function(model){
+                    projectIds.push(model.get('id'));
+            });
+
+            this.model.set('projectIds',projectIds);
             this.model.save();
             this.collection.add(this.model);
             this.collection.allowToAdd = 1;
+            this.projectCollection.allowToAdd = 1;
         }
     });
 

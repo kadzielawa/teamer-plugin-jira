@@ -66,7 +66,14 @@ public class ProjectServiceImpl implements ProjectService
     }
 
     @Override
-    public Project getProjectById(String projectId) {
+    public Iterable<ProjectTeam> allProjectsByTeam(String teamId)
+    {
+        return Lists.newArrayList(ao.find(ProjectTeam.class, Query.select().where("TEAM_ID = ?", teamId)));
+    }
+
+
+    @Override
+    public Project getProjectById(Integer projectId) {
         Project[] project = ao.find(Project.class, Query.select().where("ID = ?", projectId));
         return project[0];
     }

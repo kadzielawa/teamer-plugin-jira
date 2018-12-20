@@ -73,8 +73,14 @@ public class ProjectServiceImpl implements ProjectService
 
 
     @Override
-    public Project getProjectById(Integer projectId) {
+    public Project getProjectById(Integer projectId) throws NullPointerException {
+        if(projectId == null){
+            throw new NullPointerException("Projekt nie może być nullem");
+        }
+        System.out.println("CCCCC");
+        System.out.println(projectId);
         Project[] project = ao.find(Project.class, Query.select().where("ID = ?", projectId));
+
         return project[0];
     }
 

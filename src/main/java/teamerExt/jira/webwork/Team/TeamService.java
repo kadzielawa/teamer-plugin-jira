@@ -9,7 +9,7 @@ public interface TeamService {
 
     Team add(String description);
 
-    Team getTeamById(int teamId);
+    Team getTeamById(int teamId) throws Exception;
 
     public void delete(Team team);
 

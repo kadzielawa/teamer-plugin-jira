@@ -31,7 +31,7 @@ public class Team {
 
     @GET
     @Path("{id}")
-    public TeamModel getTeam(@PathParam("id") final int teamId){
+    public TeamModel getTeam(@PathParam("id") final int teamId) throws Exception {
 
         teamerExt.jira.webwork.Team.Team team = this.teamService.getTeamById(teamId);
         TeamModel teamModel = new TeamModel();
@@ -56,30 +56,39 @@ public class Team {
 
     @PUT
     @Path("{id}")
-    public Response updateTeamIda(TeamModel teamModel){
+    public Response updateTeamIda(@PathParam("id") final int teamid,TeamModel teamModel) throws Exception {
 
-        teamerExt.jira.webwork.Team.Team team = ao.create(teamerExt.jira.webwork.Team.Team.class);
-        team.setName(teamModel.getName());
-        team.save();
+        teamerExt.jira.webwork.Team.Team checkedTeam = teamService.getTeamById(teamModel.getId());
+        int teamId;
+
+        if(checkedTeam == null){
+            teamerExt.jira.webwork.Team.Team team = ao.create(teamerExt.jira.webwork.Team.Team.class);
+            team.setName(teamModel.getName());
+            team.save();
+            teamId = team.getID();
+        }else {
+            checkedTeam.setName(teamModel.getName());
+            checkedTeam.save();
+            teamId = checkedTeam.getID();
+        }
+
 
         for (Integer projectId : teamModel.getProjectIds()) {
-            System.out.println("dodalo");
-            System.out.println(projectId);
             ProjectTeam projectTeam = ao.create(ProjectTeam.class);
             projectTeam.setProjectId(projectId);
-            projectTeam.setTeamId(team.getID());
+            projectTeam.setTeamId(teamId);
             projectTeam.save();
         }
 
 
-        return Response.ok("utworzono team - ID:"+ team.getID()).build();
+        return Response.ok("utworzono team - ID:"+ teamId).build();
     }
 
 
 
     @POST
     @Path("{id}")
-    public Response createTeamId(@PathParam("id") final int teamid, TeamModel teamModel){
+    public Response createTeamId(@PathParam("id") final int teamid, TeamModel teamModel) throws Exception {
         System.out.println("tworze team");
 
         teamerExt.jira.webwork.Team.Team checkedTeam = teamService.getTeamById(teamModel.getId());
@@ -97,8 +106,6 @@ public class Team {
 
 
         for (Integer projectId : teamModel.getProjectIds()) {
-            System.out.println("dodalo");
-            System.out.println(projectId);
             ProjectTeam projectTeam = ao.create(ProjectTeam.class);
             projectTeam.setProjectId(projectId);
             projectTeam.setTeamId(teamId);
@@ -112,7 +119,7 @@ public class Team {
 
     @DELETE
     @Path("{id}")
-    public Response delete(@PathParam("id") final int teamId){
+    public Response delete(@PathParam("id") final int teamId) throws Exception {
         teamerExt.jira.webwork.Team.Team team = this.teamService.getTeamById(teamId);
         this.teamService.delete(team);
 

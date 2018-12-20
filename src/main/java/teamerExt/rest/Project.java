@@ -65,12 +65,22 @@ public class Project {
 
         ArrayList<ProjectModel> projectModelArrayList = new ArrayList<>();
         for(ProjectTeam projectTeam : allProjectsWithTeams) {
-            teamerExt.jira.webwork.Project.Project project = projectService.getProjectById(projectTeam.getProjectId());
-            ProjectModel projectModel = new ProjectModel();
-            projectModel.setIncome(project.getIncome());
-            projectModel.setName(project.getName());
-            projectModel.setTeamId(projectTeam.getTeamId());
-            projectModelArrayList.add(projectModel);
+            System.out.println("PROJECT ID-> ");
+            System.out.println(projectTeam.getProjectId());
+            try {
+
+                teamerExt.jira.webwork.Project.Project project = projectService.getProjectById(projectTeam.getProjectId());
+                ProjectModel projectModel = new ProjectModel();
+                projectModel.setIncome(project.getIncome());
+                projectModel.setName(project.getName());
+                projectModel.setTeamId(projectTeam.getTeamId());
+                projectModel.setProjectId(projectTeam.getProjectId());
+                projectModelArrayList.add(projectModel);
+            } catch (NullPointerException e){
+                System.out.println("NULL");
+
+            }
+
         }
 
         return projectModelArrayList;

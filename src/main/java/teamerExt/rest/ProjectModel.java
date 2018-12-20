@@ -23,6 +23,11 @@ public class ProjectModel {
     @XmlElement (name = "teamId")
     public Integer teamId;
 
+    @XmlElement (name = "projectId")
+    public Integer projectId;
+
+
+
     public ProjectModel() {}
 
 
@@ -62,6 +67,13 @@ public class ProjectModel {
         this.teamId = teamId;
     }
 
+    public Integer getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(Integer projectId) {
+        this.projectId = projectId;
+    }
     public String getName() {
         return name;
     }

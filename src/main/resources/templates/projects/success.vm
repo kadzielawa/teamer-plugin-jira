@@ -96,6 +96,7 @@
 <table class="aui aui-table-sortable">
     <thead>
     <tr>
+        <th class="aui-table-column-unsortable">Identyfikator</th>
         <th class="aui-table-column-unsortable">Nazwa</th>
         <th class="aui-table-column-unsortable">Przychody</th>
     <tr>
@@ -103,6 +104,7 @@
     <tbody>
         #foreach( $project in $action.projects )
         <tr>
+                       <td>$project.getID()</td>
                        <td>$project.getName()</td>
             <td>$project.getIncome() zł
             </td><td>$project.getProjectMembers().toString() zł

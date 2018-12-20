@@ -25,9 +25,8 @@ define('view/team', [
     var ProjectCollection = Backbone.Collection.extend({
         model: ProjectModel,
         teamId : null,
-        allowToAdd: 1,
-        initialize: function (options) {
-            this.teamId = options.teamId;
+        initialize: function (model,options) {
+            console.log(options)
             this.url = AJS.contextPath() + '/rest/project/1.0/project/'+options.teamId;
         },
         nextId: function() {
@@ -51,18 +50,19 @@ define('view/team', [
         },
         initialize: function () {
             this.el.append(this.render());
-
-         //   this.listenTo(this.model, 'change', this.render);
-            //manage projects
-            console.log('tworzy project collection');
-            console.log(this.model);
+            // this.listenTo(this.model, 'change', this.render);
+            // manage projects
             var teamId = this.model.get('id');
-            this.projectCollection = new ProjectCollection({teamId: teamId});
+            this.projectCollection = new ProjectCollection(null,{teamId: teamId});
+            console.log('wielkosc')
+            console.log(this.projectCollection.size())
             this.listenTo(this.projectCollection, 'add', this.addProject);
             this.projectCollection.fetch();
 
         },
         addProject: function (model) {
+            console.log('dodaje MODEL')
+            console.log(model)
             if(model.isUpdated === 0) {
                 var view = new projectView({model: model, collection: this.projectCollection});
                 this.$el.find(".project-list").append(view.render().el);
@@ -70,10 +70,7 @@ define('view/team', [
         },
 
         addProjectToView: function () {
-            if(this.projectCollection.allowToAdd === 0 ){
-                return false;
-            }
-            this.projectCollection.allowToAdd =0;
+
             var newProject = new ProjectModel({teamId:this.model.get('id')});
             var that = this;
             newProject.isUpdated = 1;
@@ -136,7 +133,9 @@ define('view/team', [
             this.model.isUpdated = 1;
 
             var projectIds = [];
+            console.log(this.projectCollection.size())
             this.projectCollection.each(function(model){
+                console.log(model)
                     projectIds.push(model.get('id'));
             });
 
@@ -144,7 +143,6 @@ define('view/team', [
             this.model.save();
             this.collection.add(this.model);
             this.collection.allowToAdd = 1;
-            this.projectCollection.allowToAdd = 1;
         }
     });
 

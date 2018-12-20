@@ -48,9 +48,10 @@ public class TeamServiceImpl implements TeamService
     }
 
     @Override
-    public Team getTeamById(int teamId) {
-        Team[] team = ao.find(Team.class, Query.select().where("ID = ?", teamId));
-        return team[0];
+    public Team getTeamById(int teamId) throws Exception {
+        Team[] team;
+        team = ao.find(Team.class, Query.select().where("ID = ?", teamId));
+        return team.length > 0 ? team[0] : null;
     }
 
 

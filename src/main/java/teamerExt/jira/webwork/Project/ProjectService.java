@@ -14,7 +14,7 @@ public interface ProjectService {
 
         Iterable<ProjectTeam>  allProjectsByTeam(String teamId);
 
-        Project getProjectById(Integer projectId);
+        Project getProjectById(Integer projectId) throws NullPointerException;
 
         void delete(Project project);
 

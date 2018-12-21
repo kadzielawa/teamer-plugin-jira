@@ -1,5 +1,7 @@
 package teamerExt.rest;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.*;
 
@@ -10,6 +12,14 @@ public class ProjectMemberModelXML {
     private String id;
     @XmlElement (name = "userId")
     private String userId;
+    @XmlElement (name = "project_member_id")
+    private String project_member_id;
+
+    //przy wysylaniu aktualizacji usera na tabelce
+    @XmlElement (name = "user_id")
+    private String user_id;
+    @XmlElement (name = "developer_name")
+    private String developer_name;
     @XmlElement (name = "projectId")
     private String projectId;
     @XmlElement (name = "billed")
@@ -102,5 +112,21 @@ public class ProjectMemberModelXML {
 
     public void setProject(ProjectModel project) {
         this.project = project;
+    }
+
+    public String getProject_member_id() {
+        return project_member_id;
+    }
+
+    public void setProject_member_id(String project_member_id) {
+        this.project_member_id = project_member_id;
+    }
+
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
     }
 }

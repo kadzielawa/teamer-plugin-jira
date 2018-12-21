@@ -5,6 +5,7 @@
     $webResourceManager.requireResource("teamerExt.teamer-plugin:mustache-templates")
 
     $webResourceManager.requireResource("com.atlassian.auiplugin:aui-select")
+    $webResourceManager.requireResource("com.atlassian.auiplugin:aui-label")
     $webResourceManager.requireResource("com.atlassian.auiplugin:aui-page-layout")
     $webResourceManager.requireResource("com.atlassian.auiplugin:dialog2")
     $webResourceManager.requireResource("com.atlassian.auiplugin:aui-experimental-restfultable")
@@ -53,6 +54,11 @@
                     <span class="aui-icon icon-required"> required</span>
                 </label>
                 <input class="project-name" type="text" title="first name" value="{{projectName}}">
+
+                <label>Przychód
+                    <span class="aui-icon icon-required"> required</span>
+                </label>
+                <input class="project-income" type="text" title="first name" value="{{projectIncome}}">
             </div>
         </div>
 
@@ -77,7 +83,6 @@
 
 <div class="aui-group buttons-teams-manage">
 <a class="aui-button"  id="button-add-team">dodaj nowy zespół</a>
-<a class="aui-button"  id="button-add-xxx">sprawdz tutaj</a>
 </div>
 <div class="aui-group teams-list">
 

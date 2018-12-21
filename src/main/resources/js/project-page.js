@@ -1,6 +1,5 @@
-require(['jquery', 'backbone', 'mustache'], function($, Backbone, mustache) {
+require(['jquery', 'backbone'], function($, Backbone) {
     AJS.toInit(function() {
-        console.log(mustache);
         /* Models */
         var SpaceVariable = Backbone.Model.extend();
         var SpaceVariableView = Backbone.Model.extend({urlRoot: AJS.contextPath() + '/rest/confluence-utils/1.0/spacevariable/'});
@@ -29,13 +28,6 @@ require(['jquery', 'backbone', 'mustache'], function($, Backbone, mustache) {
                         return 2 + 4;
                     }
                 };
- /*               var template = $('#sample_template').html();
-                console.log(template);
-
-// output will then contain processed html
-                var output = mustache.render(template, view)*/
-          //      console.log(output);
-
                 this.collection.on('remove', this._rebuildSpaceVariableList);
                 this.collection.on('change', this._rebuildSpaceVariableList);
                 this.collection.on('add', this._rebuildSpaceVariableList);

@@ -16,6 +16,8 @@ public interface ProjectService {
 
         Project getProjectById(Integer projectId) throws NullPointerException;
 
+        ProjectMember getProjectMemberByProjectMemberId(String projectMemberId);
+
         void delete(Project project);
 
         ArrayList<ProjectMember> getProjectMembersByProjectId(String projectId);

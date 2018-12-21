@@ -49,9 +49,22 @@ public class ProjectServiceImpl implements ProjectService
     }
 
     @Override
+    public ProjectMember getProjectMemberByProjectMemberId(String projectMemberId){
+        ProjectMember[] projectMember = ao.find(ProjectMember.class, Query.select().where("ID = ?", projectMemberId));
+        if (projectMember.length == 0) {
+            return ao.create(ProjectMember.class);
+        } else {
+            return projectMember[0];
+        }
+    }
+
+    @Override
     public ArrayList<ProjectMember> getProjectMembersByProjectId(String projectId) {
-        Query query =  Query.select().from(ProjectMember.class).alias(ProjectMember.class,"pm")
-                .join(User.class,"USER_ID = pm.USER_ID")
+        Query query =  Query.select()
+                .from(ProjectMember.class)
+                .join(User.class,"pm.USER_ID = u.ID")
+                .alias(ProjectMember.class,"pm")
+                .alias(User.class,"u")
                 .where("pm.PROJECT_ID = ?",projectId);
         System.out.println("ILOŚĆ");
         System.out.println(ao.count(ProjectMember.class,query));

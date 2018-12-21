@@ -54,15 +54,12 @@ define('view/team', [
             // manage projects
             var teamId = this.model.get('id');
             this.projectCollection = new ProjectCollection(null,{teamId: teamId});
-            console.log('wielkosc')
-            console.log(this.projectCollection.size())
             this.listenTo(this.projectCollection, 'add', this.addProject);
             this.projectCollection.fetch();
 
         },
         addProject: function (model) {
-            console.log('dodaje MODEL')
-            console.log(model)
+
             if(model.isUpdated === 0) {
                 var view = new projectView({model: model, collection: this.projectCollection});
                 this.$el.find(".project-list").append(view.render().el);

@@ -46,7 +46,9 @@ public class ProjectMembers{
             JSONObject projectMemberObject=new JSONObject();
             User user = userService.getUserById(projectMember.getUserId());
             projectMemberObject.put("developer_name",user.getFirstname() + " " + user.getLastname());
-            projectMemberObject.put("userId",projectMember.getUserId());
+            System.out.println(user.getFirstname());
+            projectMemberObject.put("user_id",projectMember.getUserId());
+            projectMemberObject.put("project_member_id",projectMember.getID());
             projectMemberObject.put("role",projectMember.getRole());
             projectMemberObject.put("availability",projectMember.getAvailability());
             projectMemberObject.put("cost",projectMember.getCost());
@@ -89,32 +91,35 @@ public class ProjectMembers{
                 return Response.ok().build();
         }
         @PUT
-        @Path ("{projectId}/{userId}")
-        public Response updateVersion(@PathParam("projectId") final Integer projectId,@PathParam("userId") final Integer userId, final ProjectMemberModelXML projectMemberModel)    {
+        @Path ("{projectId}/{projectMemberId}")
+        public Response updateVersion(@PathParam("projectId") final String projectId,@PathParam("projectMemberId") final String projectMemberId, final ProjectMemberModelXML projectMemberModel)    {
 
-                ProjectMember projectMember = ao.create(ProjectMember.class);
-                projectMember.setUserId(projectMemberModel.getUserId());
+                ProjectMember projectMember = this.projectService.getProjectMemberByProjectMemberId(projectMemberId);
                 projectMember.setAvailability(projectMemberModel.getAvailability());
-                projectMember.setProjectId(projectMemberModel.getProjectId());
                 projectMember.setRole(projectMemberModel.getRole());
+                projectMember.setProjectId(projectId);
+                projectMember.setCost(projectMemberModel.getCost());
+                projectMember.setOkp(projectMemberModel.getOkp());
                 projectMember.setBilled(projectMemberModel.getBilled());
 
                 userService.associateProjectToUser(projectMember);
-                return Response.ok(projectMember.getAvailability()).build();
+            return Response
+                    .status(Response.Status.OK)
+                    .type(MediaType.APPLICATION_JSON).build();
         }
         //przy wiazaniu na tabelce
         @POST
         @Path ("{id}")
         public Response createVersion(@PathParam("id") final String projectId,ProjectMemberModelXML projectMemberModel) throws JSONException {
 
-                System.out.println("projekt!");
-                System.out.println(projectId);
 
-                ProjectMember projectMember = ao.create(ProjectMember.class);
+                ProjectMember projectMember = this.projectService.getProjectMemberByProjectMemberId(projectMemberModel.getProject_member_id());
                 projectMember.setAvailability(projectMemberModel.getAvailability());
                 projectMember.setProjectId(projectId);
-                projectMember.setUserId(projectMemberModel.getUserId());
+                projectMember.setUserId(projectMemberModel.getUser_id());
                 projectMember.setBilled(projectMemberModel.getBilled());
+                projectMember.setCost(projectMemberModel.getCost());
+                projectMember.setOkp(projectMemberModel.getOkp());
                 projectMember.setRole(projectMemberModel.getRole());
 
                 userService.associateProjectToUser(projectMember);

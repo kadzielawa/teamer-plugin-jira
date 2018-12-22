@@ -1,5 +1,8 @@
 package teamerExt.rest;
 
+import teamerExt.jira.webwork.Project.Project;
+import teamerExt.jira.webwork.Project.ProjectBean;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
@@ -9,12 +12,13 @@ import java.util.List;
 
 public class TeamModel{
 
-    @XmlElement(name = "name")
-    public String name;
-    @XmlElement(name = "projectIds")
-    public ArrayList<Integer> projectIds;
     @XmlElement(name = "id")
     public int id;
+    @XmlElement(name = "name")
+    public String name;
+    @XmlElement(name = "projects")
+    public ArrayList<ProjectBean> projects;
+
     public int getId()
     {
         return id;
@@ -24,12 +28,11 @@ public class TeamModel{
        this.id = id;
     }
 
-    public ArrayList<Integer> getProjectIds() {
-        return projectIds;
+    public ArrayList<ProjectBean> getProjects() {
+        return projects;
     }
-
-    public void setProjectIds(ArrayList<Integer> projectIds) {
-        this.projectIds = projectIds;
+    public void setProjects(ArrayList<ProjectBean> projects) {
+        this.projects = projects;
     }
 
     public String getName(){

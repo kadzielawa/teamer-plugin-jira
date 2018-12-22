@@ -13,9 +13,9 @@
     $webResourceManager.requireResource("com.atlassian.auiplugin:aui-forms")
     $webResourceManager.requireResource("com.atlassian.auiplugin:aui-select2")
 
-
     <script type="text/template" id="team-row">
         <div class="aui-group">
+            <div class="aui-group">OKP : <span id="okpCost">4500</span>,00 zł</div>
             <div class="field-group top-label">
                 <label>Nazwa zespołu
                     <span class="aui-icon icon-required"> required</span>
@@ -42,11 +42,22 @@
 
                 </div>
             </div>
+            <div class="">
+                Zysk z zespołu: {{profit}}
+            </div>
             <button class="save" data-team_id="{{teamId}}">Zapisz zespół</button>
             <button class="delete" data-team_id="{{teamId}}">Usuń zespół</button>
         </div>
     </script>
 
+    <script type="text/template" id="project-result">
+        <div class="ddd">
+            <p><span>Koszt zespołu:<b>{{costTeam}}</b></span></p>
+            <p><span>Suma OKP:<b>{{okpSum}}</b></span></p>
+            <p> <span>Wynik:<b>{{result}}</b></span></p>
+            <p> <span>rentowność: <b>{{profitability}}</b></span></p>
+        </div>
+    </script>
     <script type="text/template" id="project-row">
         <div class="aui-group">
             <div class="field-group">
@@ -64,6 +75,9 @@
 
         <div class="aui-group person-list" id="person-list-{{teamId}}_{{restfulTableId}}">
         </div>
+        <div></div>
+
+
     </script>
 
 </head>

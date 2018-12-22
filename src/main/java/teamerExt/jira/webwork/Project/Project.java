@@ -7,7 +7,6 @@ import net.java.ao.schema.AutoIncrement;
 import net.java.ao.schema.NotNull;
 import net.java.ao.schema.PrimaryKey;
 
-@Preload
 public interface Project extends Entity {
 
     @AutoIncrement

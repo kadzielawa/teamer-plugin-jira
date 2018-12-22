@@ -25,6 +25,7 @@
     <resource type="download" name="team-manage.js" location="/js/team-manage.js"/>
     <resource type="download" name="project-page.js" location="/js/project-page.js"/>
     <resource type="download" name="view/team.js" location="/js/view/team.js"/>
+    <resource type="download" name="view/project-result.js" location="/js/view/project-result.js"/>
     <resource type="download" name="view/members.js" location="/js/view/members.js"/>
     <resource type="download" name="view/project.js" location="/js/view/project.js"/>
 

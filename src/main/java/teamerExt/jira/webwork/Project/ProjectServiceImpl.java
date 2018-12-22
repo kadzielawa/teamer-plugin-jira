@@ -6,6 +6,7 @@ import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.sal.api.user.UserManager;
 import com.google.common.collect.Lists;
 import net.java.ao.Query;
+import teamerExt.jira.webwork.Team.Team;
 import teamerExt.jira.webwork.User.User;
 
 import javax.inject.Inject;
@@ -66,8 +67,7 @@ public class ProjectServiceImpl implements ProjectService
                 .alias(ProjectMember.class,"pm")
                 .alias(User.class,"u")
                 .where("pm.PROJECT_ID = ?",projectId);
-        System.out.println("ILOŚĆ");
-        System.out.println(ao.count(ProjectMember.class,query));
+
         return Lists.newArrayList(ao.find(ProjectMember.class,query));
     }
 
@@ -84,6 +84,23 @@ public class ProjectServiceImpl implements ProjectService
         return Lists.newArrayList(ao.find(ProjectTeam.class, Query.select().where("TEAM_ID = ?", teamId)));
     }
 
+
+    @Override
+    public ProjectTeam getProjectByTeamId(int teamId,Integer projectId) throws Exception {
+
+        ProjectTeam[] projectTeam = ao.find(ProjectTeam.class, Query.select().where("TEAM_ID = ?", teamId).where("PROJECT_ID = ?",projectId));
+        if (projectTeam.length == 0) {
+            return ao.create(ProjectTeam.class);
+        } else {
+            return projectTeam[0];
+        }
+    }
+
+    @Override
+    public void delete(ProjectMember projectMember)
+    {
+        ao.delete(projectMember);
+    }
 
     @Override
     public Project getProjectById(Integer projectId) throws NullPointerException {

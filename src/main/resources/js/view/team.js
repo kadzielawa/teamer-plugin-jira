@@ -5,8 +5,6 @@ define('view/team', [
     'mustache',
     'view/project'], function($, Backbone,mustache,projectView) {
 
-
-
     var ProjectModel = Backbone.Model.extend({
         initialize: function (options) {
             this.collection = options.collection;
@@ -26,7 +24,6 @@ define('view/team', [
         model: ProjectModel,
         teamId : null,
         initialize: function (model,options) {
-            console.log(options)
             this.url = AJS.contextPath() + '/rest/project/1.0/project/'+options.teamId;
         },
         nextId: function() {
@@ -122,21 +119,24 @@ define('view/team', [
         },
 
         updateName: function (evt) {
-            var projectName = $(evt.target).val();
-            this.model.set('name', projectName);
+            var teamName = $(evt.target).val();
+            this.model.set('name', teamName);
         },
 
         saveTeam: function () {
             this.model.isUpdated = 1;
 
-            var projectIds = [];
-            console.log(this.projectCollection.size())
+            var projects = [];
             this.projectCollection.each(function(model){
-                console.log(model)
-                    projectIds.push(model.get('id'));
+               var project = {
+                    "id": model.get('projectId'),
+                   "name" : model.get('name'),
+                   "income": model.get('income')
+               }
+               projects.push(project);
             });
 
-            this.model.set('projectIds',projectIds);
+            this.model.set('projects',projects);
             this.model.save();
             this.collection.add(this.model);
             this.collection.allowToAdd = 1;

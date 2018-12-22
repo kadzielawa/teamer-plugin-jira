@@ -41,17 +41,6 @@ public class ProjectTeamAddTest {
         newList.add(2);
         newList.add(6);
 
-
-        teamModel.setProjectIds(newList);
-
-        for (Integer projectId : teamModel.getProjectIds()) {
-            ProjectTeam projectTeam = entityManager.create(ProjectTeam.class);
-            projectTeam.setProjectId(projectId);
-            projectTeam.save();
-        }
-
-
-
         final Query query = Query.select();
         Iterable<ProjectTeam> teamList = Lists.newArrayList(entityManager.find(ProjectTeam.class, query));
         System.out.println("start");

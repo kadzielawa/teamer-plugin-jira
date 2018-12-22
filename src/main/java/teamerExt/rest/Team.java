@@ -4,8 +4,8 @@ import com.atlassian.activeobjects.external.ActiveObjects;
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.plugins.rest.common.security.AnonymousAllowed;
 
-import teamerExt.jira.webwork.Project.ProjectMember;
-import teamerExt.jira.webwork.Project.ProjectTeam;
+import teamerExt.jira.webwork.Project.*;
+import teamerExt.jira.webwork.Project.Project;
 import teamerExt.jira.webwork.Team.TeamService;
 
 import javax.ws.rs.*;
@@ -20,12 +20,14 @@ import java.util.List;
 @Path("team")
 public class Team {
 
-    private final TeamService teamService;
+    private TeamService teamService;
+    private ProjectService projectService;
     @ComponentImport
-    private final ActiveObjects ao;
+    private ActiveObjects ao;
 
-    public Team(TeamService teamService, ActiveObjects ao) {
+    public Team(TeamService teamService, ProjectService projectService, ActiveObjects ao) {
         this.teamService = teamService;
+        this.projectService = projectService;
         this.ao = ao;
     }
 
@@ -72,10 +74,15 @@ public class Team {
             teamId = checkedTeam.getID();
         }
 
+        for (ProjectBean project : teamModel.getProjects()) {
 
-        for (Integer projectId : teamModel.getProjectIds()) {
-            ProjectTeam projectTeam = ao.create(ProjectTeam.class);
-            projectTeam.setProjectId(projectId);
+            Project editedProject = projectService.getProjectById(project.getId());
+            editedProject.setName(project.getName());
+            editedProject.setIncome(project.getIncome());
+            editedProject.save();
+
+            ProjectTeam projectTeam = projectService.getProjectByTeamId(teamId,project.getId());
+            projectTeam.setProjectId(project.getId());
             projectTeam.setTeamId(teamId);
             projectTeam.save();
         }
@@ -84,6 +91,7 @@ public class Team {
         return Response.ok("utworzono team - ID:"+ teamId).build();
     }
 
+/*
 
 
     @POST
@@ -105,18 +113,25 @@ public class Team {
         }
 
 
-        for (Integer projectId : teamModel.getProjectIds()) {
+        for (ProjectBean project : teamModel.getProjects()) {
+
+            Project editedProject = projectService.getProjectById(project.getId());
+            editedProject.setName(project.getName());
+            editedProject.setIncome(project.getIncome());
+            editedProject.save();
             ProjectTeam projectTeam = ao.create(ProjectTeam.class);
-            projectTeam.setProjectId(projectId);
+            projectTeam.setProjectId(project.getId());
             projectTeam.setTeamId(teamId);
             projectTeam.save();
         }
 
 
 
+
+
         return Response.ok("utworzono team - ID:"+ teamId).build();
     }
-
+*/
     @DELETE
     @Path("{id}")
     public Response delete(@PathParam("id") final int teamId) throws Exception {

@@ -1,6 +1,7 @@
 package teamerExt.jira.webwork.Project;
 
 import com.atlassian.activeobjects.tx.Transactional;
+import teamerExt.jira.webwork.User.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,11 @@ public interface ProjectService {
 
         Iterable<ProjectTeam>  allProjectsByTeam(String teamId);
 
+        public ProjectTeam getProjectByTeamId(int teamId,Integer projectId) throws Exception;
+
         Project getProjectById(Integer projectId) throws NullPointerException;
+
+        public void delete(ProjectMember projectMember);
 
         ProjectMember getProjectMemberByProjectMemberId(String projectMemberId);
 

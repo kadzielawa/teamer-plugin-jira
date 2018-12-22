@@ -48,6 +48,7 @@ public class ProjectMembers{
             projectMemberObject.put("developer_name",user.getFirstname() + " " + user.getLastname());
             System.out.println(user.getFirstname());
             projectMemberObject.put("user_id",projectMember.getUserId());
+            projectMemberObject.put("id",projectMember.getID());
             projectMemberObject.put("project_member_id",projectMember.getID());
             projectMemberObject.put("role",projectMember.getRole());
             projectMemberObject.put("availability",projectMember.getAvailability());
@@ -135,9 +136,11 @@ public class ProjectMembers{
         }
 
         @DELETE
-        @Path("/{id}")
-        public Response delete(@PathParam("id") final String id){
-                System.out.println("xxczx");
+        @Path("{projectId}/{memberId}")
+        public Response delete(@PathParam("projectId") final String projectId,@PathParam("memberId") final String memberId){
+                ProjectMember projectMember = this.projectService.getProjectMemberByProjectMemberId(memberId);
+            this.projectService.delete(projectMember);
+
                 return Response.ok().build();
         }
 

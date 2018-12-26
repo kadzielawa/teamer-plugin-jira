@@ -11,7 +11,7 @@ public interface TeamService {
 
     Team getTeamById(int teamId) throws Exception;
 
-    public void delete(Team team);
+    public void delete(Team team) throws Exception;
 
     Iterable<Team> all();
 }

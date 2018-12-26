@@ -209,6 +209,7 @@ define('view/members', ['jquery',  'backbone','mustache','view/project-result'],
 
                 editedRow.model.set('okp',okp)
                 console.log(editedRow.model);
+                console.log(editedRow);
 
 
             });

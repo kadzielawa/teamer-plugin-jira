@@ -6,12 +6,12 @@ import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.google.common.collect.Lists;
 import net.java.ao.Query;
 import teamerExt.jira.webwork.Project.Project;
+import teamerExt.jira.webwork.Project.ProjectMember;
 import teamerExt.jira.webwork.Project.ProjectService;
+import teamerExt.jira.webwork.Project.ProjectTeam;
 
 import javax.inject.Inject;
 import javax.inject.Named;
-
-import java.sql.SQLException;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -21,12 +21,14 @@ public class TeamServiceImpl implements TeamService
 {
     @ComponentImport
     private final ActiveObjects ao;
+    private final ProjectService projectService;
 
 
     @Inject
-    public TeamServiceImpl(ActiveObjects ao)
+    public TeamServiceImpl(ActiveObjects ao, ProjectService projectService)
     {
         this.ao = checkNotNull(ao);
+        this.projectService = projectService;
     }
 
 
@@ -42,9 +44,18 @@ public class TeamServiceImpl implements TeamService
         return Lists.newArrayList(ao.find(Team.class, query));
     }
     @Override
-    public void delete(Team team)
-    {
+    public void delete(Team team) throws Exception {
         ao.delete(team);
+        Iterable<ProjectTeam> projectTeams = this.projectService.allProjectsByTeam(team.getID());
+
+        for(ProjectTeam projectTeam : projectTeams ){
+            this.projectService.delete(projectTeam);
+            Iterable<ProjectMember> projectMembers = this.projectService.getProjectMembersByProjectId(projectTeam.getProjectId());
+
+            for(ProjectMember projectMember : projectMembers){
+                this.projectService.delete(projectMember);
+            }
+        }
     }
 
     @Override

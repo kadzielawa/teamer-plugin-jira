@@ -60,7 +60,7 @@ public class ProjectServiceImpl implements ProjectService
     }
 
     @Override
-    public ArrayList<ProjectMember> getProjectMembersByProjectId(String projectId) {
+    public ArrayList<ProjectMember> getProjectMembersByProjectId(int projectId) {
         Query query =  Query.select()
                 .from(ProjectMember.class)
                 .join(User.class,"pm.USER_ID = u.ID")
@@ -79,14 +79,14 @@ public class ProjectServiceImpl implements ProjectService
     }
 
     @Override
-    public Iterable<ProjectTeam> allProjectsByTeam(String teamId)
+    public Iterable<ProjectTeam> allProjectsByTeam(int teamId)
     {
         return Lists.newArrayList(ao.find(ProjectTeam.class, Query.select().where("TEAM_ID = ?", teamId)));
     }
 
 
     @Override
-    public ProjectTeam getProjectByTeamId(int teamId,Integer projectId) throws Exception {
+    public ProjectTeam getProjectByTeamId(int teamId,int projectId) throws Exception {
 
         ProjectTeam[] projectTeam = ao.find(ProjectTeam.class, Query.select().where("TEAM_ID = ?", teamId).where("PROJECT_ID = ?",projectId));
         if (projectTeam.length == 0) {
@@ -94,6 +94,12 @@ public class ProjectServiceImpl implements ProjectService
         } else {
             return projectTeam[0];
         }
+    }
+
+    @Override
+    public void delete(ProjectTeam projectTeam)
+    {
+        ao.delete(projectTeam);
     }
 
     @Override
@@ -107,30 +113,10 @@ public class ProjectServiceImpl implements ProjectService
         if(projectId == null){
             throw new NullPointerException("Projekt nie może być nullem");
         }
-        System.out.println("CCCCC");
-        System.out.println(projectId);
         Project[] project = ao.find(Project.class, Query.select().where("ID = ?", projectId));
 
         return project[0];
     }
 
-/*
-    private User getOrCreateUser(ActiveObjects ao, String userName)
-    {
-        User[] users = ao.find(User.class, Query.select().where("USERNAME = ?", userName));
-        if (users.length == 0) {
-            return createUser(ao, userName);
-        } else if (users.length == 1) {
-            return users[0];
-        } else {
-            throw new IllegalStateException("There shouldn't be 2 users with the same username! " + userName);
-        }
-    }
-*/
-
-/*    private User createUser(ActiveObjects ao, String userName)
-    {
-        return ao.create(User.class, ImmutableMap.<String, Object>of("USERNAME", userName));
-    }*/
 
 }

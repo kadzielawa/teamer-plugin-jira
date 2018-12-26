@@ -14,8 +14,8 @@ public interface ProjectMember extends Entity {
     @PrimaryKey("ID")
     public int getID();
 
-    public void setProjectId(String projectId);
-    public String getProjectId();
+    public void setProjectId(int projectId);
+    public int getProjectId();
 
     public void setUserId(String userId);
     public String getUserId();

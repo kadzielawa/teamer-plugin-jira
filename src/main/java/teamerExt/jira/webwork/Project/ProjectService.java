@@ -13,18 +13,20 @@ public interface ProjectService {
 
         Iterable<Project> all();
 
-        Iterable<ProjectTeam>  allProjectsByTeam(String teamId);
+        Iterable<ProjectTeam>  allProjectsByTeam(int teamId);
 
-        public ProjectTeam getProjectByTeamId(int teamId,Integer projectId) throws Exception;
+        public ProjectTeam getProjectByTeamId(int teamId,int projectId) throws Exception;
 
         Project getProjectById(Integer projectId) throws NullPointerException;
 
         public void delete(ProjectMember projectMember);
 
+        public void delete(ProjectTeam projectTeam);
+
         ProjectMember getProjectMemberByProjectMemberId(String projectMemberId);
 
         void delete(Project project);
 
-        ArrayList<ProjectMember> getProjectMembersByProjectId(String projectId);
+        ArrayList<ProjectMember> getProjectMembersByProjectId(int projectId);
 
 }

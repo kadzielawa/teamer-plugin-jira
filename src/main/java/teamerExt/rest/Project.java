@@ -58,7 +58,7 @@ public class Project {
 
     @GET
     @Path("{id}")
-    public  ArrayList<ProjectModel> getProjectsByTeamId(@PathParam ("id") final String teamId){
+    public  ArrayList<ProjectModel> getProjectsByTeamId(@PathParam ("id") final int teamId){
 
         Iterable<ProjectTeam> allProjectsWithTeams = projectService.allProjectsByTeam(teamId);
 

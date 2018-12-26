@@ -26,7 +26,6 @@ public class ProjectMembers{
         private final UserService userService;
         @ComponentImport
         private final ActiveObjects ao;
-
         public ProjectMembers(ProjectService projectService, UserService userService, ActiveObjects ao) {
                 this.projectService = projectService;
                 this.userService = userService;
@@ -35,13 +34,11 @@ public class ProjectMembers{
 
     @GET
     @Path ("{projectId}")
-    public Response getVersion(@PathParam ("projectId") final String projectId)
+    public Response getVersion(@PathParam ("projectId") final int projectId)
     {
         ProjectMemberModelXML projectMemberModel = new ProjectMemberModelXML();
-
         JSONArray allProjectMembers = new JSONArray();
         ArrayList<ProjectMember> projectMembers = projectService.getProjectMembersByProjectId(projectId);
-
         for(ProjectMember projectMember : projectMembers) {
             JSONObject projectMemberObject=new JSONObject();
             User user = userService.getUserById(projectMember.getUserId());
@@ -57,21 +54,14 @@ public class ProjectMembers{
             projectMemberObject.put("okp",projectMember.getOkp());
             allProjectMembers.add(projectMemberObject);
         }
-
-        System.out.println("ttttt");
-
         return   Response
                 .status(Response.Status.OK)
                 .entity(allProjectMembers.toString())
                 .build();
     }
-
         @GET
         @Path ("/users")
         public Response getAllUsers() throws JSONException {
-
-
-
                 JSONArray allUsers = new JSONArray();
                 for(User user: userService.all()){
                    JSONObject userObject=new JSONObject();
@@ -93,7 +83,7 @@ public class ProjectMembers{
         }
         @PUT
         @Path ("{projectId}/{projectMemberId}")
-        public Response updateVersion(@PathParam("projectId") final String projectId,@PathParam("projectMemberId") final String projectMemberId, final ProjectMemberModelXML projectMemberModel)    {
+        public Response updateVersion(@PathParam("projectId") final int projectId,@PathParam("projectMemberId") final String projectMemberId, final ProjectMemberModelXML projectMemberModel)    {
 
                 ProjectMember projectMember = this.projectService.getProjectMemberByProjectMemberId(projectMemberId);
                 projectMember.setAvailability(projectMemberModel.getAvailability());
@@ -111,7 +101,7 @@ public class ProjectMembers{
         //przy wiazaniu na tabelce
         @POST
         @Path ("{id}")
-        public Response createVersion(@PathParam("id") final String projectId,ProjectMemberModelXML projectMemberModel) throws JSONException {
+        public Response createVersion(@PathParam("id") final int projectId,ProjectMemberModelXML projectMemberModel) throws JSONException {
 
 
                 ProjectMember projectMember = this.projectService.getProjectMemberByProjectMemberId(projectMemberModel.getProject_member_id());

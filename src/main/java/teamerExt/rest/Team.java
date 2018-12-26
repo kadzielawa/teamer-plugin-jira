@@ -135,7 +135,11 @@ public class Team {
     @DELETE
     @Path("{id}")
     public Response delete(@PathParam("id") final int teamId) throws Exception {
+        System.out.println(teamId);
+
         teamerExt.jira.webwork.Team.Team team = this.teamService.getTeamById(teamId);
+
+        System.out.println(team);
         this.teamService.delete(team);
 
         return Response.ok("usunieto").build();

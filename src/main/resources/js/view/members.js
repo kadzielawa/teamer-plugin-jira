@@ -1,8 +1,12 @@
-define('view/members', ['jquery',  'backbone','mustache','view/project-result'], function($, Backbone,mustache,ProjectResultView) {
+define('view/members', ['jquery',  'backbone','underscore','mustache','view/project-result'], function($, Backbone,_,mustache,ProjectResultView) {
 
     var xxxmodel = Backbone.Model.extend({
         initialize: function (options) {
-           console.log(options)
+            var define_okp = parseInt($("#okpCost").html());
+            var availability = this.get('availability');
+            this.set('define_okp',define_okp);
+            var real_okp = (availability / 100) * define_okp;
+            this.set('okp',real_okp );
         },
 
     });
@@ -13,33 +17,28 @@ define('view/members', ['jquery',  'backbone','mustache','view/project-result'],
             'click .billedToggleButton' : 'billedClick',
             'change .billedToggleButton' : 'billedClick'
         },
+        projectData: null,
         membersCollection: null,
         initialize: function(options) {
+            this.projectData = options.projectData;
             this.okp = parseInt($("#okpCost").html())
             this.setElement(options.el)
             this.restfulTableId = options.restfulTableId
             this.addRESTfulTable();
-
+            this.checkIfColumnsAreDisplayed(this.restfulTableId,this.projectData.teamId);
         },
         billedClick: function (event) {
             var $userRow = $(event.target.closest('tr'))
             var userId = $userRow.data('user_id');
-
-        },
-        addUser: function (model) {
-
         },
 
-        changeModel: function (model) {
-            console.log(model);
-        },
         addRESTfulTable: function () {
             var that = this;
             var projectId = this.restfulTableId;
             var EditGroupView = AJS.RestfulTable.CustomCreateView.extend({
 
                 render: function (self) {
-                    var $text = $("<input type='text' value='"+ self.value +"' class='userSearcher' name='user_id' placeholder='wyszukaj Usera'> ");
+                    var $text = $("<input type='text' value='"+ self.value +"' class='userSearcher text' name='user_id' placeholder='wyszukaj Usera'> ");
 
                     $text.val(self.value); //
                     return $text;
@@ -75,7 +74,6 @@ define('view/members', ['jquery',  'backbone','mustache','view/project-result'],
             var OKPView = AJS.RestfulTable.CustomEditView.extend({
                 render: function (self) {
                     var value = typeof self.value === 'undefined' ? "-" : self.value;
-                    console.log('val1: '+value);
                     var $disabledField = $('<input type="text" class="text okp-input" value="' + value +'" name="okp" disabled>')
                     return $disabledField;
                 }
@@ -83,7 +81,6 @@ define('view/members', ['jquery',  'backbone','mustache','view/project-result'],
 
             var OKPReadView = AJS.RestfulTable.CustomEditView.extend({
                 render: function (self) {
-                    console.log('val2: '+self.value);
 
                     var $disabledField = $('<span class="okp-input">'+ self.value+' zł</span>')
                     return $disabledField;
@@ -114,7 +111,8 @@ define('view/members', ['jquery',  'backbone','mustache','view/project-result'],
             var membersTable = new AJS.RestfulTable({
                 autoFocus: true,
                 el: this.$el,
-                allowReorder: true,
+                id: "restfultable_"+projectId,
+                allowReorder: false,
                 model:xxxmodel,
 
                 //nie dostal user_id i dlatego nie ma null w projekie
@@ -137,10 +135,9 @@ define('view/members', ['jquery',  'backbone','mustache','view/project-result'],
                     },
                     {
                         id: "developer_name",
-                        fieldName:"user_id",
+                        fieldName:"developer_name",
                         header: "Imię i nazwisko",
-                        createView: EditGroupView,
-                        allowEdit: false,
+                        createView: EditGroupView
                     },
                     {
                         id: "role",
@@ -175,52 +172,48 @@ define('view/members', ['jquery',  'backbone','mustache','view/project-result'],
                     }
                 ]
             });
-
             this.membersCollection = membersTable.getModels();
             this.listenTo(this.membersCollection, 'add', this.addUser);
-
             var $ecl =  this.$el
 
             this.membersCollection.fetch({
                 async: false,
                 success: function (data) {
-                    var projectresultView = new ProjectResultView({collection:data});
+                    var projectresultView = new ProjectResultView({collection:data,projectData:that.projectData});
                     $ecl.after(projectresultView.render().el)
                 }
             })
 
-
-            jQuery(document).bind(AJS.RestfulTable.Events.INITIALIZED, function (event) {
-                $ecl.find('.userSearcher').auiSelect2( {
-                    ajax: {
-                        url: AJS.contextPath() + '/rest/projectmembers/1.0/projectmembers/users',
-                        dataType: 'json',
-                        results: function results(data) {
-                            return {
-                                results: data
-                            };
-                        },
-                    }})
-            });
-
-            jQuery(document).bind(AJS.RestfulTable.Events.EDIT_ROW, function (event,editedRow,table) {
-                //compute okp
-                var okp = that.okp * parseInt(editedRow.model.get('availability'));
-
-                editedRow.model.set('okp',okp)
-                console.log(editedRow.model);
-                console.log(editedRow);
-
+            $ecl.bind(AJS.RestfulTable.Events.INITIALIZED, function () {
+                console.log('ooo')
+                var elements = $ecl.find('.userSearcher');
+                _.each(elements,function (element,i) {
+                    $(element).auiSelect2( {
+                        ajax: {
+                            url: AJS.contextPath() + '/rest/projectmembers/1.0/projectmembers/users',
+                            dataType: 'json',
+                            results: function results(data) {
+                                usersDeveloperData = data;
+                                return {
+                                    results: data
+                                };
+                            },
+                        }})
+                })
 
             });
+
 
             jQuery(document).bind(AJS.RestfulTable.Events.ROW_ADDED, function (event,addedRow,table) {
-
+                console.log('dupa')
                 timeout = null;
                 check = function () {
                     var rootElement= table.focusedRow.$el[0]
+                    var childs = rootElement.children;
                     var element = rootElement.getElementsByClassName('userSearcher')[0];
                     if ($(element).is('[type=text]')) { // assuming a jQuery object here
+
+                        that.updateDeveloperName(addedRow);
                         that.afterAddedRowCallback(addedRow,table,element);
                         clearTimeout(timeout)
                     } else {
@@ -230,14 +223,85 @@ define('view/members', ['jquery',  'backbone','mustache','view/project-result'],
                 check();
             });
 
+            jQuery(document).bind(AJS.RestfulTable.Events.EDIT_ROW, function (event,addedRow,table) {
+                 setTimeout(function () {
+                    var addedRowx = addedRow.el.children;
+                    addedRowx[0].parentNode.removeChild(addedRowx[0]);
+                     $(addedRow.el).find("input.aui-button").on('click', function (e) {
+                    var updatedRow = $(e.target).closest('tr');
+                         setTimeout(function () {
+                             var updatedRowColumns = $(updatedRow)[0].children;
+                             updatedRowColumns[0].parentNode.removeChild(updatedRowColumns[0]);
+                         },100)
+                     });
+                }, 100);
+            });
+            },
+
+        checkIfColumnsAreDisplayed: function (projectId,teamId) {
+            var that =this;
+            var membersTable = $("#person-list-"+teamId + "_"+projectId);
+            var timeoutColumns = null;
+
+            if(membersTable.length > 0){
+
+                var $auiSortable = $(membersTable.children()[2]);
+                if($auiSortable.children().length > 0) {
+
+                    this.hideColumns($(membersTable));
+                    clearTimeout(timeoutColumns)
+                }
+            } else {
+                timeoutColumns = setTimeout(function(){
+                    that.checkIfColumnsAreDisplayed(projectId,teamId)
+                }, 100);
+            }
+        },
+        hideColumns:function (membersTable) {
+            var $auiThead = membersTable.children()[0];
+            var $auiCreateRow = membersTable.children()[1];
+            var $auiBody = membersTable.children()[2];
+
+            var thColumns = $auiThead.children[0].children;
+            var tbody =$auiBody.children;
+            var tcreaterow =$auiCreateRow.children[0].children;
+
+            for (var j = tbody.length - 1; j >= 0; j--) {
+                var tcells = tbody[j].children;
+                for (var k = tcells.length - 1;k>= 0; k--) {
+                    if(k === 0|| k === 1) {
+                        tcells[k].parentNode.removeChild(tcells[k]);
+                    }
+                }
+            }
+
+            for (var i = thColumns.length - 1; i >= 0; i--) {
+                if(i === 0|| i === 1) {
+                    thColumns[i].parentNode.removeChild(thColumns[i]);
+                }
+            }
+
+            for (var i = tcreaterow.length - 1; i >= 0; i--) {
+                if(i === 1|| i === 0) {
+                    tcreaterow[i].parentNode.removeChild(tcreaterow[i]);
+                }
+            }
+
         },
 
+        updateDeveloperName:function (addedRow) {
+            var searchedDeveloper = _.findWhere(usersDeveloperData,{id:Number(addedRow.model.get('user_id'))});
+            addedRow.model.set('developer_name',searchedDeveloper.text);
+            addedRow.refresh()
+
+        },
         afterAddedRowCallback: function (addedRow,table,element) {
             $(element).auiSelect2( {
                 ajax: {
                     url: AJS.contextPath() + '/rest/projectmembers/1.0/projectmembers/users',
                     dataType: 'json',
                     results: function results(data) {
+                        usersDeveloperData = data;
                         return {
                             results: data
                         };
@@ -245,8 +309,11 @@ define('view/members', ['jquery',  'backbone','mustache','view/project-result'],
                 }});
         }
     });
-
     return MembersView;
 });
 
 
+
+
+
+usersDeveloperData = null;

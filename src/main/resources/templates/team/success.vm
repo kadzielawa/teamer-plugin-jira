@@ -42,8 +42,8 @@
 
                 </div>
             </div>
-            <div class="">
-                Zysk z zespołu: {{profit}}
+            <div class="profit-area" data-team_id="{{teamId}}">
+                Zysk z zespołu: <span class="value">{{profit}}</span> zł
             </div>
             <button class="save" data-team_id="{{teamId}}">Zapisz zespół</button>
             <button class="delete" data-team_id="{{teamId}}">Usuń zespół</button>
@@ -52,10 +52,10 @@
 
     <script type="text/template" id="project-result">
         <div class="ddd">
-            <p><span>Koszt zespołu:<b>{{costTeam}}</b></span></p>
-            <p><span>Suma OKP:<b>{{okpSum}}</b></span></p>
-            <p> <span>Wynik:<b>{{result}}</b></span></p>
-            <p> <span>rentowność: <b>{{profitability}}</b></span></p>
+            <p><span>Koszt projektu:<b>{{costProject}} zł</b></span></p>
+            <p><span>Suma OKP:<b>{{okpSum}} zł</b></span></p>
+            <p> <span>Wynik:<b>{{result}} zł</b></span></p>
+            <p> <span>rentowność: <b>{{profitability}}%</b></span></p>
         </div>
     </script>
     <script type="text/template" id="project-row">
@@ -97,6 +97,7 @@
 
 <div class="aui-group buttons-teams-manage">
 <a class="aui-button"  id="button-add-team">dodaj nowy zespół</a>
+<a class="aui-button"  id="button-export-teams">eksportuj</a>
 </div>
 <div class="aui-group teams-list">
 

@@ -26,6 +26,7 @@
     <div class="aui-buttons">
 
         <a class="aui-button"  id="button-add-user">Dodaj pracownika</a>
+        <a class="aui-button" href="/jira/secure/teamerAction.jspa" id="button-import-user">Importuj pracowników</a>
 
     </div><div style="position: fixed; z-index: -1; height: 1px; width: 1px; top: 215px; left: 1489.53px;"></div>
 </div>

@@ -1,8 +1,5 @@
 package teamerExt.jira.webwork.Project;
 
-
-import com.atlassian.plugin.spring.scanner.annotation.component.Scanned;
-
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +11,6 @@ import java.net.ResponseCache;
 
 import static com.google.common.base.Preconditions.*;
 
-@Scanned
 public final class ProjectServlet extends HttpServlet
 {
     private final ProjectService projectService;

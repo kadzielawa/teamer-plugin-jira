@@ -27,7 +27,6 @@ public class teamAction extends JiraWebActionSupport
 
         try {
 
-            TeamerModel teamerModel = new TeamerModel();
             teams = teamService.all();
 
         } catch(Exception e) {

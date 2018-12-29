@@ -29,22 +29,29 @@ define('view/project', ['jquery',  'backbone','mustache','view/members'],
 
         updateName: function (evt) {
             var projectName = $(evt.target).val();
+            this.projectData.projectName = projectName;
+
             this.model.set('name', projectName);
         },
 
          updateIncome: function (evt) {
-            var projectIncome = $(evt.target).val();
+
+            var projectIncome = Number($(evt.target).val());
             this.model.set('income', projectIncome);
+            this.projectData.projectIncome = projectIncome;
+
+             this.render();
         },
 
         render: function () {
 
+
             var that = this
             this.$el.html(mustache.render(this.templates.projectContainer,this.projectData));
             var elVariable = "#person-list-" + that.projectData.teamId + "_" + that.projectData.restfulTableId;
-
             var membersView = new MembersView({
                 "el": that.$el.find(elVariable),
+                "projectData": that.projectData,
                 "restfulTableId": that.projectData.restfulTableId
             });
 

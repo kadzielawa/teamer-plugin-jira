@@ -1,9 +1,6 @@
 package teamerExt.jira.webwork.User;
 
 
-import com.atlassian.plugin.spring.scanner.annotation.component.Scanned;
-import teamerExt.jira.webwork.Project.ProjectService;
-
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +10,6 @@ import java.io.IOException;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
-@Scanned
 public final class UserServlet extends HttpServlet
 {
     private final UserService userService;

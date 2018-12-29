@@ -7,6 +7,7 @@ require(['jquery', 'backbone', 'mustache','view/team'], function($, Backbone, mu
         var TeamModel = Backbone.Model.extend({
             urlRoot: AJS.contextPath() + '/rest/team/1.0/team',
             isUpdated:  0,
+            profit: 0,
             defaults: function() {
                 return {
                     id: teamCollection.nextId(),
@@ -36,7 +37,8 @@ require(['jquery', 'backbone', 'mustache','view/team'], function($, Backbone, mu
            var TeamsView = Backbone.View.extend({
             el: '.buttons-teams-manage',
             events: {
-                'click #button-add-team' : 'addTeamToView'
+                'click #button-add-team' : 'addTeamToView',
+                'click #button-export-teams' : 'exportTeams'
             },
 
             allowToAdd: 1,
@@ -45,6 +47,9 @@ require(['jquery', 'backbone', 'mustache','view/team'], function($, Backbone, mu
                 this.listenTo(this.collection, 'add', this.addTeam);
                 this.listenTo(this.collection, 'destroy', this.removeItem);
                 this.collection.fetch();
+            },
+            exportTeams: function () {
+                console.log(this.collection.toJSON())
             },
 
 

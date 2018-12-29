@@ -1,9 +1,9 @@
 
 define('view/team', [
-    'jquery',
+    'jquery', 'underscore',
     'backbone',
     'mustache',
-    'view/project'], function($, Backbone,mustache,projectView) {
+    'view/project'], function($, _,Backbone,mustache,projectView) {
 
     var ProjectModel = Backbone.Model.extend({
         initialize: function (options) {
@@ -45,6 +45,7 @@ define('view/team', [
         templates: {
             'teamContainer': $('#team-row').html()
         },
+        profitSum: 0,
         initialize: function () {
             this.el.append(this.render());
             // this.listenTo(this.model, 'change', this.render);
@@ -53,8 +54,26 @@ define('view/team', [
             this.projectCollection = new ProjectCollection(null,{teamId: teamId});
             this.listenTo(this.projectCollection, 'add', this.addProject);
             this.projectCollection.fetch();
+            Backbone.on('updateProfitTeam', this.updateProfit, this);
+        },
+
+        updateProfit: function (profitTeam) {
+            var that = this;
+            var profitArea = $(".profit-area")
+            console.log('updateProfit!!');
+            _.each(profitArea,function(profitElement,b) {
+                    if($(profitElement).data('team_id') === that.model.get('id')){
+                        console.log('jeden! profitsum:');
+                        console.log(that.profitSum);
+                        $profitValueArea = $(profitElement).find('.value');
+                        that.profitSum += profitTeam;
+                        $profitValueArea.html(that.profitSum)
+                    }
+                }
+            )
 
         },
+
         addProject: function (model) {
 
             if(model.isUpdated === 0) {
@@ -107,13 +126,17 @@ define('view/team', [
             });
             this.remove();
         },
-        render: function () {
-            var teamData = {
+        render: function (additionalData) {
+            var basicData = {
                 getProjectUrl: AJS.contextPath() + '/rest/project/1.0/project',
                 restfulTableId: this.model.get('id'),
                 teamId: this.model.get('id'),
+                profit: 0,
                 teamName: this.model.get('name')
             };
+
+            var teamData = $.extend(basicData,additionalData);
+
             this.$el.html(mustache.render(this.templates.teamContainer, teamData));
             return this;
         },

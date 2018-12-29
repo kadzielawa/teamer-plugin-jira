@@ -1,13 +1,14 @@
 package teamerExt.rest;
 import com.atlassian.activeobjects.external.ActiveObjects;
 import com.atlassian.jira.util.json.JSONException;
-import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
+//import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.plugins.rest.common.security.AnonymousAllowed;
 import org.json.simple.*;
 import teamerExt.jira.webwork.Project.ProjectMember;
 import teamerExt.jira.webwork.Project.ProjectService;
 import teamerExt.jira.webwork.User.User;
 import teamerExt.jira.webwork.User.UserService;
+import teamerExt.rest.Validator.UserValidator;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -24,7 +25,6 @@ public class ProjectMembers{
 
         private final ProjectService projectService;
         private final UserService userService;
-        @ComponentImport
         private final ActiveObjects ao;
         public ProjectMembers(ProjectService projectService, UserService userService, ActiveObjects ao) {
                 this.projectService = projectService;
@@ -81,6 +81,21 @@ public class ProjectMembers{
 
                 return Response.ok().build();
         }
+
+    @GET
+    @Produces("application/json")
+    @Path ("{projectId}/{projectMemberId}")
+    public Response getProjectMemberId(@PathParam("projectId") final int projectId,@PathParam("projectMemberId") final String projectMemberId)    {
+
+        ProjectMember projectMember = this.projectService.getProjectMemberByProjectMemberId(projectMemberId);
+        JSONObject obj = new JSONObject();
+        obj.put("user_id",projectMember.getUserId());
+        return Response
+                .status(Response.Status.OK)
+                .entity(JSONValue.toJSONString(obj))
+                .type(MediaType.APPLICATION_JSON).build();
+    }
+
         @PUT
         @Path ("{projectId}/{projectMemberId}")
         public Response updateVersion(@PathParam("projectId") final int projectId,@PathParam("projectMemberId") final String projectMemberId, final ProjectMemberModelXML projectMemberModel)    {
@@ -103,8 +118,21 @@ public class ProjectMembers{
         @Path ("{id}")
         public Response createVersion(@PathParam("id") final int projectId,ProjectMemberModelXML projectMemberModel) throws JSONException {
 
+            UserValidator userValidator = new UserValidator(projectMemberModel);
+            if(!userValidator.isValid()) {
+                JSONObject response = new JSONObject();
+                JSONArray errors = new JSONArray();
+                for (String error : userValidator.getErrorList()) {
+                    errors.add(error);
+                }
+                response.put("errors",errors);
+                return Response
+                        .status(Response.Status.SERVICE_UNAVAILABLE)
+                        .entity(response)
+                        .type(MediaType.APPLICATION_JSON).build();
+            }
 
-                ProjectMember projectMember = this.projectService.getProjectMemberByProjectMemberId(projectMemberModel.getProject_member_id());
+            ProjectMember projectMember = this.projectService.getProjectMemberByProjectMemberId(projectMemberModel.getProject_member_id());
                 projectMember.setAvailability(projectMemberModel.getAvailability());
                 projectMember.setProjectId(projectId);
                 projectMember.setUserId(projectMemberModel.getUser_id());

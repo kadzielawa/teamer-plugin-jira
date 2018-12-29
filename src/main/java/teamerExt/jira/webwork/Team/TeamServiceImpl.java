@@ -1,7 +1,6 @@
 package teamerExt.jira.webwork.Team;
 
 import com.atlassian.activeobjects.external.ActiveObjects;
-import com.atlassian.plugin.spring.scanner.annotation.component.Scanned;
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.google.common.collect.Lists;
 import net.java.ao.Query;
@@ -15,7 +14,6 @@ import javax.inject.Named;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
-@Scanned
 @Named
 public class TeamServiceImpl implements TeamService
 {

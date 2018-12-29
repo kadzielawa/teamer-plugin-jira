@@ -1,21 +1,24 @@
 package teamerExt.jira.webwork.User;
 
 import com.atlassian.activeobjects.external.ActiveObjects;
-import com.atlassian.plugin.spring.scanner.annotation.component.Scanned;
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.google.common.collect.Lists;
 import net.java.ao.Query;
-import teamerExt.jira.webwork.Project.Project;
+import com.atlassian.jira.util.json.JSONArray;
+import com.atlassian.jira.util.json.JSONObject;
 import teamerExt.jira.webwork.Project.ProjectMember;
+import teamerExt.plannerApi.URLConnection;
 
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static com.google.common.base.Preconditions.checkNotNull;
 
-@Scanned
 @Named
 public class UserServiceImpl implements UserService
 {
@@ -67,23 +70,49 @@ public class UserServiceImpl implements UserService
         return user[0];
     }
 
-/*
-    private User getOrCreateUser(ActiveObjects ao, String userName)
-    {
-        User[] users = ao.find(User.class, Query.select().where("USERNAME = ?", userName));
-        if (users.length == 0) {
-            return createUser(ao, userName);
-        } else if (users.length == 1) {
-            return users[0];
-        } else {
-            throw new IllegalStateException("There shouldn't be 2 users with the same username! " + userName);
-        }
+    @Override
+    public void importUsers() throws Exception {
+
+        HashMap<String, String> teams = this.getTeams();
+        this.addUsers(teams);
     }
-*/
 
-/*    private User createUser(ActiveObjects ao, String userName)
-    {
-        return ao.create(User.class, ImmutableMap.<String, Object>of("USERNAME", userName));
-    }*/
 
+    HashMap<String, String> getTeams() throws Exception {
+
+        HashMap<String, String> teams = new HashMap<String, String>();
+
+        URLConnection url = new URLConnection();
+        StringBuffer response = url.sendGet("https://jira.abbc.pl/rest/tempo-teams/1/team");
+
+        JSONArray jsonArray = new JSONArray(response.toString());
+
+        for (int i=0; i<jsonArray.length(); i++) {
+            teams.put( jsonArray.getJSONObject(i).getString("id"), jsonArray.getJSONObject(i).getString("name"));
+        }
+
+
+        return teams;
+    }
+
+     void addUsers(HashMap<String, String> teams) throws Exception {
+
+        for(Map.Entry team : getTeams().entrySet()) {
+
+            URLConnection url = new URLConnection();
+            StringBuffer response = url.sendGet("https://jira.abbc.pl/rest/tempo-teams/2/team/" + team.getKey() + "/member");
+            JSONArray teamArray = new JSONArray(response.toString());
+
+            for (int i=0; i<teamArray.length(); i++) {
+                JSONObject currentObj =  teamArray.getJSONObject(i);
+                JSONObject memberBean = currentObj.getJSONObject("memberBean");
+                JSONObject membership = currentObj.getJSONObject("membership");
+                String[] exploded=memberBean.getString("displayname").split(" ");
+                this.add(exploded[0],exploded[1],"0",membership.getJSONObject("role").getString("name"));
+            }
+
+        }
+
+
+    }
 }

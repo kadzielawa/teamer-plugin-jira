@@ -29,31 +29,32 @@ define('view/project-result', [
             'projectResultContainer' : $('#project-result').html()
         },
         collection: null,
+        projectData: null,
         initialize: function (options) {
 
             //members collection
             this.collection = options.collection;
-
+            this.projectData = options.projectData;
             this.listenTo(this.collection, 'add', this.computeData);
             this.listenTo(this.collection, 'remove', this.computeData);
             this.computeData()
         },
 
         computeData: function (changedModel) {
-          //  console.log(changedModel)
-            var costTeam =0,okpSum =0, profitability=0,result=0;
+            var projectIncome = this.projectData.projectIncome;
+            var costProject =0,okpSum =0;
 
             this.collection.each(function(model, index, list){
-
-                costTeam += parseInt(model.get('cost'));
-                okpSum += 2;
-                profitability += 2;
-                result+=2;
-
+                okpSum += parseInt(model.get('okp'));
+                costProject += (parseInt(model.get('cost')) + parseInt(model.get('okp')));
             });
+            var result = projectIncome - costProject;
+            var profitInPercent = (result / projectIncome) * 100;
+            var profitability = profitInPercent.toFixed(2);
+            Backbone.trigger('updateProfitTeam',result);
 
             this.projectResultData = {
-                costTeam: costTeam,
+                costProject: costProject,
                 okpSum: okpSum,
                 profitability: profitability,
                 result: result
@@ -62,7 +63,6 @@ define('view/project-result', [
             this.render();
         },
         render: function () {
-           var that = this
            this.$el.html(mustache.render(this.templates.projectResultContainer,this.projectResultData));
            return this;
         }

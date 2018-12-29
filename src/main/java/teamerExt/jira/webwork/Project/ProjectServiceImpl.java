@@ -1,7 +1,6 @@
 package teamerExt.jira.webwork.Project;
 
 import com.atlassian.activeobjects.external.ActiveObjects;
-import com.atlassian.plugin.spring.scanner.annotation.component.Scanned;
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.sal.api.user.UserManager;
 import com.google.common.collect.Lists;
@@ -19,7 +18,6 @@ import java.util.List;
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.collect.Lists.newArrayList;
 
-@Scanned
 @Named
 public class ProjectServiceImpl implements ProjectService
 {

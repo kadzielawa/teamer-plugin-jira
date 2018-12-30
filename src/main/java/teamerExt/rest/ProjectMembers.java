@@ -67,6 +67,7 @@ public class ProjectMembers{
                    JSONObject userObject=new JSONObject();
                    userObject.put("id",user.getID());
                    userObject.put("text",user.getFirstname() + " " + user.getLastname());
+                   userObject.put("role",user.getRole());
                     allUsers.add(userObject);
                 };
 

@@ -54,7 +54,8 @@ public class UserServiceImpl implements UserService
     @Override
     public Iterable<User> all()
     {
-        final Query query = Query.select();
+        final Query query = Query.select().
+                from(User.class);
         return Lists.newArrayList(ao.find(User.class, query));
     }
 
@@ -107,8 +108,24 @@ public class UserServiceImpl implements UserService
                 JSONObject currentObj =  teamArray.getJSONObject(i);
                 JSONObject memberBean = currentObj.getJSONObject("memberBean");
                 JSONObject membership = currentObj.getJSONObject("membership");
+                String memberRoleFromJson = membership.getJSONObject("role").getString("name");
+                String finalMemberRole = "";
+                if(memberRoleFromJson.toLowerCase().contains("back-end")){
+                    finalMemberRole = "BE";
+                } else if(memberRoleFromJson.toLowerCase().contains("project")){
+                    finalMemberRole = "PM";
+                } else if(memberRoleFromJson.toLowerCase().contains("front-end")){
+                    finalMemberRole = "FE";
+                } else if(memberRoleFromJson.toLowerCase().contains("ux")){
+                    finalMemberRole = "UX";
+                } else if(memberRoleFromJson.toLowerCase().contains("software")){
+                    finalMemberRole = "QA";
+                } else {
+                    finalMemberRole = "??";
+                }
+
                 String[] exploded=memberBean.getString("displayname").split(" ");
-                this.add(exploded[0],exploded[1],"0",membership.getJSONObject("role").getString("name"));
+                this.add(exploded[0],exploded[1],"0",finalMemberRole);
             }
 
         }

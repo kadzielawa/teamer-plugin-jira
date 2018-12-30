@@ -188,7 +188,7 @@ define('view/members', ['jquery',  'backbone','underscore','mustache','view/proj
                 console.log('ooo')
                 var elements = $ecl.find('.userSearcher');
                 _.each(elements,function (element,i) {
-                    $(element).auiSelect2( {
+                   var developerSelect = $(element).auiSelect2( {
                         ajax: {
                             url: AJS.contextPath() + '/rest/projectmembers/1.0/projectmembers/users',
                             dataType: 'json',
@@ -199,13 +199,18 @@ define('view/members', ['jquery',  'backbone','underscore','mustache','view/proj
                                 };
                             },
                         }})
+
+
+                    developerSelect.on('change',function (e) {
+                        var developerAdded = e.added;
+                        $(e.target).parent().next().find("aui-select[name=role]").val(developerAdded.role)
+                    });
                 })
 
             });
 
 
             jQuery(document).bind(AJS.RestfulTable.Events.ROW_ADDED, function (event,addedRow,table) {
-                console.log('dupa')
                 timeout = null;
                 check = function () {
                     var rootElement= table.focusedRow.$el[0]
@@ -296,7 +301,7 @@ define('view/members', ['jquery',  'backbone','underscore','mustache','view/proj
 
         },
         afterAddedRowCallback: function (addedRow,table,element) {
-            $(element).auiSelect2( {
+           var developerSelect= $(element).auiSelect2( {
                 ajax: {
                     url: AJS.contextPath() + '/rest/projectmembers/1.0/projectmembers/users',
                     dataType: 'json',
@@ -307,6 +312,11 @@ define('view/members', ['jquery',  'backbone','underscore','mustache','view/proj
                         };
                     },
                 }});
+
+            developerSelect.on('change',function (e) {
+               var developerAdded = e.added;
+               $(e.target).parent().next().find("aui-select[name=role]").val(developerAdded.role)
+            });
         }
     });
     return MembersView;

@@ -9,6 +9,7 @@ define('view/project', ['jquery',  'backbone','mustache','view/members'],
         },
         events: {
             'change .project-name': 'updateName',
+            'click .remove': 'destroy',
             'change .project-income': 'updateIncome'
         },
         options: null,
@@ -26,7 +27,15 @@ define('view/project', ['jquery',  'backbone','mustache','view/members'],
                 restfulTableId: options.model.get("projectId")
             }
         },
+        destroy: function () {
+            this.undelegateEvents();
 
+            this.$el.removeData().unbind();
+            this.collection.remove(this.model)
+            this.model.remove();
+            this.model.destroy();
+            this.remove();
+        },
         updateName: function (evt) {
             var projectName = $(evt.target).val();
             this.projectData.projectName = projectName;

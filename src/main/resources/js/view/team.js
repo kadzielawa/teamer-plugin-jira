@@ -12,10 +12,29 @@ define('view/team', [
         },
         isUpdated:  0,
 
+        remove: function () {
+            var that = this;
+            Backbone.ajax({
+                dataType: "json",
+                type: "DELETE",
+                url: AJS.contextPath() + '/rest/project/1.0/project/' + that.get('projectId') + '/' + that.get('teamId'),
+                data: "", //add your data
+                success: function(response){
+                    //code after success
+                },
+                error: function () {
+                    // Code After Erroe
+                }
+
+            }).complete(function () {
+                //Code after complete the request
+            });
+        },
+
         defaults: function() {
             return {
                 name: "default project name",
-                income: 22
+                income: 10000
             };
         }
     });
@@ -48,7 +67,6 @@ define('view/team', [
         profitSum: 0,
         initialize: function () {
             this.el.append(this.render());
-            // this.listenTo(this.model, 'change', this.render);
             // manage projects
             var teamId = this.model.get('id');
             this.projectCollection = new ProjectCollection(null,{teamId: teamId});
@@ -60,11 +78,8 @@ define('view/team', [
         updateProfit: function (profitTeam) {
             var that = this;
             var profitArea = $(".profit-area")
-            console.log('updateProfit!!');
             _.each(profitArea,function(profitElement,b) {
                     if($(profitElement).data('team_id') === that.model.get('id')){
-                        console.log('jeden! profitsum:');
-                        console.log(that.profitSum);
                         $profitValueArea = $(profitElement).find('.value');
                         that.profitSum += profitTeam;
                         $profitValueArea.html(that.profitSum)

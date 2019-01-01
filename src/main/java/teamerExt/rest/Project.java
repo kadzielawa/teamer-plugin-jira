@@ -28,7 +28,6 @@ import java.util.List;
 public class Project {
 
     //odpowiada za np. dodawanie projektu do bazy
-
     private final ProjectService projectService;
     CacheControl cacheControl;
     @ComponentImport
@@ -55,6 +54,15 @@ public class Project {
 
         return projectModels;
     }
+    @DELETE
+    @Path("{projectId}/{teamId}")
+    public Response delete(@PathParam("projectId") final Integer projectId,@PathParam("teamId") final Integer teamId) throws Exception {
+        teamerExt.jira.webwork.Project.Project project =  this.projectService.getProjectById(projectId);
+        this.projectService.delete(project);
+        ProjectTeam projectTeam = this.projectService.getProjectByTeamId(teamId,projectId);
+        this.projectService.delete(projectTeam);
+        return Response.ok().build();
+    }
 
     @GET
     @Path("{id}")
@@ -65,10 +73,7 @@ public class Project {
 
         ArrayList<ProjectModel> projectModelArrayList = new ArrayList<>();
         for(ProjectTeam projectTeam : allProjectsWithTeams) {
-            System.out.println("PROJECT ID-> ");
-            System.out.println(projectTeam.getProjectId());
             try {
-
                 teamerExt.jira.webwork.Project.Project project = projectService.getProjectById(projectTeam.getProjectId());
                 ProjectModel projectModel = new ProjectModel();
                 projectModel.setIncome(project.getIncome());
@@ -78,35 +83,11 @@ public class Project {
                 projectModelArrayList.add(projectModel);
             } catch (NullPointerException e){
                 System.out.println("NULL");
-
             }
 
         }
-
         return projectModelArrayList;
-
     }
-
-/*    @GET
-    @Path("{id}")
-    public ArrayList<ProjectMemberModelXML> getProjectMembers(@PathParam ("id") final String projectId) {
-
-        ArrayList<ProjectMember> projectMembers = projectService.getProjectMembersByProjectId(projectId);
-        teamerExt.jira.webwork.Project.Project project = projectService.getProjectById(projectId);
-
-        ArrayList<ProjectMemberModelXML> projectMembersJSON = new ArrayList<>();
-
-        for(ProjectMember projectMember : projectMembers) {
-           ProjectMemberModelXML newProjectMember = new ProjectMemberModelXML();
-            newProjectMember.setAvailability(projectMember.getAvailability());
-            newProjectMember.setRole(projectMember.getRole());
-            newProjectMember.setProject(this.convertProjectObjectToModel(project));
-           projectMembersJSON.add(newProjectMember);
-       }
-
-       return projectMembersJSON;
-
-    }*/
 
     //add project to database
     @POST
@@ -128,7 +109,6 @@ public class Project {
                 .entity(JSONValue.toJSONString(obj))
                 .type(MediaType.APPLICATION_JSON).build();
     }
-
 
     private ProjectModel convertProjectObjectToModel(teamerExt.jira.webwork.Project.Project project){
         ProjectModel projectModel = new ProjectModel();

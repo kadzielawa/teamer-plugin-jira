@@ -68,6 +68,7 @@ public class ProjectMembers{
                    userObject.put("id",user.getID());
                    userObject.put("text",user.getFirstname() + " " + user.getLastname());
                    userObject.put("role",user.getRole());
+                   userObject.put("salary",user.getSalary());
                     allUsers.add(userObject);
                 };
 

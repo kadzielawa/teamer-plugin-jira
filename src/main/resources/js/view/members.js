@@ -30,6 +30,8 @@ define('view/members', ['jquery',  'backbone','underscore','mustache','view/proj
         billedClick: function (event) {
             var $userRow = $(event.target.closest('tr'))
             var userId = $userRow.data('user_id');
+            console.log("iiiiiiiiiii")
+            console.log(event)
         },
 
         addRESTfulTable: function () {
@@ -52,7 +54,7 @@ define('view/members', ['jquery',  'backbone','underscore','mustache','view/proj
                         status = "checked disabled";
                     }
                     var $text = $(
-                        '<aui-toggle label="toggle button"' + status + '></aui-toggle>');
+                        '<aui-toggle name="billed" class="billedToggleButton" label="toggle button"' + status + '></aui-toggle>');
 
                     return $text;
                 }
@@ -65,7 +67,7 @@ define('view/members', ['jquery',  'backbone','underscore','mustache','view/proj
                         isChecked = "checked='checked'";
                     }
                     var $text = $(
-                        '<aui-toggle class="billedToggleButton" label="toggle button"' + isChecked + '></aui-toggle>');
+                        '<aui-toggle name="billed" class="billedToggleButton" label="toggle button"' + isChecked + '></aui-toggle>');
 
                     return $text;
                 }
@@ -185,7 +187,24 @@ define('view/members', ['jquery',  'backbone','underscore','mustache','view/proj
             })
 
             $ecl.bind(AJS.RestfulTable.Events.INITIALIZED, function () {
-                console.log('ooo')
+
+
+                jQuery(document).bind(AJS.RestfulTable.Events.ROW_INITIALIZED, function (row) {
+                    console.log('88')
+                    row.bind(AJS.RestfulTable.Events.RENDER, function () {
+                        alert('render!');
+
+                        this.$el.addClass("myclass");
+                    });
+
+                    row.bind(AJS.RestfulTable.Events.UPDATED, function () {
+                        alert('updated!!');
+
+                        this.$el.addClass("myclass");
+                    });
+                });
+
+
                 var elements = $ecl.find('.userSearcher');
                 _.each(elements,function (element,i) {
                    var developerSelect = $(element).auiSelect2( {
@@ -210,6 +229,41 @@ define('view/members', ['jquery',  'backbone','underscore','mustache','view/proj
             });
 
 
+            var createRow = membersTable.getCreateRow();
+            createRow.bind(AJS.RestfulTable.Events.VALIDATION_ERROR, function (errors) {
+                alert('error!!!');
+            });
+            createRow.bind(AJS.RestfulTable.Events.SAVE, function (errors) {
+console.log('TO DZIAŁA');
+            console.log(errors)
+            });
+            createRow.bind(AJS.RestfulTable.Events.CANCEL, function (errors) {
+                alert('error!!!');
+            });
+
+
+
+            jQuery(document).bind(AJS.RestfulTable.Events.ROW_INITIALIZED, function (row) {
+                console.log('88')
+                row.bind(AJS.RestfulTable.Events.RENDER, function () {
+                    alert('render!');
+
+                    this.$el.addClass("myclass");
+                });
+
+                row.bind(AJS.RestfulTable.Events.UPDATED, function () {
+                    alert('updated!!');
+
+                    this.$el.addClass("myclass");
+                });
+                row.bind(AJS.RestfulTable.Events.SERVER_ERROR, function () {
+                    alert('error!!');
+                });
+                row.bind(AJS.RestfulTable.Events.VALIDATION_ERROR, function () {
+                    alert('error!!');
+                });
+            });
+
             jQuery(document).bind(AJS.RestfulTable.Events.ROW_ADDED, function (event,addedRow,table) {
                 timeout = null;
                 check = function () {
@@ -217,7 +271,7 @@ define('view/members', ['jquery',  'backbone','underscore','mustache','view/proj
                     var childs = rootElement.children;
                     var element = rootElement.getElementsByClassName('userSearcher')[0];
                     if ($(element).is('[type=text]')) { // assuming a jQuery object here
-
+                        that.hideRow(addedRow);
                         that.updateDeveloperName(addedRow);
                         that.afterAddedRowCallback(addedRow,table,element);
                         clearTimeout(timeout)
@@ -228,20 +282,39 @@ define('view/members', ['jquery',  'backbone','underscore','mustache','view/proj
                 check();
             });
 
-            jQuery(document).bind(AJS.RestfulTable.Events.EDIT_ROW, function (event,addedRow,table) {
-                 setTimeout(function () {
-                    var addedRowx = addedRow.el.children;
-                    addedRowx[0].parentNode.removeChild(addedRowx[0]);
-                     $(addedRow.el).find("input.aui-button").on('click', function (e) {
-                    var updatedRow = $(e.target).closest('tr');
-                         setTimeout(function () {
-                             var updatedRowColumns = $(updatedRow)[0].children;
-                             updatedRowColumns[0].parentNode.removeChild(updatedRowColumns[0]);
-                         },100)
-                     });
-                }, 100);
+            //triggered when a row edit is started by the user
+            jQuery(document).bind(AJS.RestfulTable.Events.EDIT_ROW, function (event,editedRow,table) {
+                editedRow.bind(AJS.RestfulTable.Events.CANCEL, function () {
+                    console.log('XD')
+                    that.hideRow(editedRow)
+                });
+                editedRow.bind(AJS.RestfulTable.Events.UPDATED, function () {
+                    that.hideRow(editedRow)
+                });
+                 that.hideRow(editedRow);
             });
             },
+
+        hideRow: function(editedRow) {
+            setTimeout(function () {
+                var editedRowChildren = editedRow.el.children;
+                editedRowChildren[0].style.display = "none";
+                editedRowChildren[1].style.display = "none";
+
+                //editedRowChildren[0].parentNode.removeChild(editedRowChildren[0]);
+                $(editedRow.el).find("input.aui-button").on('click', function (e) {
+                    var updatedRow = $(e.target).closest('tr');
+                    console.log('NOW')
+                    console.log(updatedRow)
+                    setTimeout(function () {
+                        var updatedRowColumns = $(updatedRow)[0].children;
+                        updatedRowColumns[0].style.display = "none";
+                        updatedRowColumns[1].style.display = "none";
+                    },60)
+                });
+            }, 60);
+
+        },
 
         checkIfColumnsAreDisplayed: function (projectId,teamId) {
             var that =this;

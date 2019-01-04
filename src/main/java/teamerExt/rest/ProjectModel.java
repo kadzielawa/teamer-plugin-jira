@@ -9,7 +9,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class ProjectModel {
 
 
-
     @XmlElement (name = "value")
     private int value;
     @XmlElement (name = "label")
@@ -22,6 +21,8 @@ public class ProjectModel {
     public User[] users;
     @XmlElement (name = "teamId")
     public Integer teamId;
+    @XmlElement (name = "teamName")
+    public String teamName;
 
     @XmlElement (name = "projectId")
     public Integer projectId;
@@ -76,6 +77,13 @@ public class ProjectModel {
     }
     public String getName() {
         return name;
+    }
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
     }
 
     public void setName(String name) {

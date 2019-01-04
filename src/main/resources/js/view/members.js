@@ -227,7 +227,16 @@ define('view/members', ['jquery',  'backbone','underscore','mustache','view/proj
                                     results: data
                                 };
                             },
-                        }})
+                            data: function (params) {
+                                console.log(params);
+                                var query = {
+                                    search: params,
+                                }
+
+                                // Query parameters will be ?search=[term]&type=public
+                                return query;
+                            }
+                        }});
                     developerSelect.on('change',function (e) {
                         var developerAdded = e.added;
                         $(e.target).parent().next().find("aui-select[name=role]").val(developerAdded.role)

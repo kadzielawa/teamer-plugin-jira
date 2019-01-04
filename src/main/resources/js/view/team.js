@@ -3,12 +3,12 @@ define('view/team', [
     'jquery', 'underscore',
     'backbone',
     'mustache',
-    'view/project'], function($, _,Backbone,mustache,projectView) {
+    'view/project',
+    'view/editable-input'], function($, _,Backbone,mustache,projectView,EditableInput) {
 
     var ProjectModel = Backbone.Model.extend({
         initialize: function (options) {
             this.collection = options.collection;
-       //   this.set('id',this.collection.nextId());
         },
         isUpdated:  0,
 
@@ -42,6 +42,7 @@ define('view/team', [
     var ProjectCollection = Backbone.Collection.extend({
         model: ProjectModel,
         teamId : null,
+        teamName: null,
         initialize: function (model,options) {
             this.url = AJS.contextPath() + '/rest/project/1.0/project/'+options.teamId;
         },
@@ -58,7 +59,7 @@ define('view/team', [
         events: {
             'click .save': 'saveTeam',
             'click .delete': 'destroy',
-            'change .team-name': 'updateName',
+            'click .input-editable-save': 'updateName',
             'click .button-add-project': 'addProjectToView'
         },
         templates: {
@@ -69,7 +70,8 @@ define('view/team', [
             this.el.append(this.render());
             // manage projects
             var teamId = this.model.get('id');
-            this.projectCollection = new ProjectCollection(null,{teamId: teamId});
+            var teamName = this.model.get('name');
+            this.projectCollection = new ProjectCollection(null,{teamId: teamId,teamName: teamName});
             this.listenTo(this.projectCollection, 'add', this.addProject);
             this.projectCollection.fetch();
             Backbone.on('updateProfitTeam', this.updateProfit, this);
@@ -99,7 +101,9 @@ define('view/team', [
 
         addProjectToView: function () {
 
-            var newProject = new ProjectModel({teamId:this.model.get('id')});
+            console.log("no")
+            console.log( this.model.get('name'))
+            var newProject = new ProjectModel({teamName: this.model.get('name'),teamId:this.model.get('id')});
             var that = this;
             newProject.isUpdated = 1;
             this.projectCollection.create(newProject,
@@ -153,11 +157,24 @@ define('view/team', [
             var teamData = $.extend(basicData,additionalData);
 
             this.$el.html(mustache.render(this.templates.teamContainer, teamData));
+
+            var teamNameField = new EditableInput({
+                value:basicData.teamName,
+                classField:"team-name",
+                id: "row-" + basicData.restfulTableId + "-id",
+                name: "row-" + basicData.restfulTableId + "-name"
+            });
+            this.$el.find(".team-name-field").append( teamNameField.render().el );
+
+
             return this;
         },
 
         updateName: function (evt) {
-            var teamName = $(evt.target).val();
+
+            var teamName = $(evt.currentTarget).parent().prev().find(".editable-field-input").html();
+            $(evt.currentTarget).parent().hide();
+
             this.model.set('name', teamName);
         },
 

@@ -8,9 +8,8 @@ define('view/project', ['jquery',  'backbone','mustache','view/members', 'view/e
             'projectContainer' : $('#project-row').html()
         },
         events: {
-            'input .project-name': 'updateName',
+            'click .input-editable-save': 'updateName',
             'click .remove': 'destroy',
-            'input .project-income': 'updateIncome'
         },
         options: null,
         initialize: function(options) {
@@ -37,19 +36,15 @@ define('view/project', ['jquery',  'backbone','mustache','view/members', 'view/e
             this.remove();
         },
         updateName: function (evt) {
-            var projectName = $(evt.target).html();
-            this.projectData.projectName = projectName;
-
-            this.model.set('name', projectName);
-        },
-
-         updateIncome: function (evt) {
-
-            var projectIncome = Number($(evt.target).val());
-            this.model.set('income', projectIncome);
-            this.projectData.projectIncome = projectIncome;
-
-             this.render();
+            var value = $(evt.currentTarget).parent().prev().find(".editable-field-input").html();
+            if($(evt.currentTarget).parent().prev().hasClass('project-name')) {
+                this.projectData.projectName = value;
+                this.model.set('name', value);
+            } else  if($(evt.currentTarget).parent().prev().hasClass('project-income')) {
+                this.model.set('income', value);
+                this.projectData.projectIncome = value;
+                this.render();
+            }
         },
 
         render: function () {
@@ -66,7 +61,6 @@ define('view/project', ['jquery',  'backbone','mustache','view/members', 'view/e
 
             membersView.render();
             membersView.checkIfColumnsAreDisplayed(that.projectData.restfulTableId,that.projectData.teamId);
-
 
             var projectNameField = new EditableInput({value:that.projectData.projectName,classField:"project-name"});
             this.$el.find(".project-name-field").append( projectNameField.render().el );

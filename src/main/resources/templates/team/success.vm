@@ -14,20 +14,31 @@
 
 
     <script type="text/template" id="editInputTemplate">
-        <span class="{{classField}} editable-field-input content" type="text">{{value}}</span>
-        <span class="edit overlay-icon aui-icon aui-icon-small aui-iconfont-edit" contenteditable="true"></span
+        <span class="editable-container {{classField}}">
+            <span class="{{classField}} editable-field-input content" type="text" id="{{id}}" name="{{name}}">{{value}}</span>
+            <span class="edit overlay-icon aui-icon aui-icon-small aui-iconfont-edit" contenteditable="true"></span>
+        </span>
+        <div class="save-options" tabindex="1">
+            <button class="aui-button submit input-editable-save">
+                <span class="aui-icon aui-icon-small aui-iconfont-success">Zapisz</span>
+            </button>
+            <button class="aui-button cancel input-editable-cancel">
+                <span class="aui-icon aui-icon-small aui-iconfont-close-dialog">Anuluj</span>
+            </button>
+        </div>
     </script>
 
     <script type="text/template" id="team-row">
         <div class="aui-group">
                      <div class="aui-group" style="display:none;">OKP: <input type="text" value="4500" id="okpCost"></div>
             <div class="field-group top-label">
-                <span style="float:left"><input class="team-name" type="text" id="row-{{restfulTableId}}-id"
-                       name="row-{{restfulTableId}}-name" title="first name" value="{{teamName}}"></span>
+                <span style="float:left" class="team-name-field">
+                </span>
 
-                <span style="float:right"    <a class="aui-button button-add-project" >dodaj projekt</a></div>
-
-                <div class="aui-group project-list">
+                <span style="float:right">
+                   <a class="aui-button button-add-project" >dodaj projekt</a></div>
+                </span>
+            <div class="aui-group project-list">
 
                 </div>
             </div>

@@ -3,5 +3,70 @@
 }
 
 .project-name-field {
-    font-size: 27px;
+    font-size: 23px;
+}
+
+.team-name-field {
+    font-size: 30px;
+}
+
+.project-income {
+    width: 80px;
+
+}
+.editable-container {
+    display: inline-block;
+    position:relative;
+    border-radius: 2.01px;
+    padding-right: 24px;
+
+}
+.editable-container .active{
+    border: 1px solid lightgrey;
+
+}
+.editable-field-input .aui-button{
+    float: right;
+    margin: 1px;
+}
+.editable-field-input .overlay-icon {
+    box-sizing: border-box;
+    display: none;
+    background-color: rgba(9,30,66,0.13);
+    background-repeat: no-repeat;
+    background-position: 4px 4px;
+    border-left: 1px solid #ebecf0;
+    bottom: 0;
+    height: auto;
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    /* border: 0px!important; */
+    width: 24px;
+    /* z-index: -1; */
+}
+.editable-field-input{
+    position:relative;
+}
+.editable-field-input .save-options:not(.show-button-bar) .aui-button, .editable-field.active .save-options:not(.show-button-bar) .aui-button.cancel {
+
+}
+
+.editable-field-input .save-options {
+    background-color: #fff;
+    border: 1px solid #ebecf0;
+    border-top: none;
+    border-radius: 0 0 3px 3px;
+    outline: none;
+     position: absolute;
+    right: 0;
+    top: 100%;
+    display: none;
+
+    z-index: 1;
+    box-shadow: 0 3px 6px rgba(111,111,111,0.2);
+}
+.editable-field-input {
+
 }

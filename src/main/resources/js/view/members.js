@@ -2,7 +2,7 @@ define('view/members', ['jquery',  'backbone','underscore','mustache','view/proj
 
     var memberModel = Backbone.Model.extend({
         initialize: function (options) {
-            var define_okp = parseInt($("#okpCost").html());
+            var define_okp = parseInt($("#okpCost").val());
             var availability = this.get('availability');
             this.set('define_okp',define_okp);
             var real_okp = (availability / 100) * define_okp;
@@ -19,13 +19,13 @@ define('view/members', ['jquery',  'backbone','underscore','mustache','view/proj
         },
         projectData: null,
         membersCollection: null,
+
         initialize: function(options) {
             this.projectData = options.projectData;
-            this.okp = parseInt($("#okpCost").html())
+            this.okp = parseInt($("#okpCost").val())
             this.setElement(options.el)
             this.restfulTableId = options.restfulTableId
             this.addRESTfulTable();
-            this.checkIfColumnsAreDisplayed(this.restfulTableId,this.projectData.teamId);
         },
         billedClick: function (event) {
             if($(event.target).attr('checked') === 'checked') {
@@ -334,16 +334,16 @@ define('view/members', ['jquery',  'backbone','underscore','mustache','view/proj
             var that =this;
             var membersTable = $("#person-list-"+teamId + "_"+projectId);
             var timeoutColumns = null;
+console.log('o!')
+            if(membersTable.length > 0 &&  $(membersTable.children()[2]).children().length > 0){
+                this.hideColumns($(membersTable));
+                clearTimeout(timeoutColumns)
 
-            if(membersTable.length > 0){
-                var $auiSortable = $(membersTable.children()[2]);
-                if($auiSortable.children().length > 0) {
-
-                    this.hideColumns($(membersTable));
-                    clearTimeout(timeoutColumns)
-                }
             } else {
+                console.log('else')
+
                 timeoutColumns = setTimeout(function(){
+                    console.log('sprawdzam')
                     that.checkIfColumnsAreDisplayed(projectId,teamId)
                 }, 100);
             }

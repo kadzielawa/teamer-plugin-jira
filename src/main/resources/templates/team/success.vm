@@ -1,7 +1,6 @@
 <html>
 <head>
     <title>$i18n.getText("teamer-ext.admin.planning.page.title")</title>
-    <meta name="decorator" content="atl.admin">
     $webResourceManager.requireResource("teamerExt.teamer-plugin:mustache-templates")
 
     $webResourceManager.requireResource("com.atlassian.auiplugin:aui-select")
@@ -13,23 +12,21 @@
     $webResourceManager.requireResource("com.atlassian.auiplugin:aui-forms")
     $webResourceManager.requireResource("com.atlassian.auiplugin:aui-select2")
 
+
+    <script type="text/template" id="editInputTemplate">
+        <span class="{{classField}} editable-field-input content" type="text">{{value}}</span>
+        <span class="edit overlay-icon aui-icon aui-icon-small aui-iconfont-edit" contenteditable="true"></span
+    </script>
+
     <script type="text/template" id="team-row">
         <div class="aui-group">
-            <div class="aui-group">OKP : <span id="okpCost">4500</span>,00 zł</div>
+                     <div class="aui-group" style="display:none;">OKP: <input type="text" value="4500" id="okpCost"></div>
             <div class="field-group top-label">
-                <label>Nazwa zespołu
-                    <span class="aui-icon icon-required"> required</span>
-                </label>
-                <input class="team-name" type="text" id="row-{{restfulTableId}}-id"
-                       name="row-{{restfulTableId}}-name" title="first name" value="{{teamName}}">
-                <div class="aui-page-header-actions">
-                    <div class="aui-buttons">
+                <span style="float:left"><input class="team-name" type="text" id="row-{{restfulTableId}}-id"
+                       name="row-{{restfulTableId}}-name" title="first name" value="{{teamName}}"></span>
 
-                        <a class="aui-button button-add-project" >dodaj nowy projekt</a>
-                    </div>
-                    <div style="position: fixed; z-index: -1; height: 1px; width: 1px; top: 215px; left: 1489.53px;">
-                    </div>
-                </div>
+                <span style="float:right"    <a class="aui-button button-add-project" >dodaj projekt</a></div>
+
                 <div class="aui-group project-list">
 
                 </div>
@@ -38,6 +35,7 @@
                 Zysk z zespołu: <span class="value">{{profit}}</span> zł
             </div>
             <div class="aui-buttons">
+
                 <button class="aui-button save" data-team_id="{{teamId}}">Zapisz zespół</button>
                 <button class="aui-button delete" data-team_id="{{teamId}}">Usuń zespół</button>
             </div>
@@ -55,15 +53,15 @@
     <script type="text/template" id="project-row">
         <div class="aui-group">
             <div class="field-group">
-                <label>Nazwa projektu
-                    <span class="aui-icon icon-required"> required</span>
-                </label>
-                <input class="project-name" type="text" title="first name" value="{{projectName}}">
+
+               <span style="float:left" class="project-name-field">
+
+               </span>
+
+                <span style="float:right;"  class="project-income-field">
+                    </span>
+
                 <br/>
-                <label>Przychód
-                    <span class="aui-icon icon-required"> required</span>
-                </label>
-                <input class="project-income" type="text" title="first name" value="{{projectIncome}}">
                 <br/>
                 <div class="aui-buttons">
                     <button class="aui-button remove" data-project_id="{{restfulTableId}}">Usuń projekt</button>
@@ -80,30 +78,40 @@
 
 </head>
 <body>
+<section id="content" role="main">
+    <div class="aui-page-panel">
+        <div class="aui-page-panel-inner">
+            <div class="aui-page-panel-nav">
+                <h3>MANAGE YOUR PROFITS</h3>
+                <div class="aui-navgroup-inner">
+                    <ul class="aui-nav">
+                        <li style="margin-top: 15px;">
+                            <span class="aui-icon aui-icon-large aui-iconfont-queues">  Plan </span> <span style="    vertical-align: text-top;
+font-size: 20px;"><a style="color: black; text-decoration: none;" href="/jira/secure/teamAction.jspa"> Plan</a></span>
+                        </li>
+                        <li style="margin-top: 15px;">
+                            <span class="aui-icon aui-icon-large aui-iconfont-group">  User </span> <span style="     vertical-align: text-top;
+font-size: 20px;"><a style="color: black; text-decoration: none;" href="/jira/secure/usersAction.jspa">User </a></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <section class="aui-page-panel-content">
 
+                <div class="aui-group buttons-teams-manage">
+                    <a class="aui-button"  id="button-add-team">dodaj nowy zespół</a>
+                    <a class="aui-button"  id="button-export-teams">eksportuj</a>
+                </div>
+                <div class="aui-group teams-list">
 
-<nav class="aui-header">
-    <ul class="aui-nav">
-        <li><a href="/jira/secure/usersAction.jspa">Users</a></li>
-        <li class="aui-nav-selected"><a href="/jira/secure/projectsAction.jspa">Projects</a></li>
-        <li><a href="/jira/secure/teamAction.jspa">Teams</a></li>
-    </ul>
-</nav>
-<div class="aui-page-header-main">
-    <h2>Zespoły</h2>
-</div>
-
-<div class="aui-group buttons-teams-manage">
-<a class="aui-button"  id="button-add-team">dodaj nowy zespół</a>
-<a class="aui-button"  id="button-export-teams">eksportuj</a>
-</div>
-<div class="aui-group teams-list">
-
-</div>
-
-
-
+                </div>
+            </section>
+            <aside class="aui-page-panel-sidebar">
+                <!-- tangental content here -->
+            </aside>
+        </div>
+    </div>
+</section>
     $webResourceManager.requireResource("teamerExt.teamer-plugin:teamer-plugin-resources")
-
 </body>
 </html>

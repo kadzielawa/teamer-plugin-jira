@@ -33,7 +33,7 @@ define('view/team', [
 
         defaults: function() {
             return {
-                name: "default project name",
+                name: "Przykładowa nazwa projektu",
                 income: 10000
             };
         }
@@ -122,14 +122,14 @@ define('view/team', [
 
         removeFailed: function (model, response) {
             var myFlag = AJS.flag({
-                type: 'success',
-                body: '',
+                type: 'error',
+                body: 'Błąd przy usuwaniu zespołu',
             });
         },
         removeSuccess: function (model, response) {
             var myFlag = AJS.flag({
-                type: 'error',
-                body: '',
+                type: 'success',
+                body: 'Usunięto pomyślnie zespół.',
             });
         },
         destroy: function () {

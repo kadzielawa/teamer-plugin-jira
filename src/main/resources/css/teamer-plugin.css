@@ -1,3 +1,7 @@
 .teams-list .aui-group{
-    border: 1px solid red;
+   /* border: 1px solid red; */
+}
+
+.project-name-field {
+    font-size: 27px;
 }

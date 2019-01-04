@@ -84,7 +84,7 @@ public class UserServiceImpl implements UserService
         HashMap<String, String> teams = new HashMap<String, String>();
 
         URLConnection url = new URLConnection();
-        StringBuffer response = url.sendGet("https://jira.abbc.pl/rest/tempo-teams/1/team");
+        StringBuffer response = url.sendGet("https://jira.abbc.pl/rest/api/2/user/search?username=.&startAt=0&maxResults=2000");
 
         JSONArray jsonArray = new JSONArray(response.toString());
 

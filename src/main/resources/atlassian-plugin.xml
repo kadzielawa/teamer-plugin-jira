@@ -16,11 +16,13 @@
     <context>editor</context>
   </web-resource>
 
+
   <web-resource key="teamer-plugin-resources" name="teamer-plugin Web Resources">
     <dependency>com.atlassian.auiplugin:ajs</dependency>
     <dependency>teamerExt.teamer-plugin:mustache</dependency>
     <resource type="download" name="teamer-plugin.css" location="/css/teamer-plugin.css"/>
     <resource type="download" name="teamer-plugin.js" location="/js/teamer-plugin.js"/>
+    <resource type="download" name="editable-input.js" location="/js/view/editable-input.js"/>
     <resource type="download" name="projects-manage.js" location="/js/projects-manage.js"/>
     <resource type="download" name="team-manage.js" location="/js/team-manage.js"/>
     <resource type="download" name="project-page.js" location="/js/project-page.js"/>
@@ -87,22 +89,13 @@
 
   </ao>
 
-<!--
-  <servlet name="Hello World Servlet" key="helloWorld" class="teamerExt.jira.webwork.Project.ProjectServlet">
-    <description>Says Hello World, Australia or your name.</description>
-    <url-pattern>/teameradd</url-pattern>
-    <init-param>
-      <param-name>defaultName</param-name>
-      <param-value>Australia</param-value>
-    </init-param>
-  </servlet>-->
-
   <servlet name="Hello World Servlet" key="add-project" class="teamerExt.jira.webwork.Project.ProjectServlet">
     <url-pattern>/addproject</url-pattern>
   </servlet>
   <servlet name="Hello World Servlet" key="add-user" class="teamerExt.jira.webwork.User.UserServlet">
     <url-pattern>/adduser</url-pattern>
   </servlet>
+<!--
 
   <web-section key="admin_teamer-ext_planning_section"
                name="admin_teamer-ext_planning_section"
@@ -120,6 +113,7 @@
     <label key="teamer-ext.admin.planning.page.web.item.name" />
     <link linkId="admin_teamer-ext_planning_webitem_link">/secure/teamerAction.jspa</link>
   </web-item>
+-->
 
     <rest  key="projectmembersRest" path="/projectmembers" version="1.0"/>
     <rest  key="projectRest" path="/project" version="1.0"/>

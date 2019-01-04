@@ -1,5 +1,5 @@
-define('view/project', ['jquery',  'backbone','mustache','view/members'],
-    function($, Backbone,mustache, MembersView) {
+define('view/project', ['jquery',  'backbone','mustache','view/members', 'view/editable-input'],
+    function($, Backbone,mustache, MembersView,EditableInput) {
 
 
      var ProjectView = Backbone.View.extend({
@@ -8,9 +8,9 @@ define('view/project', ['jquery',  'backbone','mustache','view/members'],
             'projectContainer' : $('#project-row').html()
         },
         events: {
-            'change .project-name': 'updateName',
+            'input .project-name': 'updateName',
             'click .remove': 'destroy',
-            'change .project-income': 'updateIncome'
+            'input .project-income': 'updateIncome'
         },
         options: null,
         initialize: function(options) {
@@ -37,7 +37,7 @@ define('view/project', ['jquery',  'backbone','mustache','view/members'],
             this.remove();
         },
         updateName: function (evt) {
-            var projectName = $(evt.target).val();
+            var projectName = $(evt.target).html();
             this.projectData.projectName = projectName;
 
             this.model.set('name', projectName);
@@ -65,6 +65,14 @@ define('view/project', ['jquery',  'backbone','mustache','view/members'],
             });
 
             membersView.render();
+            membersView.checkIfColumnsAreDisplayed(that.projectData.restfulTableId,that.projectData.teamId);
+
+
+            var projectNameField = new EditableInput({value:that.projectData.projectName,classField:"project-name"});
+            this.$el.find(".project-name-field").append( projectNameField.render().el );
+
+            var projectIncomeField = new EditableInput({value:that.projectData.projectIncome,classField:"project-income"});
+            this.$el.find(".project-income-field").append( projectIncomeField.render().el );
             return this;
         }
     });

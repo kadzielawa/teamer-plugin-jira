@@ -11,7 +11,7 @@ require(['jquery', 'backbone', 'mustache','view/team'], function($, Backbone, mu
             defaults: function() {
                 return {
                     id: teamCollection.nextId(),
-                    name: "empty todo..."
+                    name: "Przykładowa nazwa zespołu"
                 };
             },
         });

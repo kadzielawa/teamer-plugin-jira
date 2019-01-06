@@ -14,6 +14,8 @@ public class TeamModel{
 
     @XmlElement(name = "id")
     public int id;
+    @XmlElement(name = "viewId")
+    public int viewId;
     @XmlElement(name = "name")
     public String name;
     @XmlElement(name = "projects")
@@ -41,4 +43,8 @@ public class TeamModel{
     void setName(String name){
         this.name =name;
     }
+
+    public int getViewId() { return viewId; }
+    public void setViewId(int viewId) { this.viewId = viewId; }
+
 }

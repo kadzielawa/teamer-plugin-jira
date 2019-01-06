@@ -29,8 +29,16 @@
     </script>
 
     <script type="text/template" id="team-row">
+      #*  <aui-select
+                id="async-product-single-select"
+                name="product"
+                placeholder="Select a product"
+                src="/jira/rest/api/2/user/picker"
+                value="type to trigger async"
+                can-create-values="true"
+        ></aui-select>
+*#
         <div class="aui-group">
-                     <div class="aui-group" style="display:none;">OKP: <input type="text" value="4500" id="okpCost"></div>
             <div class="field-group top-label">
                 <span style="float:left" class="team-name-field">
                 </span>
@@ -87,6 +95,34 @@
 
     </script>
 
+    <script type="text/template" id="main-view">
+        <div class="aui-tabs horizontal-tabs">
+            <ul class="tabs-menu">
+
+            </ul>
+        </div>
+    </script>
+
+    <script type="text/template" id="single-tab">
+        <li data-view_id="{{viewId}}" class="menu-item">
+            <a class="view-teams" href="#view{{viewId}}">Tab {{viewId}}</a>
+        </li>
+</script>
+
+    <script type="text/template" id="single-view">
+
+        <div class="tabs-pane" id="view{{viewId}}">
+            <div class="aui-group buttons-teams-manage">
+                <div class="aui-group">OKP: <input type="text" value="4500" id="okpCost{{viewId}}"></div>
+                <a class="aui-button"  id="button-add-team">dodaj nowy zespół</a>
+                <a class="aui-button"  id="button-export-teams">eksportuj</a>
+            </div>
+            <div class="aui-group teams-list">
+
+            </div>
+        </div>
+</script>
+
 </head>
 <body>
 <section id="content" role="main">
@@ -107,15 +143,10 @@ font-size: 20px;"><a style="color: black; text-decoration: none;" href="/jira/se
                     </ul>
                 </div>
             </div>
+
+
             <section class="aui-page-panel-content">
 
-                <div class="aui-group buttons-teams-manage">
-                    <a class="aui-button"  id="button-add-team">dodaj nowy zespół</a>
-                    <a class="aui-button"  id="button-export-teams">eksportuj</a>
-                </div>
-                <div class="aui-group teams-list">
-
-                </div>
             </section>
             <aside class="aui-page-panel-sidebar">
                 <!-- tangental content here -->

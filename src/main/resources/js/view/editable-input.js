@@ -1,4 +1,4 @@
-define('view/editable-input', ['jquery',  'backbone','underscore','mustache',], function($, Backbone,_,mustache) {
+define('view/editable-input', ['jquery',  'backbone','underscore','js/mustache',], function($, Backbone,_,mustache) {
 
     var ContentEditableView = Backbone.View.extend({
         tagName: 'div',

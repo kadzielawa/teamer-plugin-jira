@@ -2,13 +2,17 @@
 define('view/team', [
     'jquery', 'underscore',
     'backbone',
-    'mustache',
+    'js/mustache',
     'view/project',
     'view/editable-input'], function($, _,Backbone,mustache,projectView,EditableInput) {
 
+
+
     var ProjectModel = Backbone.Model.extend({
         initialize: function (options) {
+
             this.collection = options.collection;
+            console.log(options)
         },
         isUpdated:  0,
 
@@ -43,7 +47,9 @@ define('view/team', [
         model: ProjectModel,
         teamId : null,
         teamName: null,
+        viewId: null,
         initialize: function (model,options) {
+            this.viewId = options.viewId;
             this.url = AJS.contextPath() + '/rest/project/1.0/project/'+options.teamId;
         },
         nextId: function() {
@@ -71,17 +77,22 @@ define('view/team', [
             // manage projects
             var teamId = this.model.get('id');
             var teamName = this.model.get('name');
-            this.projectCollection = new ProjectCollection(null,{teamId: teamId,teamName: teamName});
+            this.viewId = this.model.get('viewId');
+            console.log('pop')
+            console.log(this.viewId)
+            this.projectCollection = new ProjectCollection(null,{teamId: teamId,teamName: teamName,viewId: this.model.get('viewId')});
             this.listenTo(this.projectCollection, 'add', this.addProject);
             this.projectCollection.fetch();
             Backbone.on('updateProfitTeam', this.updateProfit, this);
         },
 
-        updateProfit: function (profitTeam) {
+        updateProfit: function (options) {
             var that = this;
-            var profitArea = $(".profit-area")
+            var teamId = options.id;
+            var profitTeam = options.result;
+            var profitArea = this.$el.find(".profit-area")
             _.each(profitArea,function(profitElement,b) {
-                    if($(profitElement).data('team_id') === that.model.get('id')){
+                    if($(profitElement).data('team_id') === teamId){
                         $profitValueArea = $(profitElement).find('.value');
                         that.profitSum += profitTeam;
                         $profitValueArea.html(that.profitSum)
@@ -92,8 +103,9 @@ define('view/team', [
         },
 
         addProject: function (model) {
-
             if(model.isUpdated === 0) {
+                console.log('dd')
+                console.log(model);
                 var view = new projectView({model: model, collection: this.projectCollection});
                 this.$el.find(".project-list").append(view.render().el);
             }
@@ -101,9 +113,12 @@ define('view/team', [
 
         addProjectToView: function () {
 
-            console.log("no")
-            console.log( this.model.get('name'))
-            var newProject = new ProjectModel({teamName: this.model.get('name'),teamId:this.model.get('id')});
+            var newProject = new ProjectModel(
+                {
+                    teamName: this.model.get('name'),
+                    teamId:this.model.get('id')
+                });
+
             var that = this;
             newProject.isUpdated = 1;
             this.projectCollection.create(newProject,
@@ -172,10 +187,12 @@ define('view/team', [
 
         updateName: function (evt) {
 
-            var teamName = $(evt.currentTarget).parent().prev().find(".editable-field-input").html();
-            $(evt.currentTarget).parent().hide();
-
-            this.model.set('name', teamName);
+            var $teamElement = $(evt.currentTarget).parent().prev().find(".editable-field-input");
+            if($teamElement.hasClass('team-name')) {
+                var teamName = $teamElement.html();
+                $(evt.currentTarget).parent().hide();
+                this.model.set('name', teamName);
+            }
         },
 
         saveTeam: function () {
@@ -193,6 +210,7 @@ define('view/team', [
 
             this.model.set('projects',projects);
             this.model.save();
+
             this.collection.add(this.model);
             this.collection.allowToAdd = 1;
         }

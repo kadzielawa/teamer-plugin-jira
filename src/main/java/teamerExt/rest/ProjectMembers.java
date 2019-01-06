@@ -61,20 +61,28 @@ public class ProjectMembers{
     }
         @GET
         @Path ("/users")
-        public Response getAllUsers() throws JSONException {
-                JSONArray allUsers = new JSONArray();
-                for(User user: userService.all()){
+        public Response getAllUsers(@QueryParam("search") final String queryUser) throws JSONException {
+
+                JSONArray users = new JSONArray();
+                Iterable<User> usersModels;
+
+                if(queryUser.length() > 0){
+                    usersModels = userService.getUserByString(queryUser);
+                } else {
+                    usersModels = userService.all();
+                }
+                for(User user: usersModels){
                    JSONObject userObject=new JSONObject();
                    userObject.put("id",user.getID());
                    userObject.put("text",user.getFirstname() + " " + user.getLastname());
                    userObject.put("role",user.getRole());
                    userObject.put("salary",user.getSalary());
-                    allUsers.add(userObject);
+                    users.add(userObject);
                 };
 
                 return Response
                         .status(Response.Status.OK)
-                        .entity(allUsers.toString())
+                        .entity(users.toString())
                         .build();
         }
         @PUT

@@ -51,6 +51,14 @@ public class UserServiceImpl implements UserService
         ao.delete(user);
     }
 
+
+    @Override
+    public Iterable<User> getUserByString(String user)
+    {
+        final Query query = Query.select().
+                from(User.class).where("LOWER(FIRSTNAME) LIKE LOWER(?) OR LOWER(LASTNAME) LIKE LOWER(?)", "%" + user + "%","%" + user + "%");
+        return Lists.newArrayList(ao.find(User.class, query));
+    }
     @Override
     public Iterable<User> all()
     {

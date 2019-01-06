@@ -3,7 +3,7 @@
 define('view/project-result', [
     'jquery',
     'backbone',
-    'mustache'], function($, Backbone,mustache) {
+    'js/mustache'], function($, Backbone,mustache) {
 
 
     var ProjectResultModel = Backbone.Model.extend({
@@ -51,7 +51,7 @@ define('view/project-result', [
             var result = projectIncome - costProject;
             var profitInPercent = (result / projectIncome) * 100;
             var profitability = profitInPercent.toFixed(2);
-            Backbone.trigger('updateProfitTeam',result);
+            Backbone.trigger('updateProfitTeam',{result: result,id:this.projectData.teamId});
 
             this.projectResultData = {
                 costProject: costProject,

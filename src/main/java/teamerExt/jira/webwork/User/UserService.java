@@ -8,6 +8,7 @@ public interface UserService {
 
     User add(String firstname,String lastname,String salary,String role);
 
+    Iterable<User> getUserByString(String queryUser);
     Iterable<User> all();
     void importUsers() throws Exception;
     User getUserById(String userId);

@@ -1,4 +1,4 @@
-define('view/project', ['jquery',  'backbone','mustache','view/members', 'view/editable-input'],
+define('view/project', ['jquery',  'backbone','js/mustache','view/members', 'view/editable-input'],
     function($, Backbone,mustache, MembersView,EditableInput) {
 
 
@@ -8,18 +8,20 @@ define('view/project', ['jquery',  'backbone','mustache','view/members', 'view/e
             'projectContainer' : $('#project-row').html()
         },
         events: {
-            'click .input-editable-save': 'updateName',
+            'click .input-editable-save': 'updateValue',
             'click .remove': 'destroy',
         },
         options: null,
         initialize: function(options) {
             this.collection = options.collection;
             this.model = options.model;
+            var viewId = this.collection.viewId;
             var teamId = options.model.get("teamId");
             var projectIncome = options.model.get("income");
             var projectName = options.model.get("name");
 
             this.projectData = {
+                viewId : viewId,
                 teamId : teamId,
                 projectName: projectName,
                 projectIncome: projectIncome,
@@ -35,7 +37,7 @@ define('view/project', ['jquery',  'backbone','mustache','view/members', 'view/e
             this.model.destroy();
             this.remove();
         },
-        updateName: function (evt) {
+         updateValue: function (evt) {
             var value = $(evt.currentTarget).parent().prev().find(".editable-field-input").html();
             if($(evt.currentTarget).parent().prev().hasClass('project-name')) {
                 this.projectData.projectName = value;

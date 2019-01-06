@@ -5,7 +5,10 @@
 .project-name-field {
     font-size: 23px;
 }
-
+.billedToggleButton {
+    width: 100%;
+    height: 22px;
+}
 .team-name-field {
     font-size: 30px;
 }

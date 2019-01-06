@@ -21,10 +21,13 @@
     <dependency>com.atlassian.auiplugin:ajs</dependency>
     <dependency>teamerExt.teamer-plugin:mustache</dependency>
     <resource type="download" name="teamer-plugin.css" location="/css/teamer-plugin.css"/>
+    <resource type="download" name="view/main.js" location="/js/view/main.js"/>
+    <resource type="download" name="mains.js" location="/js/mains.js"/>
     <resource type="download" name="teamer-plugin.js" location="/js/teamer-plugin.js"/>
     <resource type="download" name="editable-input.js" location="/js/view/editable-input.js"/>
-    <resource type="download" name="projects-manage.js" location="/js/projects-manage.js"/>
-    <resource type="download" name="team-manage.js" location="/js/team-manage.js"/>
+    <resource type="download" name="view/teams-manage.js" location="/js/view/teams-manage.js"/>
+    <resource type="download" name="view/tab.js" location="/js/view/tab.js"/>
+    <resource type="download" name="view/script.js" location="/js/view/script.js"/>
     <resource type="download" name="project-page.js" location="/js/project-page.js"/>
     <resource type="download" name="view/team.js" location="/js/view/team.js"/>
     <resource type="download" name="view/project-result.js" location="/js/view/project-result.js"/>
@@ -86,7 +89,7 @@
     <upgradeTask>teamerExt.jira.webwork.upgrade.v10.ProjectUpgradeTask010</upgradeTask>
     <upgradeTask>teamerExt.jira.webwork.upgrade.v11.ProjectUpgradeTask011</upgradeTask>
     <upgradeTask>teamerExt.jira.webwork.upgrade.v12.ProjectUpgradeTask012</upgradeTask>
-
+    <upgradeTask>teamerExt.jira.webwork.upgrade.v13.ProjectUpgradeTask013</upgradeTask>
   </ao>
 
   <servlet name="Hello World Servlet" key="add-project" class="teamerExt.jira.webwork.Project.ProjectServlet">
@@ -95,28 +98,10 @@
   <servlet name="Hello World Servlet" key="add-user" class="teamerExt.jira.webwork.User.UserServlet">
     <url-pattern>/adduser</url-pattern>
   </servlet>
-<!--
-
-  <web-section key="admin_teamer-ext_planning_section"
-               name="admin_teamer-ext_planning_section"
-               location="admin_plugins_menu"
-               weight="20"
-               i18n-name-key="teamer-ext.admin.planning.page.web.section.name">
-    <label key="teamer-ext.admin.planning.page.web.section.name" />
-  </web-section>
-
-  <web-item key="admin_teamer-ext_planning_webitem"
-            name="admin_teamer-ext_planning_webitem"
-            section="admin_plugins_menu/admin_teamer-ext_planning_section"
-            weight="15"
-            i18n-name-key="teamer-ext.admin.planning.page.web.item.name">
-    <label key="teamer-ext.admin.planning.page.web.item.name" />
-    <link linkId="admin_teamer-ext_planning_webitem_link">/secure/teamerAction.jspa</link>
-  </web-item>
--->
 
     <rest  key="projectmembersRest" path="/projectmembers" version="1.0"/>
     <rest  key="projectRest" path="/project" version="1.0"/>
     <rest  key="teamRest" path="/team" version="1.0"/>
+    <rest  key="viewRest" path="/view" version="1.0"/>
 
 </atlassian-plugin>

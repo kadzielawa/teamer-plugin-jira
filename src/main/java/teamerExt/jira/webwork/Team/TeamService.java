@@ -1,9 +1,6 @@
 package teamerExt.jira.webwork.Team;
 
-import teamerExt.jira.webwork.Project.Project;
-
-import java.sql.SQLException;
-import java.util.List;
+import java.util.ArrayList;
 
 public interface TeamService {
 
@@ -11,7 +8,11 @@ public interface TeamService {
 
     Team getTeamById(int teamId) throws Exception;
 
+    Iterable<Team> getTeamByViewId(int viewId) throws Exception;
+
     public void delete(Team team) throws Exception;
+
+    public ArrayList<Team> getAllViews();
 
     Iterable<Team> all();
 }

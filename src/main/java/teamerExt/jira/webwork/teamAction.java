@@ -17,16 +17,25 @@ public class teamAction extends JiraWebActionSupport
 
     public Iterable<Team> teams = new ArrayList<>();
     private final TeamService teamService;
-
+    public ArrayList<Integer> entries = new ArrayList<Integer>();
     public teamAction(TeamService teamService) {
         this.teamService = teamService;
     }
 
+    public ArrayList<Integer> getEntries() {
+        return entries;
+    }
+
+    public void setEntries(ArrayList<Integer> entries) {
+        this.entries = entries;
+    }
 
     public String execute() throws Exception {
 
         try {
-
+            entries.add(1);
+            entries.add(2);
+            entries.add(3);
             teams = teamService.all();
 
         } catch(Exception e) {

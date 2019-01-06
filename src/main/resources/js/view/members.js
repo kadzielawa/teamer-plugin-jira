@@ -1,18 +1,28 @@
-define('view/members', ['jquery',  'backbone','underscore','mustache','view/project-result'], function($, Backbone,_,mustache,ProjectResultView) {
+define('view/members',
+    ['jquery',
+        'backbone',
+        'underscore',
+        'js/mustache',
+        'view/project-result',
+        'mainapp'
+    ], function($, Backbone,_,mustache,ProjectResultView,App) {
 
     var memberModel = Backbone.Model.extend({
-        initialize: function (options) {
-            var define_okp = parseInt($("#okpCost").val());
+        initialize: function () {
+            var define_okp = parseInt($("#okpCost"+this.get('viewId')).val());
             var availability = this.get('availability');
             this.set('define_okp',define_okp);
             var real_okp = (availability / 100) * define_okp;
             this.set('okp',real_okp );
         },
-
+        defaults: function () {
+            return {
+                viewId: App.Properties.LastViewId
+            }
+        }
     });
 
     var MembersView = Backbone.View.extend({
-
         events: {
             'click .billedToggleButton' : 'billedClick',
             'change .billedToggleButton' : 'billedClick'
@@ -22,7 +32,7 @@ define('view/members', ['jquery',  'backbone','underscore','mustache','view/proj
 
         initialize: function(options) {
             this.projectData = options.projectData;
-            this.okp = parseInt($("#okpCost").val())
+            this.okp = parseInt($("#okpCost"+options.projectData.viewId).val())
             this.setElement(options.el)
             this.restfulTableId = options.restfulTableId
             this.addRESTfulTable();
@@ -42,7 +52,6 @@ define('view/members', ['jquery',  'backbone','underscore','mustache','view/proj
 
                 render: function (self) {
                     var $text = $("<input type='text' value='"+ self.value +"' class='userSearcher text' name='user_id' placeholder='wyszukaj Usera'> ");
-
                     $text.val(self.value); //
                     return $text;
                 }
@@ -56,7 +65,7 @@ define('view/members', ['jquery',  'backbone','underscore','mustache','view/proj
                         status = "checked disabled";
                     }
                     var $text = $(
-                        '<aui-toggle name="billed" class="billedToggleButton" label="toggle button"' + status + '></aui-toggle>');
+                        '<input type="checkbox" name="billed" class="billedToggleButton" label="toggle button"' + status + '/>');
 
                     return $text;
                 }
@@ -72,7 +81,7 @@ define('view/members', ['jquery',  'backbone','underscore','mustache','view/proj
                         isChecked = "value='off'"
                     }
                     var $text = $(
-                        '<aui-toggle name="billed" class="billedToggleButton" label="toggle button"' + isChecked + '></aui-toggle>');
+                        '<input type="checkbox" name="billed" class="billedToggleButton" label="toggle button"' + isChecked + '/>');
 
                     return $text;
                 }
@@ -117,7 +126,6 @@ define('view/members', ['jquery',  'backbone','underscore','mustache','view/proj
                     return $(select);
                 }
             });
-
 
             var membersTable = new AJS.RestfulTable({
                 autoFocus: true,
@@ -184,6 +192,7 @@ define('view/members', ['jquery',  'backbone','underscore','mustache','view/proj
                     }
                 ]
             });
+
             this.membersCollection = membersTable.getModels();
             this.listenTo(this.membersCollection, 'add', this.addUser);
             var $ecl =  this.$el
@@ -197,7 +206,6 @@ define('view/members', ['jquery',  'backbone','underscore','mustache','view/proj
             })
 
             $ecl.bind(AJS.RestfulTable.Events.INITIALIZED, function () {
-
 
                 jQuery(document).bind(AJS.RestfulTable.Events.ROW_INITIALIZED, function (row) {
                     console.log('88')
@@ -213,7 +221,6 @@ define('view/members', ['jquery',  'backbone','underscore','mustache','view/proj
                         this.$el.addClass("myclass");
                     });
                 });
-
 
                 var elements = $ecl.find('.userSearcher');
                 _.each(elements,function (element,i) {
@@ -232,7 +239,6 @@ define('view/members', ['jquery',  'backbone','underscore','mustache','view/proj
                                 var query = {
                                     search: params,
                                 }
-
                                 // Query parameters will be ?search=[term]&type=public
                                 return query;
                             }
@@ -245,7 +251,6 @@ define('view/members', ['jquery',  'backbone','underscore','mustache','view/proj
                 })
 
             });
-
 
             var createRow = membersTable.getCreateRow();
             createRow.bind(AJS.RestfulTable.Events.VALIDATION_ERROR, function (errors) {
@@ -315,8 +320,6 @@ define('view/members', ['jquery',  'backbone','underscore','mustache','view/proj
             });
             },
 
-
-
         hideRow: function(editedRow, isNotElement) {
             setTimeout(function () {
                 if(typeof isNotElement === "undefined") {
@@ -336,23 +339,18 @@ define('view/members', ['jquery',  'backbone','underscore','mustache','view/proj
                     },60)
                 });
             }, 60);
-
         },
 
         checkIfColumnsAreDisplayed: function (projectId,teamId) {
             var that =this;
             var membersTable = $("#person-list-"+teamId + "_"+projectId);
             var timeoutColumns = null;
-console.log('o!')
             if(membersTable.length > 0 &&  $(membersTable.children()[2]).children().length > 0){
                 this.hideColumns($(membersTable));
                 clearTimeout(timeoutColumns)
 
             } else {
-                console.log('else')
-
                 timeoutColumns = setTimeout(function(){
-                    console.log('sprawdzam')
                     that.checkIfColumnsAreDisplayed(projectId,teamId)
                 }, 100);
             }
@@ -385,7 +383,6 @@ console.log('o!')
                     tcreaterow[i].parentNode.removeChild(tcreaterow[i]);
                 }
             }
-
         },
 
         updateUserAttributes:function (addedRow) {
@@ -393,8 +390,8 @@ console.log('o!')
             addedRow.model.set('developer_name',searchedDeveloper.text);
             addedRow.model.set('cost',searchedDeveloper.salary);
             addedRow.refresh()
-
         },
+
         afterAddedRowCallback: function (addedRow,table,element) {
            var developerSelect= $(element).auiSelect2( {
                 ajax: {
@@ -406,6 +403,14 @@ console.log('o!')
                             results: data
                         };
                     },
+                    data: function (params) {
+                        console.log(params);
+                        var query = {
+                            search: params,
+                        }
+                        // Query parameters will be ?search=[term]&type=public
+                        return query;
+                    }
                 }});
 
             developerSelect.on('change',function (e) {
@@ -417,9 +422,5 @@ console.log('o!')
     });
     return MembersView;
 });
-
-
-
-
 
 usersDeveloperData = null;

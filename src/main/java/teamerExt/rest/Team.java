@@ -44,12 +44,15 @@ public class Team {
     }
 
     @GET
-    public List<TeamModel> getTeams(){
-        final Iterable<teamerExt.jira.webwork.Team.Team> teams = teamService.all();
+    public List<TeamModel> getTeamsByViewId(@QueryParam("viewId") final Integer viewId) throws Exception {
+
+        final Iterable<teamerExt.jira.webwork.Team.Team> teams = teamService.getTeamByViewId(viewId);
         List<TeamModel> teamModels = new ArrayList<>();
+
         for(teamerExt.jira.webwork.Team.Team team : teams) {
             TeamModel teamModel = new TeamModel();
             teamModel.setId(team.getID());
+            teamModel.setViewId(viewId);
             teamModel.setName(team.getName());
             teamModels.add(teamModel);
         }
@@ -66,10 +69,12 @@ public class Team {
         if(checkedTeam == null){
             teamerExt.jira.webwork.Team.Team team = ao.create(teamerExt.jira.webwork.Team.Team.class);
             team.setName(teamModel.getName());
+            team.setViewId(teamModel.getViewId());
             team.save();
             teamId = team.getID();
         }else {
             checkedTeam.setName(teamModel.getName());
+            checkedTeam.setViewId(teamModel.getViewId());
             checkedTeam.save();
             teamId = checkedTeam.getID();
         }

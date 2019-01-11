@@ -9,13 +9,20 @@ define('view/tab', [
 
     return Backbone.View.extend({
         el: ".horizontal-tabs",
+        model: App.Models.TabModel,
         templates: {
             'singleTab': $('#single-tab').html(),
             'singleView': $('#single-view').html()
         },
         events: {
             'click .menu-item': "menuItemClick" ,
+            'click .menu-new-item': "menuNewItemClick" ,
         },
+
+        menuNewItemClick: function () {
+
+        },
+
         menuItemClick: function (e) {
             var $tabsMenu = $(e.currentTarget).parent();
             var viewId = $(e.currentTarget).data('view_id');
@@ -31,7 +38,7 @@ define('view/tab', [
 
             this.$el.find('#view'+viewId).addClass('active-pane')
             App.Properties.LastViewId = viewId;
-console.log(App);
+            console.log(App);
         },
         render: function () {
             var viewId = this.model.get('id');
@@ -40,6 +47,7 @@ console.log(App);
             var teamCollection = App.Collections.TeamCollection;
             teamCollection.setUrl(viewId);
             var teamsView = new TeamsView({collection: teamCollection,viewId: viewId});
+            this.$el.find(".tabs-menu").children().eq(1).trigger('click')
 
             return this;
         }

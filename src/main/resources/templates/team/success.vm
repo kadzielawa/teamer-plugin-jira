@@ -98,7 +98,9 @@
     <script type="text/template" id="main-view">
         <div class="aui-tabs horizontal-tabs">
             <ul class="tabs-menu">
-
+                <li class="menu-new-item">
+                    <a class="view-teams">+ New Tab</a>
+                </li>
             </ul>
         </div>
     </script>

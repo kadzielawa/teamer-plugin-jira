@@ -6,8 +6,7 @@ define('mainapp',['jquery', 'backbone', 'js/mustache','view/main'],
                 Models: {},
                 Views: {},
                 Properties: {},
-                Collections: {},
-                start: function () {}
+                Collections: {}
             };
             var mainView = new MainView();
             mainView.render();
@@ -29,6 +28,13 @@ define('mainapp',['jquery', 'backbone', 'js/mustache','view/main'],
             },
         });
 
+        var TabModel = Backbone.Model.extend({
+            initialize: function (id) {
+                this.set('id', id);
+            }
+        });
+
+
         /** Collection **/
 
         var TeamCollection = Backbone.Collection.extend({
@@ -43,9 +49,18 @@ define('mainapp',['jquery', 'backbone', 'js/mustache','view/main'],
             },
         });
 
+        var ViewCollection = Backbone.Collection.extend({
+            model: TabModel,
+            url: AJS.contextPath() + '/rest/view/1.0/view/',
+        });
+
+
+
         /** Instances **/
         App.Collections.TeamCollection = new TeamCollection();
         App.Models.TeamModel = TeamModel;
+        App.Models.TabModel = TabModel;
+        App.Collections.ViewCollection = new ViewCollection();
         App.Properties.LastViewId = null;
 
         return App;

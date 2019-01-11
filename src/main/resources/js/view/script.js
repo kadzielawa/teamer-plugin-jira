@@ -1,27 +1,11 @@
 require(['mainapp','view/tab'], function(App,TabView) {
 
-    App.start();
+    App.Collections.ViewCollection.fetch({async:false , success: function(data){
 
-
-    var TabModel = Backbone.Model.extend({
-        initialize: function (id) {
-            this.set('id', id);
-            var tabView = new TabView({model: this});
+        data.models.forEach(function (model) {
+            var tabView = new TabView({model:model});
             tabView.render();
-        }
-    });
-    var ViewCollection = Backbone.Collection.extend({
-        model: TabModel,
-        url: AJS.contextPath() + '/rest/view/1.0/view/',
-    });
-
-
-    var viewCollection = new ViewCollection();
-    viewCollection.fetch({async:false , success: function(collection, response, options){
-            $(".tabs-menu").children().first().trigger('click')
+        })
 
         },});
-
-
-
 })

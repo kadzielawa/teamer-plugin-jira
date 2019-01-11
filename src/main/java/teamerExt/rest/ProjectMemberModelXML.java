@@ -22,6 +22,8 @@ public class ProjectMemberModelXML {
     //przy wysylaniu aktualizacji usera na tabelce
     @XmlElement (name = "define_okp")
     private String define_okp;
+    @XmlElement (name = "viewId")
+    private String viewId;
 
     @XmlElement (name = "developer_name")
     private String developer_name;

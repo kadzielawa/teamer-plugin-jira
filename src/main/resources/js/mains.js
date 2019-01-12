@@ -29,9 +29,7 @@ define('mainapp',['jquery', 'backbone', 'js/mustache','view/main'],
         });
 
         var TabModel = Backbone.Model.extend({
-            initialize: function (id) {
-                this.set('id', id);
-            }
+
         });
 
 
@@ -61,7 +59,8 @@ define('mainapp',['jquery', 'backbone', 'js/mustache','view/main'],
         App.Models.TeamModel = TeamModel;
         App.Models.TabModel = TabModel;
         App.Collections.ViewCollection = new ViewCollection();
-        App.Properties.LastViewId = null;
+        App.Properties.LastViewedViewId = null;
+        App.Properties.LastViewId = 0;
 
         return App;
 });

@@ -11,7 +11,6 @@ import teamerExt.jira.webwork.Project.ProjectTeam;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import java.util.ArrayList;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -28,12 +27,6 @@ public class TeamServiceImpl implements TeamService
     {
         this.ao = checkNotNull(ao);
         this.projectService = projectService;
-    }
-
-
-    @Override
-    public Team add(String description) {
-        return null;
     }
 
     @Override
@@ -64,15 +57,9 @@ public class TeamServiceImpl implements TeamService
         return team.length > 0 ? team[0] : null;
     }
     @Override
-    public Iterable<Team> getTeamByViewId(int viewId){
+    public Iterable<Team> getTeamsByViewId(int viewId){
         final Query query = Query.select().where("VIEW_ID = ?", viewId);
         return Lists.newArrayList(ao.find(Team.class, query));
     }
 
-    @Override
-    public ArrayList<Team> getAllViews() {
-        final Query query = Query.select("VIEW_ID").distinct();
-        return Lists.newArrayList(ao.find(Team.class, query));
-
-    }
 }

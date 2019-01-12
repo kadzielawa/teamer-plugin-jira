@@ -3,9 +3,7 @@ package teamerExt.jira.webwork;
 import com.atlassian.jira.web.action.JiraWebActionSupport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import teamerExt.jira.webwork.Model.TeamerModel;
 import teamerExt.jira.webwork.Model.User;
-import teamerExt.jira.webwork.Team.TeamService;
 import teamerExt.jira.webwork.User.UserService;
 
 import java.util.HashMap;

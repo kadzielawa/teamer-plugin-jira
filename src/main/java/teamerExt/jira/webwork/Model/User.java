@@ -12,8 +12,6 @@ public class User {
 
     public  Map<String, Team> teamList = new HashMap<String, Team>();
 
-
-
     public void setDisplayName(String displayName) {
         this.displayName = displayName;
     }

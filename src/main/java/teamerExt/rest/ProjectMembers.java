@@ -43,7 +43,6 @@ public class ProjectMembers{
             JSONObject projectMemberObject=new JSONObject();
             User user = userService.getUserById(projectMember.getUserId());
             projectMemberObject.put("developer_name",user.getFirstname() + " " + user.getLastname());
-            System.out.println(user.getFirstname());
             projectMemberObject.put("user_id",projectMember.getUserId());
             projectMemberObject.put("id",projectMember.getID());
             projectMemberObject.put("project_member_id",projectMember.getID());

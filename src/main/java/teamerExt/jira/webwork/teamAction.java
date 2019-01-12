@@ -4,7 +4,6 @@ package teamerExt.jira.webwork;
 import com.atlassian.jira.web.action.JiraWebActionSupport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import teamerExt.jira.webwork.Model.TeamerModel;
 import teamerExt.jira.webwork.Team.Team;
 import teamerExt.jira.webwork.Team.TeamService;
 

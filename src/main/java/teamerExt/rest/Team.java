@@ -3,7 +3,6 @@ package teamerExt.rest;
 import com.atlassian.activeobjects.external.ActiveObjects;
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.plugins.rest.common.security.AnonymousAllowed;
-
 import teamerExt.jira.webwork.Project.*;
 import teamerExt.jira.webwork.Project.Project;
 import teamerExt.jira.webwork.Team.TeamService;
@@ -31,6 +30,8 @@ public class Team {
         this.ao = ao;
     }
 
+
+
     @GET
     @Path("{id}")
     public TeamModel getTeam(@PathParam("id") final int teamId) throws Exception {
@@ -46,7 +47,7 @@ public class Team {
     @GET
     public List<TeamModel> getTeamsByViewId(@QueryParam("viewId") final Integer viewId) throws Exception {
 
-        final Iterable<teamerExt.jira.webwork.Team.Team> teams = teamService.getTeamByViewId(viewId);
+        final Iterable<teamerExt.jira.webwork.Team.Team> teams = teamService.getTeamsByViewId(viewId);
         List<TeamModel> teamModels = new ArrayList<>();
 
         for(teamerExt.jira.webwork.Team.Team team : teams) {
@@ -96,55 +97,12 @@ public class Team {
         return Response.ok("utworzono team - ID:"+ teamId).build();
     }
 
-/*
-
-
-    @POST
-    @Path("{id}")
-    public Response createTeamId(@PathParam("id") final int teamid, TeamModel teamModel) throws Exception {
-        System.out.println("tworze team");
-
-        teamerExt.jira.webwork.Team.Team checkedTeam = teamService.getTeamById(teamModel.getId());
-        int teamId;
-        if(checkedTeam == null){
-            teamerExt.jira.webwork.Team.Team team = ao.create(teamerExt.jira.webwork.Team.Team.class);
-            team.setName(teamModel.getName());
-            team.save();
-            teamId = team.getID();
-        }else {
-            checkedTeam.setName(teamModel.getName());
-            checkedTeam.save();
-            teamId = checkedTeam.getID();
-        }
-
-
-        for (ProjectBean project : teamModel.getProjects()) {
-
-            Project editedProject = projectService.getProjectById(project.getId());
-            editedProject.setName(project.getName());
-            editedProject.setIncome(project.getIncome());
-            editedProject.save();
-            ProjectTeam projectTeam = ao.create(ProjectTeam.class);
-            projectTeam.setProjectId(project.getId());
-            projectTeam.setTeamId(teamId);
-            projectTeam.save();
-        }
-
-
-
-
-
-        return Response.ok("utworzono team - ID:"+ teamId).build();
-    }
-*/
     @DELETE
     @Path("{id}")
     public Response delete(@PathParam("id") final int teamId) throws Exception {
-        System.out.println(teamId);
 
         teamerExt.jira.webwork.Team.Team team = this.teamService.getTeamById(teamId);
 
-        System.out.println(team);
         this.teamService.delete(team);
 
         return Response.ok("usunieto").build();

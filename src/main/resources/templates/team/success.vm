@@ -62,7 +62,7 @@
     </script>
 
     <script type="text/template" id="project-result">
-        <div class="ddd">
+        <div class="summary-project">
             <p><span>Koszt projektu:<b>{{costProject}} zł</b></span></p>
             <p><span>Suma OKP:<b>{{okpSum}} zł</b></span></p>
             <p> <span>Wynik:<b>{{result}} zł</b></span></p>
@@ -98,7 +98,7 @@
     <script type="text/template" id="main-view">
         <div class="aui-tabs horizontal-tabs">
             <ul class="tabs-menu">
-                <li class="menu-new-item">
+                <li class="menu-item new">
                     <a class="view-teams">+ New Tab</a>
                 </li>
             </ul>
@@ -107,7 +107,9 @@
 
     <script type="text/template" id="single-tab">
         <li data-view_id="{{viewId}}" class="menu-item">
-            <a class="view-teams" href="#view{{viewId}}">Tab {{viewId}}</a>
+            <a class="view-teams" href="#view{{viewId}}">{{#viewName}} {{viewName}} {{/viewName}}
+                {{^viewName}} {{viewName}} {{/viewName}}
+            </a>
         </li>
 </script>
 
@@ -115,9 +117,17 @@
 
         <div class="tabs-pane" id="view{{viewId}}">
             <div class="aui-group buttons-teams-manage">
-                <div class="aui-group">OKP: <input type="text" value="4500" id="okpCost{{viewId}}"></div>
-                <a class="aui-button"  id="button-add-team">dodaj nowy zespół</a>
-                <a class="aui-button"  id="button-export-teams">eksportuj</a>
+                <div class="aui-group">
+                    <form class="aui">
+                       <label for="okpCost{{viewId}}"> OKP:</label>
+                       <input class="text medium-field input-okp-value" type="text" value="{{okp}}" id="okpCost{{viewId}}" data-view_id="{{viewId}}">
+                       <label for="viewName{{viewId}}">Nazwa widoku:</label>
+                       <input class="text medium-field input-view-name" id="viewName{{viewId}}" value="{{viewName}}" type="text" data-view_id="{{viewId}}">
+                        <span style="float:right;"><span class="aui-icon aui-icon-small aui-iconfont-cross-circle delete-view">Insert meaningful text here for accessibility</span></span>
+                    </form>
+                </div>
+                    <a class="aui-button"  id="button-add-team">dodaj nowy zespół</a>
+                <a class="aui-button"  id="button-export-teams" data-view_id="{{viewId}}">eksportuj</a>
             </div>
             <div class="aui-group teams-list">
 

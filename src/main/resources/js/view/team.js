@@ -12,7 +12,6 @@ define('view/team', [
         initialize: function (options) {
 
             this.collection = options.collection;
-            console.log(options)
         },
         isUpdated:  0,
 
@@ -78,8 +77,6 @@ define('view/team', [
             var teamId = this.model.get('id');
             var teamName = this.model.get('name');
             this.viewId = this.model.get('viewId');
-            console.log('pop')
-            console.log(this.viewId)
             this.projectCollection = new ProjectCollection(null,{teamId: teamId,teamName: teamName,viewId: this.model.get('viewId')});
             this.listenTo(this.projectCollection, 'add', this.addProject);
             this.projectCollection.fetch();
@@ -104,8 +101,7 @@ define('view/team', [
 
         addProject: function (model) {
             if(model.isUpdated === 0) {
-                console.log('dd')
-                console.log(model);
+
                 var view = new projectView({model: model, collection: this.projectCollection});
                 this.$el.find(".project-list").append(view.render().el);
             }
@@ -141,7 +137,7 @@ define('view/team', [
 
         removeFailed: function (model, response) {
             var myFlag = AJS.flag({
-                type: 'error',
+                type: 'success',
                 body: 'Błąd przy usuwaniu zespołu',
             });
         },

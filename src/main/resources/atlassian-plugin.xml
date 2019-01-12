@@ -90,6 +90,7 @@
     <upgradeTask>teamerExt.jira.webwork.upgrade.v11.ProjectUpgradeTask011</upgradeTask>
     <upgradeTask>teamerExt.jira.webwork.upgrade.v12.ProjectUpgradeTask012</upgradeTask>
     <upgradeTask>teamerExt.jira.webwork.upgrade.v13.ProjectUpgradeTask013</upgradeTask>
+    <upgradeTask>teamerExt.jira.webwork.upgrade.v14.ViewUpgradeTask014</upgradeTask>
   </ao>
 
   <servlet name="Hello World Servlet" key="add-project" class="teamerExt.jira.webwork.Project.ProjectServlet">

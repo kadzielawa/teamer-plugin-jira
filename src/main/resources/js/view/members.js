@@ -17,7 +17,7 @@ define('view/members',
         },
         defaults: function () {
             return {
-                viewId: App.Properties.LastViewId
+                viewId: App.Properties.LastViewedViewId
             }
         }
     });
@@ -84,6 +84,22 @@ define('view/members',
                         '<input type="checkbox" name="billed" class="billedToggleButton" label="toggle button"' + isChecked + '/>');
 
                     return $text;
+                }
+            });
+
+            var CostView = AJS.RestfulTable.CustomEditView.extend({
+                render: function (self) {
+                    var value = typeof self.value === 'undefined' ? "" : self.value;
+                    var $field = $('<input pattern="\\d*" type="text" class="text cost-input" value="' + value +'" name="cost">')
+                    return $field;
+                }
+            });
+
+            var AvailabilityView = AJS.RestfulTable.CustomEditView.extend({
+                render: function (self) {
+                    var value = typeof self.value === 'undefined' ? "" : self.value;
+                    var $field = $('<input pattern="\\d*" type="text" class="text availability-input" value="' + value +'" name="availability">')
+                    return $field;
                 }
             });
 
@@ -176,12 +192,16 @@ define('view/members',
                     {
                         id: "availability",
                         header: "Zaangażowanie",
-                        fieldName: "availability"
+                        fieldName: "availability",
+                        createView: AvailabilityView,
+                        editView: AvailabilityView
                     },
                     {
                         id: "cost",
                         header: "Koszt stawka",
-                        fieldName: "cost"
+                        fieldName: "cost",
+                        createView: CostView,
+                        editView: CostView
                     },
                     {
                         id: "okp",
@@ -257,7 +277,10 @@ define('view/members',
                 alert('error!!!');
             });
             createRow.bind(AJS.RestfulTable.Events.SAVE, function (errors) {
-                console.log('TO DZIAŁA');
+                var myFlag = AJS.flag({
+                    type: 'fail',
+                    body: 'Please correct the form data!',
+                });
             console.log(errors)
             });
             createRow.bind(AJS.RestfulTable.Events.CANCEL, function (errors) {
@@ -388,7 +411,11 @@ define('view/members',
         updateUserAttributes:function (addedRow) {
             var searchedDeveloper = _.findWhere(usersDeveloperData,{id:Number(addedRow.model.get('user_id'))});
             addedRow.model.set('developer_name',searchedDeveloper.text);
-            addedRow.model.set('cost',searchedDeveloper.salary);
+
+           // addedRow.model.set('cost',searchedDeveloper.salary);
+            console.log(addedRow)
+            addedRow.$el.find("input[name=cost]").val(searchedDeveloper.salary)
+
             addedRow.refresh()
         },
 
@@ -404,7 +431,6 @@ define('view/members',
                         };
                     },
                     data: function (params) {
-                        console.log(params);
                         var query = {
                             search: params,
                         }

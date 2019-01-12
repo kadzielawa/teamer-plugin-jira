@@ -16,15 +16,23 @@ define('view/tab', [
         },
         events: {
             'click .menu-item': "menuItemClick" ,
-            'click .menu-new-item': "menuNewItemClick" ,
         },
 
-        menuNewItemClick: function () {
+        menuNewItemClick: function (e) {
+            var newViewId = ++App.Properties.LastViewId;
+            var newModel = new App.Models.TabModel({id:newViewId, okp: 4500, name: "empty titile..."});
+            this.render(newModel);
+            $(".tabs-menu").children().last().trigger('click')
 
         },
 
         menuItemClick: function (e) {
             var $tabsMenu = $(e.currentTarget).parent();
+
+            if($(e.currentTarget).hasClass('new')){
+                this.menuNewItemClick(e)
+                return false;
+            }
             var viewId = $(e.currentTarget).data('view_id');
             $tabsMenu.children().each(function (a,b) {
                 $(b).removeClass("active-tab");
@@ -37,17 +45,18 @@ define('view/tab', [
             });
 
             this.$el.find('#view'+viewId).addClass('active-pane')
-            App.Properties.LastViewId = viewId;
-            console.log(App);
+            App.Properties.LastViewedViewId = viewId;
         },
-        render: function () {
-            var viewId = this.model.get('id');
-            this.$el.append(mustache.render(this.templates.singleView,{viewId: viewId}));
-            this.$el.find('.tabs-menu').append(mustache.render(this.templates.singleTab,{viewId: viewId}));
+        render: function (newModel) {
+            var viewId = newModel.get('id') || this.model.get('id');
+            var viewName = newModel.get('name')
+            var okp = newModel.get('okp')
+            App.Properties.LastViewId = viewId;
+            this.$el.append(mustache.render(this.templates.singleView,{viewId: viewId,okp: okp, viewName: viewName}));
+            this.$el.find('.tabs-menu').append(mustache.render(this.templates.singleTab,{viewId: viewId, viewName: viewName}));
             var teamCollection = App.Collections.TeamCollection;
             teamCollection.setUrl(viewId);
             var teamsView = new TeamsView({collection: teamCollection,viewId: viewId});
-            this.$el.find(".tabs-menu").children().eq(1).trigger('click')
 
             return this;
         }

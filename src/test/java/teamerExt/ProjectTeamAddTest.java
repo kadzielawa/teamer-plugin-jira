@@ -43,12 +43,7 @@ public class ProjectTeamAddTest {
 
         final Query query = Query.select();
         Iterable<ProjectTeam> teamList = Lists.newArrayList(entityManager.find(ProjectTeam.class, query));
-        System.out.println("start");
 
-        for(ProjectTeam team : teamList) {
-            System.out.println(team.getProjectId());
-
-        }
     }
 
 }

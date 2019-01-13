@@ -43,7 +43,7 @@ public class ViewServiceImpl implements ViewService {
     }
 
     @Override
-    public void cloneView(int viewId) throws Exception {
+    public Integer cloneView(int viewId) throws Exception {
         //pobieramy zespoly dla widoku
         Iterable<Team> teams = this.teamService.getTeamsByViewId(viewId);
         View clonedView = this.getViewById(String.valueOf(viewId));
@@ -98,6 +98,7 @@ public class ViewServiceImpl implements ViewService {
             }
         }
 
+        return lastViewId;
     }
 
     @Override

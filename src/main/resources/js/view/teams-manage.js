@@ -58,14 +58,23 @@ define('view/teams-manage', ['jquery',  'backbone', 'view/team','mainapp'], func
         },
         exportTeams: function (e) {
             var viewId = $(e.currentTarget).data('view_id');
-            Backbone.ajax({
-                dataType: "json",
-                type: "PUT",
-                url: AJS.contextPath() + '/rest/view/1.0/view/' + viewId,
-                data: "", //add your data
-            }).complete(function () {
-                $(".tabs-menu").children().last().trigger('click')
-            });
+            if(viewId == this.viewId) {
+                viewName = $('#viewName'+this.viewId).val();
+                okpValue = $('#okpCost'+this.viewId).val();
+                Backbone.ajax({
+                    dataType: "json",
+                    type: "PUT",
+                    url: AJS.contextPath() + '/rest/view/1.0/view/' + viewId,
+                    data: "", //add your data
+                    success: function (data) {
+                        App.Properties.LastViewId = data.created_id;
+                        var newModel = new App.Models.TabModel({id: App.Properties.LastViewId, okp: okpValue, name: viewName + " (copy)"});
+                        App.Views.TabView.render(newModel);
+                        $(".tabs-menu").children().last().trigger('click')
+                    }
+
+                });
+            }
         },
 
 

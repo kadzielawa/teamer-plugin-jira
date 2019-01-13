@@ -37,8 +37,6 @@ public class projectsAction extends JiraWebActionSupport
             users = userService.all();
 
         } catch(Exception e) {
-            System.out.println(e.getMessage());
-            System.out.println(e.getLocalizedMessage());
             return "error";
         }
         return super.execute(); //returns SUCCESS

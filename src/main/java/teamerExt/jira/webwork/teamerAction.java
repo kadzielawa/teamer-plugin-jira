@@ -29,7 +29,6 @@ public class teamerAction extends JiraWebActionSupport
             getRedirect("/secure/usersAction.jspa");
 
         } catch(Exception e) {
-            System.out.println(e.getMessage());
             return "er ror";
         }
          return super.execute(); //returns SUCCESS

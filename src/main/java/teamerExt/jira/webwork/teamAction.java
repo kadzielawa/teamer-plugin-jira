@@ -38,7 +38,6 @@ public class teamAction extends JiraWebActionSupport
             teams = teamService.all();
 
         } catch(Exception e) {
-            System.out.println(e.getMessage());
             return "error";
         }
         return super.execute(); //returns SUCCESS

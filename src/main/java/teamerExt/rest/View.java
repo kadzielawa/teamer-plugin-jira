@@ -3,6 +3,9 @@ package teamerExt.rest;
 import com.atlassian.activeobjects.external.ActiveObjects;
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.plugins.rest.common.security.AnonymousAllowed;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 import teamerExt.jira.webwork.Team.Team;
 import teamerExt.jira.webwork.Team.TeamService;
 import teamerExt.jira.webwork.View.ViewService;
@@ -64,9 +67,19 @@ public class View {
 
 
     @PUT
+    @Produces("application/json")
     @Path("{id}")
-    public void cloneView(@PathParam("id") final int viewId) throws Exception {
-        this.viewService.cloneView(viewId);
+    public Response cloneView(@PathParam("id") final int viewId) throws Exception {
+        Integer createdId = this.viewService.cloneView(viewId);
+
+
+        JSONObject obj = new JSONObject();
+        obj.put("created_id",createdId);
+
+        return Response
+                .status(Response.Status.OK)
+                .entity(obj)
+                .type(MediaType.APPLICATION_JSON).build();
     }
 
     @POST

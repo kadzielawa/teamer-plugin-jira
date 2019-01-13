@@ -30,7 +30,6 @@ public class usersAction extends JiraWebActionSupport
             users = userService.all();
 
         } catch(Exception e) {
-            System.out.println(e.getMessage());
             return "error";
         }
          return super.execute(); //returns SUCCESS

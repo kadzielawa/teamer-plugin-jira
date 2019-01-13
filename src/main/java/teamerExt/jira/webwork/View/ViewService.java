@@ -10,6 +10,6 @@ public interface ViewService {
 
     public View getViewById(String viewId);
 
-    public void cloneView(int viewId) throws Exception;
+    public Integer cloneView(int viewId) throws Exception;
 
 }

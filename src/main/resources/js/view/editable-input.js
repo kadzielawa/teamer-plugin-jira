@@ -11,12 +11,24 @@ define('view/editable-input', ['jquery',  'backbone','underscore','js/mustache',
             "blur .content": 'onEditDone',
             "mouseenter": 'mouseenter',
             "click .input-editable-cancel" : "cancel",
-            "mouseleave": 'mouseleave'
         },
         options: null,
 
         initialize: function (options) {
             this.options = options;
+            var that = this;
+            //hack
+            $(document).mouseup(function(e)
+                {
+                var container = $(".editable-field-input");
+                if (!container.is(e.target) && container.has(e.target).length === 0)
+                {
+                    container.find('.editable-container').css({'border':'0'});
+                    container.find('.overlay-icon').hide();
+                    that.$el.find('.save-options').hide();
+                }
+                });
+
         },
 
         render: function () {
@@ -28,14 +40,6 @@ define('view/editable-input', ['jquery',  'backbone','underscore','js/mustache',
         },
         cancel: function (e) {
             $(e.currentTarget).parent().hide()
-
-        },
-        mouseleave: function (e) {
-
-            var $editableContainer = $(e.currentTarget);
-            $editableContainer.find('.editable-container').css({'border':'0'});
-            $(e.currentTarget).find('.overlay-icon').hide();
-            this.$el.find('.save-options').hide();
 
         },
         mouseenter: function (e) {

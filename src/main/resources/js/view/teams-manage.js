@@ -27,10 +27,9 @@ define('view/teams-manage', ['jquery',  'backbone', 'view/team','mainapp'], func
                     dataType: "json",
                     type: "DELETE",
                     contentType: 'application/json',
-                    url: AJS.contextPath() + '/rest/view/1.0/view/' + this.viewId,
-                    data: JSON.stringify(data),
+                        url: AJS.contextPath() + '/rest/view/1.0/view/' + this.viewId
                 }).complete(function () {
-                    //Code after complete the request
+                    alert('haven\'t implemented yet xD')
                 });
             } else {
                 // Do nothing!

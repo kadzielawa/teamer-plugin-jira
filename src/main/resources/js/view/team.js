@@ -17,6 +17,8 @@ define('view/team', [
 
         remove: function () {
             var that = this;
+            this.url = AJS.contextPath() + '/rest/project/1.0/project/' + that.get('projectId') + '/' + that.get('teamId');
+
             Backbone.ajax({
                 dataType: "json",
                 type: "DELETE",

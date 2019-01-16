@@ -38,6 +38,9 @@ define('view/project', ['jquery',  'backbone','js/mustache','view/members', 'vie
             this.remove();
         },
          updateValue: function (evt) {
+
+            console.log('xxx')
+
             var value = $(evt.currentTarget).parent().prev().find(".editable-field-input").html();
             if($(evt.currentTarget).parent().prev().hasClass('project-name')) {
                 this.projectData.projectName = value;

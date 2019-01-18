@@ -4,64 +4,11 @@ define('view/team', [
     'backbone',
     'js/mustache',
     'view/project',
-    'view/editable-input'], function($, _,Backbone,mustache,projectView,EditableInput) {
+    'view/editable-input',
+    'mainapp'], function($, _,Backbone,mustache,projectView,EditableInput,App) {
 
 
-
-    var ProjectModel = Backbone.Model.extend({
-        initialize: function (options) {
-
-            this.collection = options.collection;
-        },
-        isUpdated:  0,
-
-        remove: function () {
-            var that = this;
-            this.url = AJS.contextPath() + '/rest/project/1.0/project/' + that.get('projectId') + '/' + that.get('teamId');
-
-            Backbone.ajax({
-                dataType: "json",
-                type: "DELETE",
-                url: AJS.contextPath() + '/rest/project/1.0/project/' + that.get('projectId') + '/' + that.get('teamId'),
-                data: "", //add your data
-                success: function(response){
-                    //code after success
-                },
-                error: function () {
-                    // Code After Erroe
-                }
-
-            }).complete(function () {
-                //Code after complete the request
-            });
-        },
-
-        defaults: function() {
-            return {
-                name: "Przykładowa nazwa projektu",
-                income: 10000
-            };
-        }
-    });
-
-    var ProjectCollection = Backbone.Collection.extend({
-        model: ProjectModel,
-        teamId : null,
-        teamName: null,
-        viewId: null,
-        initialize: function (model,options) {
-            this.viewId = options.viewId;
-            this.url = AJS.contextPath() + '/rest/project/1.0/project/'+options.teamId;
-        },
-        nextId: function() {
-            if (!this.length) return 1;
-            return this.last().get('id') + 1;
-        },
-
-
-    });
-
-    var TeamView = Backbone.View.extend({
+   return Backbone.View.extend({
         tagName: 'div',
         events: {
             'click .save': 'saveTeam',
@@ -79,7 +26,7 @@ define('view/team', [
             var teamId = this.model.get('id');
             var teamName = this.model.get('name');
             this.viewId = this.model.get('viewId');
-            this.projectCollection = new ProjectCollection(null,{teamId: teamId,teamName: teamName,viewId: this.model.get('viewId')});
+            this.projectCollection = new App.Collections.ProjectCollection(null,{teamId: teamId,teamName: teamName,viewId: this.model.get('viewId')});
             this.listenTo(this.projectCollection, 'add', this.addProject);
             this.projectCollection.fetch();
             Backbone.on('updateProfitTeam', this.updateProfit, this);
@@ -93,6 +40,7 @@ define('view/team', [
             _.each(profitArea,function(profitElement,b) {
                     if($(profitElement).data('team_id') === teamId){
                         $profitValueArea = $(profitElement).find('.value');
+                        //to check
                         that.profitSum += profitTeam;
                         $profitValueArea.html(that.profitSum)
                     }
@@ -111,17 +59,19 @@ define('view/team', [
 
         addProjectToView: function () {
 
-            var newProject = new ProjectModel(
+            var newProject = new App.Models.ProjectModel(
                 {
                     teamName: this.model.get('name'),
-                    teamId:this.model.get('id')
+                    teamId: this.model.get('id')
                 });
 
             var that = this;
             newProject.isUpdated = 1;
             this.projectCollection.create(newProject,
-                {'wait':true,'success': this.callbackAddProjectToView.bind(that)}
-                );
+                {
+                    'wait': true,
+                    'success': this.callbackAddProjectToView.bind(that)
+                });
         },
         //set id from added to database projectId
         callbackAddProjectToView:function (newProject,resp) {
@@ -173,7 +123,7 @@ define('view/team', [
 
             var teamNameField = new EditableInput({
                 value:basicData.teamName,
-                classField:"team-name",
+                classField: "team-name",
                 id: "row-" + basicData.restfulTableId + "-id",
                 name: "row-" + basicData.restfulTableId + "-name"
             });
@@ -199,8 +149,8 @@ define('view/team', [
             var projects = [];
             this.projectCollection.each(function(model){
                var project = {
-                    "id": model.get('projectId'),
-                   "name" : model.get('name'),
+                   "id": model.get('projectId'),
+                   "name": model.get('name'),
                    "income": model.get('income')
                }
                projects.push(project);
@@ -213,7 +163,5 @@ define('view/team', [
             this.collection.allowToAdd = 1;
         }
     });
-
-    return TeamView;
 
 });

@@ -7,22 +7,7 @@ define('view/members',
         'mainapp'
     ], function($, Backbone,_,mustache,ProjectResultView,App) {
 
-    var memberModel = Backbone.Model.extend({
-        initialize: function () {
-            var define_okp = parseInt($("#okpCost"+this.get('viewId')).val());
-            var availability = this.get('availability');
-            this.set('define_okp',define_okp);
-            var real_okp = (availability / 100) * define_okp;
-            this.set('okp',real_okp );
-        },
-        defaults: function () {
-            return {
-                viewId: App.Properties.LastViewedViewId
-            }
-        }
-    });
-
-    var MembersView = Backbone.View.extend({
+    return Backbone.View.extend({
         events: {
             'click .billedToggleButton' : 'billedClick',
             'change .billedToggleButton' : 'billedClick'
@@ -148,7 +133,7 @@ define('view/members',
                 el: this.$el,
                 id: "restfultable_"+projectId,
                 allowReorder: false,
-                model:memberModel,
+                model:App.Models.MemberModel,
 
                 //nie dostal user_id i dlatego nie ma null w projekie
                 noEntriesMsg: "Brak osób powiązanych z projektem",
@@ -214,14 +199,18 @@ define('view/members',
             });
 
             this.membersCollection = membersTable.getModels();
-            this.listenTo(this.membersCollection, 'add', this.addUser);
+            this.listenTo(this.membersCollection, 'change', this.modifyUser);
             var $ecl =  this.$el
 
             this.membersCollection.fetch({
                 async: false,
                 success: function (data) {
                     var projectresultView = new ProjectResultView({collection:data,projectData:that.projectData});
-                    $ecl.after(projectresultView.render().el)
+                    if($ecl.next().length > 0) {
+                        console.log('ttt')
+                        console.log($ecl.next())
+                        $ecl.after(projectresultView.render().el)
+                    }
                 }
             })
 
@@ -317,11 +306,11 @@ define('view/members',
                 timeout = null;
                 check = function () {
                     var rootElement= table.focusedRow.$el[0]
-                    var childs = rootElement.children;
                     var element = rootElement.getElementsByClassName('userSearcher')[0];
                     if ($(element).is('[type=text]')) { // assuming a jQuery object here
                         that.hideRow(addedRow);
                         that.updateUserAttributes(addedRow);
+                        that.checkIfUserNotExceedLimit(addedRow);
                         that.afterAddedRowCallback(addedRow,table,element);
                         clearTimeout(timeout)
                     } else {
@@ -342,6 +331,22 @@ define('view/members',
                  that.hideRow(editedRow);
             });
             },
+        modifyUser: function (xx) {
+            console.log(xx)
+            var that = this;
+            var $ecl = this.$el;
+            this.membersCollection.fetch({
+                async: false,
+                success: function (data) {
+                    var projectresultView = new ProjectResultView({collection:data,projectData:that.projectData});
+                    if($ecl.next().length > 0) {
+                        $ecl.next().html(projectresultView.render().el)
+                    } else {
+                        $ecl.after().html(projectresultView.render().el)
+                    }
+                }
+            })
+        },
 
         hideRow: function(editedRow, isNotElement) {
             setTimeout(function () {
@@ -364,8 +369,12 @@ define('view/members',
             }, 60);
         },
 
+        checkIfUserNotExceedLimit: function (addedRow) {
+             _.findWhere(usersDeveloperData,{id:Number(addedRow.model.get('user_id'))});
+
+        },
         checkIfColumnsAreDisplayed: function (projectId,teamId) {
-            var that =this;
+            var that = this;
             var membersTable = $("#person-list-"+teamId + "_"+projectId);
             var timeoutColumns = null;
             if(membersTable.length > 0 &&  $(membersTable.children()[2]).children().length > 0){
@@ -446,7 +455,6 @@ define('view/members',
             });
         }
     });
-    return MembersView;
 });
 
 usersDeveloperData = null;

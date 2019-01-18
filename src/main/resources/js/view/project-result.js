@@ -5,24 +5,7 @@ define('view/project-result', [
     'backbone',
     'js/mustache'], function($, Backbone,mustache) {
 
-
-    var ProjectResultModel = Backbone.Model.extend({
-        initialize: function (options) {
-            this.collection = options.collection;
-            //   this.set('id',this.collection.nextId());
-        },
-
-        defaults: function() {
-            return {
-                costTeam: 0,
-                okpSum: 0,
-                result: 0,
-                profitability: 0,
-            };
-        }
-    });
-
-    var ProjectResultView = Backbone.View.extend({
+    return Backbone.View.extend({
 
         tagName : 'div',
         templates: {
@@ -40,11 +23,12 @@ define('view/project-result', [
             this.computeData()
         },
 
-        computeData: function (changedModel) {
+        computeData: function () {
             var projectIncome = this.projectData.projectIncome;
-            var costProject =0,okpSum =0;
+            var costProject = 0,
+                okpSum = 0;
 
-            this.collection.each(function(model, index, list){
+            this.collection.each(function(model){
                 okpSum += parseInt(model.get('okp'));
                 costProject += (parseInt(model.get('cost')) + parseInt(model.get('okp')));
             });
@@ -67,6 +51,4 @@ define('view/project-result', [
            return this;
         }
     });
-
-return ProjectResultView;
 });

@@ -1,8 +1,7 @@
 define('view/project', ['jquery',  'backbone','js/mustache','view/members', 'view/editable-input'],
     function($, Backbone,mustache, MembersView,EditableInput) {
 
-
-     var ProjectView = Backbone.View.extend({
+    return Backbone.View.extend({
         tagName : 'div',
         templates: {
             'projectContainer' : $('#project-row').html()
@@ -75,6 +74,4 @@ define('view/project', ['jquery',  'backbone','js/mustache','view/members', 'vie
             return this;
         }
     });
-
-    return ProjectView;
 });

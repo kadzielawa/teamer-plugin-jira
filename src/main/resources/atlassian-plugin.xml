@@ -5,8 +5,8 @@
     <description>${project.description}</description>
     <version>${project.version}</version>
     <vendor name="${project.organization.name}" url="${project.organization.url}"/>
-    <param name="plugin-icon">images/pluginIcon.png</param>
-    <param name="plugin-logo">images/pluginLogo.png</param>
+    <param name="plugin-icon">images/logo_coworkers.jpg</param>
+    <param name="plugin-logo">images/logo_coworkers.jpg</param>
   </plugin-info>
   <!-- add our i18n resource -->
   <resource type="i18n" name="i18n" location="teamer-plugin"/>
@@ -16,7 +16,9 @@
     <context>editor</context>
   </web-resource>
 
-
+  <web-resource key="teamer-plugin-resources-users" name="teamer-plugin Web Resources users">
+    <resource type="download" name="user-page.js" location="/js/user-page.js"/>
+  </web-resource>
   <web-resource key="teamer-plugin-resources" name="teamer-plugin Web Resources">
     <dependency>com.atlassian.auiplugin:ajs</dependency>
     <dependency>teamerExt.teamer-plugin:mustache</dependency>
@@ -37,21 +39,9 @@
     <resource type="download" name="images/" location="/images"/>
     <context>teamer-plugin</context>
   </web-resource>
-  <web-section name="My Links Main Section" i18n-name-key="my-links-main-section.name" key="my_links_section" location="my_links_link" weight="10"/>
-  <web-item key="my_links_link" name="Link on My Links Main Section" section="system.top.navigation.bar" weight="47">
-    <label>My Company</label>
-    <link linkId="my_links_link">http://www.atlassian.com</link>
-  </web-item>
-  <web-item key="website_link" name="Company Web Site" section="my_links_link/my_links_section" weight="10">
-    <label>Web Site</label>
-    <link linkId="website_link">http://www.atlassian.com</link>
-  </web-item>
-  <web-item key="documentation_link" name="Documentation Web Site" section="my_links_link/my_links_section" weight="10">
-    <label>Documentation</label>
-    <link linkId="documentation_link">http://confluence.atlassian.com</link>
-  </web-item>
+
   <webwork1 key="teamer" name="teamer" i18n-name-key="teamer.name">
-    <description key="teamer.description">The teamer Plugin</description>
+    <description key="teamer.description">WorkersManager Plugin</description>
     <actions>
       <action name="teamerExt.jira.webwork.projectsAction" alias="projectsAction">
         <view name="success">/templates/projects/success.vm</view>
@@ -92,17 +82,10 @@
     <upgradeTask>teamerExt.jira.webwork.upgrade.v13.ProjectUpgradeTask013</upgradeTask>
     <upgradeTask>teamerExt.jira.webwork.upgrade.v14.ViewUpgradeTask014</upgradeTask>
   </ao>
-
-  <servlet name="Hello World Servlet" key="add-project" class="teamerExt.jira.webwork.Project.ProjectServlet">
-    <url-pattern>/addproject</url-pattern>
-  </servlet>
-  <servlet name="Hello World Servlet" key="add-user" class="teamerExt.jira.webwork.User.UserServlet">
-    <url-pattern>/adduser</url-pattern>
-  </servlet>
-
     <rest  key="projectmembersRest" path="/projectmembers" version="1.0"/>
     <rest  key="projectRest" path="/project" version="1.0"/>
     <rest  key="teamRest" path="/team" version="1.0"/>
     <rest  key="viewRest" path="/view" version="1.0"/>
+    <rest  key="usersRest" path="/users" version="1.0"/>
 
 </atlassian-plugin>

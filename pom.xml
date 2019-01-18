@@ -6,11 +6,11 @@
     <artifactId>teamer-plugin</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <organization>
-        <name>Example Company</name>
-        <url>http://www.example.com/</url>
+        <name>github.com/kadzielawa</name>
+        <url>http://github.com/kadzielawa</url>
     </organization>
-    <name>teamer-plugin</name>
-    <description>This is the teamerExt:teamer-plugin plugin for Atlassian JIRA.</description>
+    <name>Advanced Workers Management</name>
+    <description>Gain control over your workers with reliable job management software from Jacob. Operate with the knowledge that you're always compliant</description>
     <packaging>atlassian-plugin</packaging>
 
     <dependencies>

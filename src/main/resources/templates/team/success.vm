@@ -49,7 +49,7 @@
             <div class="aui-group project-list">
 
                 </div>
-            </div>
+
             <div class="profit-area" data-team_id="{{teamId}}">
                 Zysk z zespołu: <span class="value">{{profit}}</span> zł
             </div>

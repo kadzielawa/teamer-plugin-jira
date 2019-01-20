@@ -6,22 +6,25 @@ import com.google.common.collect.Lists;
 import net.java.ao.Query;
 import com.atlassian.jira.util.json.JSONArray;
 import com.atlassian.jira.util.json.JSONObject;
+import org.apache.commons.codec.binary.Base64;
+import org.apache.http.HttpHeaders;
 import teamerExt.jira.webwork.Project.ProjectMember;
-import teamerExt.plannerApi.URLConnection;
-
-
 import javax.inject.Inject;
 import javax.inject.Named;
-
-
-import java.util.HashMap;
-import java.util.Map;
-
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import static com.google.common.base.Preconditions.checkNotNull;
-
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
 @Named
 public class UserServiceImpl implements UserService
 {
+    private final String USER_AGENT = "Mozilla/5.0";
+
     @ComponentImport
     private final ActiveObjects ao;
 
@@ -30,6 +33,14 @@ public class UserServiceImpl implements UserService
     public UserServiceImpl(ActiveObjects ao)
     {
         this.ao = checkNotNull(ao);
+    }
+
+    @Override
+    public Role addRole(String name) {
+        final Role role = ao.create(Role.class);
+        role.setName(name);
+        role.save();
+        return role;
     }
 
     @Override
@@ -53,10 +64,16 @@ public class UserServiceImpl implements UserService
 
 
     @Override
-    public Iterable<User> getUserByString(String user)
-    {
-        final Query query = Query.select().
-                from(User.class).where("LOWER(FIRSTNAME) LIKE LOWER(?) OR LOWER(LASTNAME) LIKE LOWER(?)", "%" + user + "%","%" + user + "%");
+    public ArrayList<User> getUserByString(String user,boolean isFullName)
+    {Query query;
+        if(isFullName) {
+            String[] exploded = user.split(" ");
+            query = Query.select().
+                    from(User.class).where("LOWER(FIRSTNAME) LIKE LOWER(?) OR LOWER(LASTNAME) LIKE LOWER(?)", "%" + exploded[0] + "%","%" + exploded[1] + "%");
+        } else {
+            query = Query.select().
+                    from(User.class).where("LOWER(FIRSTNAME) LIKE LOWER(?) OR LOWER(LASTNAME) LIKE LOWER(?)", "%" + user + "%", "%" + user + "%");
+        }
         return Lists.newArrayList(ao.find(User.class, query));
     }
     @Override
@@ -65,6 +82,20 @@ public class UserServiceImpl implements UserService
         final Query query = Query.select().
                 from(User.class);
         return Lists.newArrayList(ao.find(User.class, query));
+    }
+
+    @Override
+    public ArrayList<Role> getRoleByString(String queryUser) {
+        final Query query = Query.select().
+                from(Role.class).where("LOWER(NAME) LIKE LOWER(?)", "%" + queryUser + "%");
+        return Lists.newArrayList(ao.find(Role.class, query));
+    }
+
+    @Override
+    public Iterable<Role> getAllRoles() {
+        final Query query = Query.select().
+                from(Role.class);
+        return Lists.newArrayList(ao.find(Role.class, query));
     }
 
     @Override
@@ -82,62 +113,36 @@ public class UserServiceImpl implements UserService
     @Override
     public void importUsers() throws Exception {
 
-        HashMap<String, String> teams = this.getTeams();
-        this.addUsers(teams);
-    }
+        String url = "";
+        HttpClient client = new DefaultHttpClient();
+        HttpGet request = new HttpGet(url);
 
+        String auth = "" + ":" + "";
+        byte[] encodedAuth = Base64.encodeBase64(
+                auth.getBytes(StandardCharsets.ISO_8859_1));
+        String authHeader = "Basic " + new String(encodedAuth);
+        request.setHeader(HttpHeaders.AUTHORIZATION, authHeader);
+        HttpResponse response = client.execute(request);
+        BufferedReader rd = new BufferedReader(
+                new InputStreamReader(response.getEntity().getContent()));
 
-    HashMap<String, String> getTeams() throws Exception {
-
-        HashMap<String, String> teams = new HashMap<String, String>();
-
-        URLConnection url = new URLConnection();
-        StringBuffer response = url.sendGet("https://jira.abbc.pl/rest/api/2/user/search?username=.&startAt=0&maxResults=2000");
-
-        JSONArray jsonArray = new JSONArray(response.toString());
-
-        for (int i=0; i<jsonArray.length(); i++) {
-            teams.put( jsonArray.getJSONObject(i).getString("id"), jsonArray.getJSONObject(i).getString("name"));
+        StringBuffer result = new StringBuffer();
+        String line = "";
+        while ((line = rd.readLine()) != null) {
+            result.append(line);
         }
+        JSONArray rootOfPage =  new JSONArray(result.toString());
 
-
-        return teams;
-    }
-
-     void addUsers(HashMap<String, String> teams) throws Exception {
-
-        for(Map.Entry team : getTeams().entrySet()) {
-
-            URLConnection url = new URLConnection();
-            StringBuffer response = url.sendGet("https://jira.abbc.pl/rest/tempo-teams/2/team/" + team.getKey() + "/member");
-            JSONArray teamArray = new JSONArray(response.toString());
-
-            for (int i=0; i<teamArray.length(); i++) {
-                JSONObject currentObj =  teamArray.getJSONObject(i);
-                JSONObject memberBean = currentObj.getJSONObject("memberBean");
-                JSONObject membership = currentObj.getJSONObject("membership");
-                String memberRoleFromJson = membership.getJSONObject("role").getString("name");
-                String finalMemberRole = "";
-                if(memberRoleFromJson.toLowerCase().contains("back-end")){
-                    finalMemberRole = "BE";
-                } else if(memberRoleFromJson.toLowerCase().contains("project")){
-                    finalMemberRole = "PM";
-                } else if(memberRoleFromJson.toLowerCase().contains("front-end")){
-                    finalMemberRole = "FE";
-                } else if(memberRoleFromJson.toLowerCase().contains("ux")){
-                    finalMemberRole = "UX";
-                } else if(memberRoleFromJson.toLowerCase().contains("software")){
-                    finalMemberRole = "QA";
-                } else {
-                    finalMemberRole = "??";
+        for (int i = 0; i < rootOfPage.length(); i++) {
+                JSONObject currentObj =  rootOfPage.getJSONObject(i);
+                String displayName = currentObj.getString("displayName");
+                if(this.getUserByString(displayName,true).isEmpty()) {
+                    String[] exploded = displayName.split(" ");
+                    this.add(exploded[0], exploded[1], "0", "");
                 }
-
-                String[] exploded=memberBean.getString("displayname").split(" ");
-                this.add(exploded[0],exploded[1],"0",finalMemberRole);
-            }
-
         }
 
 
     }
+
 }

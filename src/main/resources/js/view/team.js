@@ -19,7 +19,6 @@ define('view/team', [
         templates: {
             'teamContainer': $('#team-row').html()
         },
-        profitSum: 0,
         initialize: function () {
             this.el.append(this.render());
             // manage projects
@@ -29,24 +28,20 @@ define('view/team', [
             this.projectCollection = new App.Collections.ProjectCollection(null,{teamId: teamId,teamName: teamName,viewId: this.model.get('viewId')});
             this.listenTo(this.projectCollection, 'add', this.addProject);
             this.projectCollection.fetch();
+            App.Collections.ProjectCollection.items.push({teamId:teamId,data:this.projectCollection})
             Backbone.on('updateProfitTeam', this.updateProfit, this);
         },
 
         updateProfit: function (options) {
-            var that = this;
-            var teamId = options.id;
-            var profitTeam = options.result;
-            var profitArea = this.$el.find(".profit-area")
-            _.each(profitArea,function(profitElement,b) {
-                    if($(profitElement).data('team_id') === teamId){
-                        $profitValueArea = $(profitElement).find('.value');
-                        //to check
-                        that.profitSum += profitTeam;
-                        $profitValueArea.html(that.profitSum)
-                    }
-                }
-            )
+            var profitArea = this.$el.find(".profit-area").find('.value')
 
+            if(options.toSubstract === true){
+                var oldProfit = parseInt(profitArea.text())
+                var newProfit = oldProfit - options.totalProfit;
+                profitArea.html(newProfit);
+            } else {
+                profitArea.html(options.totalProfit);
+            }
         },
 
         addProject: function (model) {
@@ -72,6 +67,8 @@ define('view/team', [
                     'wait': true,
                     'success': this.callbackAddProjectToView.bind(that)
                 });
+
+
         },
         //set id from added to database projectId
         callbackAddProjectToView:function (newProject,resp) {
@@ -84,20 +81,25 @@ define('view/team', [
                 });
 
             this.$el.find(".project-list").append(view.render().el);
-
+            this.saveTeam()
         },
 
         removeFailed: function (model, response) {
             var myFlag = AJS.flag({
                 type: 'success',
-                body: 'Błąd przy usuwaniu zespołu',
+                body: 'Team has been deleted successfully.',
             });
+            setTimeout(function(){ myFlag.close() }, 4000);
+
         },
         removeSuccess: function (model, response) {
             var myFlag = AJS.flag({
                 type: 'success',
                 body: 'Usunięto pomyślnie zespół.',
             });
+
+            setTimeout(function(){ myFlag.close() }, 4000);
+
         },
         destroy: function () {
             this.undelegateEvents();
@@ -113,7 +115,7 @@ define('view/team', [
                 getProjectUrl: AJS.contextPath() + '/rest/project/1.0/project',
                 restfulTableId: this.model.get('id'),
                 teamId: this.model.get('id'),
-                profit: 0,
+                profit: this.model.get('profit'),
                 teamName: this.model.get('name')
             };
 

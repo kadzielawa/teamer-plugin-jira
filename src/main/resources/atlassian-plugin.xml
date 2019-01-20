@@ -13,6 +13,7 @@
   <!-- add our web resources -->
   <web-resource key="mustache" name="Space variables macro js resources">
     <resource type="download" name="mustache" location="/js/mustache.js"/>
+    <resource type="download" name="musxtache" location="/js/scrollspy.js"/>
     <context>editor</context>
   </web-resource>
 
@@ -81,6 +82,7 @@
     <upgradeTask>teamerExt.jira.webwork.upgrade.v12.ProjectUpgradeTask012</upgradeTask>
     <upgradeTask>teamerExt.jira.webwork.upgrade.v13.ProjectUpgradeTask013</upgradeTask>
     <upgradeTask>teamerExt.jira.webwork.upgrade.v14.ViewUpgradeTask014</upgradeTask>
+    <upgradeTask>teamerExt.jira.webwork.upgrade.v15.RoleUpgradeTask015</upgradeTask>
   </ao>
     <rest  key="projectmembersRest" path="/projectmembers" version="1.0"/>
     <rest  key="projectRest" path="/project" version="1.0"/>

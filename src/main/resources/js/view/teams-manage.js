@@ -103,6 +103,7 @@ define('view/teams-manage', ['jquery',  'backbone', 'view/team','mainapp'], func
             this.collection.add(model);
             var view = new TeamView({model:model,collection:this.collection});
             $("#view"+this.viewId).find(".teams-list").append(view.render().el);
+            view.saveTeam();
         }
     });
 });

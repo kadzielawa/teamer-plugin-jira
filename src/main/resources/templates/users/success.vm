@@ -29,7 +29,7 @@ font-size: 20px;"><a style="color: black; text-decoration: none;" href="/jira/se
 font-size: 20px;"><a style="color: black; text-decoration: none;" href="/jira/secure/usersAction.jspa">User </a></span>
                         </li>
                         <li style="margin-top: 15px;">
-                            <a class="aui-button" href="/jira/secure/teamerAction.jspa" id="button-import-user">Import workers</a>
+                                <a class="aui-button" href="/jira/secure/teamerAction.jspa" id="button-import-user">Import workers</a>
                         </li>
                     </ul>
                 </div>
@@ -37,11 +37,10 @@ font-size: 20px;"><a style="color: black; text-decoration: none;" href="/jira/se
 
 
             <section class="aui-page-panel-content">
-                <div id="usersList"></div>
+                <table id="usersList"></table>
 
             </section>
             <aside class="aui-page-panel-sidebar">
-                <!-- tangental content here -->
             </aside>
         </div>
     </div>

@@ -17,6 +17,11 @@
     width: 80px;
 
 }
+
+.project-view {
+    border-bottom: 1px solid lightsteelblue;
+    padding: 3% 0%;
+}
 .editable-container {
     display: inline-block;
     position:relative;

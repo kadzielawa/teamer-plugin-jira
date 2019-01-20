@@ -88,8 +88,8 @@
             </div>
         </div>
 
-        <div class="aui-group person-list" id="person-list-{{teamId}}_{{restfulTableId}}">
-        </div>
+        <table class="person-list" id="person-list-{{teamId}}_{{restfulTableId}}">
+        </table>
         <div></div>
 
 
@@ -117,7 +117,7 @@
 
         <div class="tabs-pane" id="view{{viewId}}">
             <div class="aui-group buttons-teams-manage">
-                <div class="aui-group">
+                <div class="aui-group" style="    margin-bottom: 15px;">
                     <form class="aui">
                        <label for="okpCost{{viewId}}"> OKP:</label>
                        <input class="text medium-field input-okp-value" type="text" value="{{okp}}" id="okpCost{{viewId}}" data-view_id="{{viewId}}">
@@ -134,9 +134,16 @@
             </div>
         </div>
 </script>
-
+        <!-- add after bootstrap.min.css -->
+    <link
+            rel="stylesheet"
+            href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css"
+    />
+    <!-- add after bootstrap.min.js -->
+    <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script>
 </head>
 <body>
+
 <section id="content" role="main">
     <div class="aui-page-panel">
         <div class="aui-page-panel-inner">
@@ -161,7 +168,6 @@ font-size: 20px;"><a style="color: black; text-decoration: none;" href="/jira/se
 
             </section>
             <aside class="aui-page-panel-sidebar">
-                <!-- tangental content here -->
             </aside>
         </div>
     </div>

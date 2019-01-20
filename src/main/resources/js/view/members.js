@@ -80,9 +80,12 @@ define('view/members',
                 }
             });
 
+
             var AvailabilityView = AJS.RestfulTable.CustomEditView.extend({
+
                 render: function (self) {
-                    var value = typeof self.value === 'undefined' ? "" : self.value;
+                    that.checkAvailability(projectId,self.value);
+                    var value = typeof self.value === 'undefined' ? 100 : self.value;
                     var $field = $('<input pattern="\\d*" type="text" class="text availability-input" value="' + value +'" name="availability">')
                     return $field;
                 }
@@ -96,12 +99,23 @@ define('view/members',
                 }
             });
 
+            var CostReadView = AJS.RestfulTable.CustomReadView.extend({
+                render: function (self) {
+                    var availability = this.model.get('availability')
+                    var cost = this.model.get('cost')
+                    var real_cost = parseInt((availability / 100) * cost);
+                    this.model.set('okp',real_cost );
+                    var $disabledField = $('<span class="cost-input">'+ real_cost+' zł</span>')
+                    return $disabledField;
+                }
+            });
+
             var OKPReadView = AJS.RestfulTable.CustomEditView.extend({
                 render: function (self) {
                     //compute new okp and set to read view
                     var defineOkp = this.model.get('define_okp')
                     var availability = this.model.get('availability')
-                    var real_okp = (availability / 100) * defineOkp;
+                    var real_okp = parseInt((availability / 100) * defineOkp);
                     this.model.set('okp',real_okp );
                     var $disabledField = $('<span class="okp-input">'+ real_okp+' zł</span>')
                     return $disabledField;
@@ -110,19 +124,13 @@ define('view/members',
 
             var RoleAuiSelectView = AJS.RestfulTable.CustomEditView.extend({
                 render: function (self) {
-                  var roles = ['BE','FE','QA','LEAD'];
-                  var select = '<aui-select ' +
-                        'name="role"' +
-                        ' placeholder="Wybierz rolę" >';
-                        roles.forEach(function(el,i){
-                            if(self.value == el){
-                                select += ' <aui-option>' + el +'</aui-option>'
-                            } else {
-                                select += ' <aui-option selected>' + el +'</aui-option>'
-                            }
-                        });
-
-                       select +='</aui-select>';
+                    if(typeof self.value === 'undefined') {
+                        self.value = "";
+                    }
+                    var select = '<aui-select src="/jira/rest/users/1.0/users/roles" can-create-values="true" ' +
+                        ' placeholder="Wybierz rolę" name="role" >' +
+                        '<aui-option selected="selected" value="'+ self.value + '"> ' + self.value + ' </aui-option>' +
+                        '</aui-select>';
 
                     return $(select);
                 }
@@ -183,8 +191,9 @@ define('view/members',
                     },
                     {
                         id: "cost",
-                        header: "Koszt stawka",
+                        header: "Stawka",
                         fieldName: "cost",
+                        readView: CostReadView,
                         createView: CostView,
                         editView: CostView
                     },
@@ -207,10 +216,13 @@ define('view/members',
                 success: function (data) {
                     var projectresultView = new ProjectResultView({collection:data,projectData:that.projectData});
                     if($ecl.next().length > 0) {
-                        console.log('ttt')
-                        console.log($ecl.next())
                         $ecl.after(projectresultView.render().el)
                     }
+                    App.Collections.MemberCollection.items.push({
+                        teamId:that.projectData.teamId,
+                        projectId: that.projectData.projectId,
+                        data:data
+                    })
                 }
             })
 
@@ -266,10 +278,7 @@ define('view/members',
                 alert('error!!!');
             });
             createRow.bind(AJS.RestfulTable.Events.SAVE, function (errors) {
-                var myFlag = AJS.flag({
-                    type: 'fail',
-                    body: 'Please correct the form data!',
-                });
+
             console.log(errors)
             });
             createRow.bind(AJS.RestfulTable.Events.CANCEL, function (errors) {
@@ -300,6 +309,8 @@ define('view/members',
             });
 
             jQuery(document).bind(AJS.RestfulTable.Events.ROW_ADDED, function (event,addedRow,table) {
+                that.checkAvailability(addedRow)
+
                 //hide 2 columns of "blank" row after added element!
                 that.hideRow(table.$create[0],1)
 
@@ -326,13 +337,43 @@ define('view/members',
                     that.hideRow(editedRow)
                 });
                 editedRow.bind(AJS.RestfulTable.Events.UPDATED, function () {
+                    that.checkAvailability(editedRow)
+
                     that.hideRow(editedRow)
                 });
                  that.hideRow(editedRow);
             });
             },
+
+        checkAvailability: function (editedRow) {
+            console.log(App.Collections.MemberCollection.items)
+            console.log(editedRow)
+            var members = [];
+            if(App.Collections.MemberCollection.items.length > 0) {
+                App.Collections.MemberCollection.items.map(function (memberData) {
+                    console.log(memberData)
+                    //1 iterate
+                    memberData.data.models.map(function (member) {
+
+                        members.push({memberId: member.get('user_id'),availability: member.get('availability')})
+                    })
+                })
+            }
+
+            console.log(members)
+           /* members.map(function (member) {
+                var availabilityTotal = member.availability;
+                members.map(function (member2) {
+                    if(member.memberId === member2.memberId){
+                        availabilityTotal += member2.availability;
+                    }
+                    if(availabilityTotal > 100) {
+                        console.log('jest wieksze od 100!!')
+                    }
+                })
+            })*/
+        },
         modifyUser: function (xx) {
-            console.log(xx)
             var that = this;
             var $ecl = this.$el;
             this.membersCollection.fetch({

@@ -3,6 +3,7 @@ define('view/project', ['jquery',  'backbone','js/mustache','view/members', 'vie
 
     return Backbone.View.extend({
         tagName : 'div',
+        className: 'project-view',
         templates: {
             'projectContainer' : $('#project-row').html()
         },
@@ -18,9 +19,11 @@ define('view/project', ['jquery',  'backbone','js/mustache','view/members', 'vie
             var teamId = options.model.get("teamId");
             var projectIncome = options.model.get("income");
             var projectName = options.model.get("name");
+            var projectId =     options.model.get("projectId");
 
             this.projectData = {
                 viewId : viewId,
+                projectId : projectId,
                 teamId : teamId,
                 projectName: projectName,
                 projectIncome: projectIncome,
@@ -30,15 +33,20 @@ define('view/project', ['jquery',  'backbone','js/mustache','view/members', 'vie
         destroy: function () {
             this.undelegateEvents();
 
+            Backbone.trigger('updateProfitTeam',{totalProfit: this.model.get('profit'), toSubstract: true});
+            var myFlag = AJS.flag({
+                type: 'success',
+                body: 'Project has been deleted successfully.',
+            });
+            setTimeout(function(){ myFlag.close() }, 4000);
             this.$el.removeData().unbind();
             this.collection.remove(this.model)
             this.model.remove();
             this.model.destroy();
+
             this.remove();
         },
          updateValue: function (evt) {
-
-            console.log('xxx')
 
             var value = $(evt.currentTarget).parent().prev().find(".editable-field-input").html();
             if($(evt.currentTarget).parent().prev().hasClass('project-name')) {

@@ -66,7 +66,7 @@ public class ProjectMembers{
                 Iterable<User> usersModels;
 
                 if(queryUser.length() > 0){
-                    usersModels = userService.getUserByString(queryUser);
+                    usersModels = userService.getUserByString(queryUser,false);
                 } else {
                     usersModels = userService.all();
                 }

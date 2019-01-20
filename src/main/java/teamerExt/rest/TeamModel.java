@@ -18,6 +18,8 @@ public class TeamModel{
     public int viewId;
     @XmlElement(name = "name")
     public String name;
+    @XmlElement(name = "profitSum")
+    public String profitSum;
     @XmlElement(name = "projects")
     public ArrayList<ProjectBean> projects;
 

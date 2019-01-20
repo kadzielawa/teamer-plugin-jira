@@ -3,7 +3,9 @@
 define('view/project-result', [
     'jquery',
     'backbone',
-    'js/mustache'], function($, Backbone,mustache) {
+    'underscore',
+    'js/mustache',
+    'mainapp'], function($, Backbone,_, mustache,App) {
 
     return Backbone.View.extend({
 
@@ -24,10 +26,10 @@ define('view/project-result', [
         },
 
         computeData: function () {
+            var that = this;
             var projectIncome = this.projectData.projectIncome;
             var costProject = 0,
                 okpSum = 0;
-
             this.collection.each(function(model){
                 okpSum += parseInt(model.get('okp'));
                 costProject += (parseInt(model.get('cost')) + parseInt(model.get('okp')));
@@ -35,7 +37,21 @@ define('view/project-result', [
             var result = projectIncome - costProject;
             var profitInPercent = (result / projectIncome) * 100;
             var profitability = profitInPercent.toFixed(2);
-            Backbone.trigger('updateProfitTeam',{result: result,id:this.projectData.teamId});
+            var teamId =  this.projectData.teamId;
+            var teamData = _.where(App.Collections.ProjectCollection.items,{teamId: teamId});
+            if(teamData.length >0) {
+                var projectModels = teamData[0].data;
+                var totalProfit = 0;
+                projectModels.each(function (model) {
+                    if (model.get('projectId') === that.projectData.projectId) {
+                        model.set('profit',result);
+                        totalProfit += result;
+                    } else {
+                        totalProfit += model.get('profit');
+                    }
+                });
+            }
+            Backbone.trigger('updateProfitTeam',{totalProfit: totalProfit});
 
             this.projectResultData = {
                 costProject: costProject,

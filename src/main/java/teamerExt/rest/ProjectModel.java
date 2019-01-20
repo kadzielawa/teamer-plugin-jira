@@ -17,6 +17,8 @@ public class ProjectModel {
     private String name;
     @XmlElement (name = "income")
     private double income;
+    @XmlElement (name = "profit")
+    private double profit;
     @XmlElement (name = "users")
     public User[] users;
     @XmlElement (name = "teamId")

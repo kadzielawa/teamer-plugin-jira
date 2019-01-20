@@ -1,7 +1,5 @@
-
 define('mainapp',['jquery', 'backbone', 'js/mustache','view/main'],
     function($, Backbone, mustache,MainView) {
-
             var App = {
                 Models: {},
                 Views: {},
@@ -9,9 +7,7 @@ define('mainapp',['jquery', 'backbone', 'js/mustache','view/main'],
                 Collections: {}
             };
             var mainView = new MainView();
-
             mainView.render();
-
 
         /** Models */
 
@@ -34,7 +30,8 @@ define('mainapp',['jquery', 'backbone', 'js/mustache','view/main'],
             defaults: function() {
                 return {
                     name: "Przykładowa nazwa projektu",
-                    income: 10000
+                    income: 10000,
+                    profit: 0
                 };
             }
         });
@@ -45,11 +42,13 @@ define('mainapp',['jquery', 'backbone', 'js/mustache','view/main'],
             isUpdated:  0,
             viewId: null,
             profit: 0,
+            profitSum: 0,
 
             defaults: function() {
                 return {
                     id:  App.Collections.TeamCollection.nextId(),
-                    name: "Przykładowa nazwa zespołu"
+                    name: "Przykładowa nazwa zespołu",
+                    profitSum: 0
                 };
             },
         });
@@ -68,6 +67,7 @@ define('mainapp',['jquery', 'backbone', 'js/mustache','view/main'],
             },
             defaults: function () {
                 return {
+                    availability: 100,
                     viewId: App.Properties.LastViewedViewId
                 }
             }
@@ -92,7 +92,6 @@ define('mainapp',['jquery', 'backbone', 'js/mustache','view/main'],
             url: AJS.contextPath() + '/rest/view/1.0/view/',
         });
 
-
         var ProjectCollection = Backbone.Collection.extend({
             model: ProjectModel,
             teamId : null,
@@ -106,12 +105,7 @@ define('mainapp',['jquery', 'backbone', 'js/mustache','view/main'],
                 if (!this.length) return 1;
                 return this.last().get('id') + 1;
             },
-
-
         });
-
-
-
 
         /** Instances **/
         App.Collections.TeamCollection = new TeamCollection();
@@ -121,6 +115,9 @@ define('mainapp',['jquery', 'backbone', 'js/mustache','view/main'],
         App.Models.MemberModel = MemberModel;
         App.Collections.ViewCollection = new ViewCollection();
         App.Collections.ProjectCollection = ProjectCollection;
+        App.Collections.ProjectCollection.items = []
+        App.Collections.MemberCollection = {};
+        App.Collections.MemberCollection.items = []
         App.Properties.LastViewedViewId = null;
         App.Properties.LastViewId = 0;
 

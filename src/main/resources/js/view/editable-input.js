@@ -49,12 +49,10 @@ define('view/editable-input', ['jquery',  'backbone','underscore','js/mustache',
         },
         onEdit: function (e) {
             e.preventDefault();
-            this.$content.attr('contenteditable', true).focus();
             this.$el.find('.save-options').show();
             this.$el.find('.overlay-icon').hide();
         },
         onEditDone: function () {
-            this.$content.attr('contenteditable', false);
 
         }
     });

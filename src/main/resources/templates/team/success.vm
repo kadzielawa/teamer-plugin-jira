@@ -16,7 +16,7 @@
     <script type="text/template" id="editInputTemplate">
         <span class="editable-container {{classField}}">
             <span class="{{classField}} editable-field-input content" type="text" id="{{id}}" name="{{name}}">{{value}}</span>
-            <span class="edit overlay-icon aui-icon aui-icon-small aui-iconfont-edit" contenteditable="true"></span>
+            <span class="edit overlay-icon aui-icon aui-icon-small aui-iconfont-edit"></span>
         </span>
         <div class="save-options" tabindex="1">
             <button class="aui-button submit input-editable-save">

@@ -109,7 +109,26 @@ public class ViewServiceImpl implements ViewService {
         return views.length > 0 ? views[0] : ao.create(View.class);
     }
 
+    @Override
+    public void delete(View view)
+    {
+        ao.delete(view);
+    }
 
+
+    @Override
+    public void deleteAllTeamsByViewId(String viewId) throws Exception {
+
+        Iterable<Team> teams = this.teamService.getTeamsByViewId(Integer.parseInt(viewId));
+
+        //iterujemy po kazdym zespole i usuwamy go
+        for(Team team : teams) {
+            this.teamService.delete(team);
+        }
+
+        View view = this.getViewById(viewId);
+        this.delete(view);
+    }
 
     private Integer lastViewId() {
         ArrayList<Team> teams = this.getAllViews();

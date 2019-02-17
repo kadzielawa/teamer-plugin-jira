@@ -59,7 +59,7 @@ public class View {
     public void deleteViewByViewId(@PathParam("id") final int viewId) throws Exception {
         teamerExt.jira.webwork.View.View deletedView = this.viewService.getViewById(String.valueOf(viewId));
         Iterable<Team> teams = this.teamService.getTeamsByViewId(viewId);
-
+        this.viewService.deleteAllTeamsByViewId(String.valueOf(viewId));
         for (Team t : teams) {
             this.teamService.delete(t);
         }
@@ -92,7 +92,7 @@ public class View {
         updatedView.setName(viewModel.getViewName());
         updatedView.save();
 
-        return Response.ok("usunieto").build();
+        return Response.ok("update ok").build();
 
     }
 }

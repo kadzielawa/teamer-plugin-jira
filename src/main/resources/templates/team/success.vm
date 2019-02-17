@@ -121,7 +121,7 @@
                        <input class="text medium-field input-okp-value" type="text" value="{{okp}}" id="okpCost{{viewId}}" data-view_id="{{viewId}}">
                        <label for="viewName{{viewId}}">Nazwa widoku:</label>
                        <input class="text medium-field input-view-name" id="viewName{{viewId}}" value="{{viewName}}" type="text" data-view_id="{{viewId}}">
-                        <span style="float:right;"><span class="aui-icon aui-icon-small aui-iconfont-cross-circle delete-view">Insert meaningful text here for accessibility</span></span>
+                        <span style="float:right;"><span data-view_id="{{viewId}}" class="aui-icon aui-icon-small aui-iconfont-cross-circle delete-view">Insert meaningful text here for accessibility</span></span>
                     </form>
                 </div>
                     <a class="aui-button"  id="button-add-team">dodaj nowy zespół</a>

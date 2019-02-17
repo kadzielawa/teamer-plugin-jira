@@ -19,9 +19,12 @@ define('view/tab', [
         },
 
         menuNewItemClick: function (e) {
+            var standardOkp = 4500
+            var standardName = "empty titile..."
             var newViewId = ++App.Properties.LastViewId;
-            var newModel = new App.Models.TabModel({id:newViewId, okp: 4500, name: "empty titile..."});
-            this.render(newModel);
+            var newModel = new App.Models.TabModel({id:newViewId, okp: standardOkp, name: standardName});
+            var newView = this.render(newModel);
+            newView.updateView({viewName: standardName, viewId: newViewId, okp: standardOkp})
             $(".tabs-menu").children().last().trigger('click')
 
         },
@@ -58,7 +61,7 @@ define('view/tab', [
             teamCollection.setUrl(viewId);
             var teamsView = new TeamsView({collection: teamCollection,viewId: viewId});
 
-            return this;
+            return teamsView;
         }
     });
 });

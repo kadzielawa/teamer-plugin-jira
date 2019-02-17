@@ -12,4 +12,7 @@ public interface ViewService {
 
     public Integer cloneView(int viewId) throws Exception;
 
+    public void delete(View view) throws Exception;
+
+    public void deleteAllTeamsByViewId(String viewId) throws Exception;
 }

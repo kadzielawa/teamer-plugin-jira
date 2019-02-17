@@ -21,18 +21,18 @@ define('view/teams-manage', ['jquery',  'backbone', 'view/team','mainapp'], func
             this.collection.fetch();
         },
 
-        deleteView: function () {
-            if (confirm('Are you sure you want to remove view from your db?')) {
+        deleteView: function (e) {
+            var viewId = $(e.currentTarget).data('view_id')
+            if(this.viewId === viewId) {
                 Backbone.ajax({
                     dataType: "json",
                     type: "DELETE",
                     contentType: 'application/json',
-                        url: AJS.contextPath() + '/rest/view/1.0/view/' + this.viewId
+                    url: AJS.contextPath() + '/rest/view/1.0/view/' + viewId
                 }).complete(function () {
-                    alert('haven\'t implemented yet xD')
+                    $('li.menu-item[data-view_id="' + viewId + '"]').remove()
+                    AJS.tabs.change($('li.menu-item a').last());
                 });
-            } else {
-                // Do nothing!
             }
         },
 
@@ -41,20 +41,21 @@ define('view/teams-manage', ['jquery',  'backbone', 'view/team','mainapp'], func
            if($(e.currentTarget).data('view_id') == this.viewId){
               newViewName = $('#viewName'+this.viewId).val();
               newOkpValue = $('#okpCost'+this.viewId).val()
-              var data = {viewName: newViewName, viewId: this.viewId, okp: newOkpValue};
-               $('li.active-tab').find('a').text(newViewName)
-
-               Backbone.ajax({
-                   dataType: "json",
-                   type: "POST",
-                   contentType: 'application/json',
-                   url: AJS.contextPath() + '/rest/view/1.0/view/' + this.viewId,
-                   data: JSON.stringify(data),
-               }).complete(function () {
-                   //Code after complete the request
-               });
+              $('li.active-tab').find('a').text(newViewName)
+              this.updateView({viewName: newViewName, viewId: this.viewId, okp: newOkpValue})
            }
         },
+
+        updateView: function (data) {
+            Backbone.ajax({
+                dataType: "json",
+                type: "POST",
+                contentType: 'application/json',
+                url: AJS.contextPath() + '/rest/view/1.0/view/' + this.viewId,
+                data: JSON.stringify(data),
+            });
+        },
+
         exportTeams: function (e) {
             var viewId = $(e.currentTarget).data('view_id');
             if(viewId == this.viewId) {

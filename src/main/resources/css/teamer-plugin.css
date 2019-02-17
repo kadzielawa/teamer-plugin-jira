@@ -17,6 +17,18 @@
     width: 80px;
 
 }
+.project-income-field {
+    display: block;
+    float: right;
+}
+
+.savable {
+    font-size: 30px;
+    margin: 0px!important;
+    padding: 0px!important;
+    display: block !important;
+    max-width: 100%;
+}
 
 .project-view {
     border-bottom: 1px solid lightsteelblue;
@@ -56,6 +68,11 @@
 }
 .editable-field-input{
     position:relative;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    text-transform: none;
 }
 .editable-field-input .save-options:not(.show-button-bar) .aui-button, .editable-field.active .save-options:not(.show-button-bar) .aui-button.cancel {
 

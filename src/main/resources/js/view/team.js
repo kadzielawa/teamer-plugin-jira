@@ -30,23 +30,24 @@ define('view/team', [
             this.projectCollection.fetch();
             App.Collections.ProjectCollection.items.push({teamId:teamId,data:this.projectCollection})
             Backbone.on('updateProfitTeam', this.updateProfit, this);
+            Backbone.on('saveDataTeam', this.saveTeam, this);
         },
 
         updateProfit: function (options) {
-            var profitArea = this.$el.find(".profit-area").find('.value')
-
-            if(options.toSubstract === true){
-                var oldProfit = parseInt(profitArea.text())
-                var newProfit = oldProfit - options.totalProfit;
-                profitArea.html(newProfit);
-            } else {
-                profitArea.html(options.totalProfit);
+            if(options.teamId === this.model.get('id')) {
+                var profitArea = this.$el.find(".profit-area").find('.value')
+                if (options.toSubstract === true) {
+                    var oldProfit = parseInt(profitArea.text())
+                    var newProfit = oldProfit - options.totalProfit;
+                    profitArea.html(newProfit);
+                } else {
+                    profitArea.html(options.totalProfit);
+                }
             }
         },
 
         addProject: function (model) {
             if(model.isUpdated === 0) {
-
                 var view = new projectView({model: model, collection: this.projectCollection});
                 this.$el.find(".project-list").append(view.render().el);
             }
@@ -67,8 +68,6 @@ define('view/team', [
                     'wait': true,
                     'success': this.callbackAddProjectToView.bind(that)
                 });
-
-
         },
         //set id from added to database projectId
         callbackAddProjectToView:function (newProject,resp) {
@@ -97,7 +96,6 @@ define('view/team', [
                 type: 'success',
                 body: 'Usunięto pomyślnie zespół.',
             });
-
             setTimeout(function(){ myFlag.close() }, 4000);
 
         },
@@ -111,6 +109,7 @@ define('view/team', [
             this.remove();
         },
         render: function (additionalData) {
+
             var basicData = {
                 getProjectUrl: AJS.contextPath() + '/rest/project/1.0/project',
                 restfulTableId: this.model.get('id'),
@@ -118,36 +117,27 @@ define('view/team', [
                 profit: this.model.get('profit'),
                 teamName: this.model.get('name')
             };
-
             var teamData = $.extend(basicData,additionalData);
-
             this.$el.html(mustache.render(this.templates.teamContainer, teamData));
-
             var teamNameField = new EditableInput({
                 value:basicData.teamName,
                 classField: "team-name",
-                id: "row-" + basicData.restfulTableId + "-id",
-                name: "row-" + basicData.restfulTableId + "-name"
+                id: "team-name-row-" + basicData.restfulTableId + "-id",
+                name: "row-" + basicData.restfulTableId + "-name",
+                action: this.updateName,
+                obj: this
             });
             this.$el.find(".team-name-field").append( teamNameField.render().el );
-
-
             return this;
         },
 
-        updateName: function (evt) {
-
-            var $teamElement = $(evt.currentTarget).parent().prev().find(".editable-field-input");
-            if($teamElement.hasClass('team-name')) {
-                var teamName = $teamElement.html();
-                $(evt.currentTarget).parent().hide();
-                this.model.set('name', teamName);
-            }
+        updateName: function (teamName) {
+          this.model.set('name', teamName);
+          Backbone.trigger('saveDataTeam')
         },
 
         saveTeam: function () {
             this.model.isUpdated = 1;
-
             var projects = [];
             this.projectCollection.each(function(model){
                var project = {
@@ -160,7 +150,6 @@ define('view/team', [
 
             this.model.set('projects',projects);
             this.model.save();
-
             this.collection.add(this.model);
             this.collection.allowToAdd = 1;
         }

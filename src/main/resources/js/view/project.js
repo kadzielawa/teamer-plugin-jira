@@ -33,7 +33,11 @@ define('view/project', ['jquery',  'backbone','js/mustache','view/members', 'vie
         destroy: function () {
             this.undelegateEvents();
 
-            Backbone.trigger('updateProfitTeam',{totalProfit: this.model.get('profit'), toSubstract: true});
+            Backbone.trigger('updateProfitTeam',{
+                totalProfit: this.model.get('profit'),
+                teamId: this.projectData.teamId,
+                toSubstract: true
+            });
             var myFlag = AJS.flag({
                 type: 'success',
                 body: 'Project has been deleted successfully.',
@@ -46,22 +50,20 @@ define('view/project', ['jquery',  'backbone','js/mustache','view/members', 'vie
 
             this.remove();
         },
-         updateValue: function (evt) {
+        updateProjectName: function (projectName) {
+            this.projectData.projectName = projectName;
+            this.model.set('name', projectName);
+            Backbone.trigger('saveDataTeam')
+        },
 
-            var value = $(evt.currentTarget).parent().prev().find(".editable-field-input").html();
-            if($(evt.currentTarget).parent().prev().hasClass('project-name')) {
-                this.projectData.projectName = value;
-                this.model.set('name', value);
-            } else  if($(evt.currentTarget).parent().prev().hasClass('project-income')) {
-                this.model.set('income', value);
-                this.projectData.projectIncome = value;
-                this.render();
-            }
+        updateProjectIncome: function (projectIncome) {
+            this.model.set('income', projectIncome);
+            this.projectData.projectIncome = projectIncome;
+            this.render();
+            Backbone.trigger('saveDataTeam')
         },
 
         render: function () {
-
-
             var that = this
             this.$el.html(mustache.render(this.templates.projectContainer,this.projectData));
             var elVariable = "#person-list-" + that.projectData.teamId + "_" + that.projectData.restfulTableId;
@@ -74,10 +76,27 @@ define('view/project', ['jquery',  'backbone','js/mustache','view/members', 'vie
             membersView.render();
             membersView.checkIfColumnsAreDisplayed(that.projectData.restfulTableId,that.projectData.teamId);
 
-            var projectNameField = new EditableInput({value:that.projectData.projectName,classField:"project-name"});
-            this.$el.find(".project-name-field").append( projectNameField.render().el );
+            var idProjectName = 'projectName_' + that.projectData.teamId + '_' + that.projectData.restfulTableId;
+            var projectNameField = new EditableInput(
+                {
+                    value:that.projectData.projectName,
+                    classField:"project-name",
+                    id: idProjectName,
+                    action: this.updateProjectName,
+                    obj: this
+                }
+                );
 
-            var projectIncomeField = new EditableInput({value:that.projectData.projectIncome,classField:"project-income"});
+            this.$el.find(".project-name-field").append( projectNameField.render().el );
+            var idProjectIncome = 'projectIncome_' + that.projectData.teamId + '_' + that.projectData.restfulTableId;
+            var projectIncomeField = new EditableInput(
+                {
+                    value: that.projectData.projectIncome,
+                    classField: "project-income",
+                    id: idProjectIncome,
+                    action: this.updateProjectIncome,
+                    obj: this
+                });
             this.$el.find(".project-income-field").append( projectIncomeField.render().el );
             return this;
         }

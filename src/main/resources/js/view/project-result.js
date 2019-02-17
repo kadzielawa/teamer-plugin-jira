@@ -8,7 +8,6 @@ define('view/project-result', [
     'mainapp'], function($, Backbone,_, mustache,App) {
 
     return Backbone.View.extend({
-
         tagName : 'div',
         templates: {
             'projectResultContainer' : $('#project-result').html()
@@ -16,7 +15,6 @@ define('view/project-result', [
         collection: null,
         projectData: null,
         initialize: function (options) {
-
             //members collection
             this.collection = options.collection;
             this.projectData = options.projectData;
@@ -51,15 +49,13 @@ define('view/project-result', [
                     }
                 });
             }
-            Backbone.trigger('updateProfitTeam',{totalProfit: totalProfit});
-
+            Backbone.trigger('updateProfitTeam',{totalProfit: totalProfit, teamId: teamId});
             this.projectResultData = {
                 costProject: costProject,
                 okpSum: okpSum,
                 profitability: profitability,
                 result: result
             };
-
             this.render();
         },
         render: function () {

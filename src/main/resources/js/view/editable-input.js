@@ -16,26 +16,37 @@ define('view/editable-input', ['jquery',  'backbone','underscore','js/mustache',
 
         initialize: function (options) {
             this.options = options;
-            var that = this;
-            //hack
-            $(document).mouseup(function(e)
-                {
-                var container = $(".editable-field-input");
-                if (!container.is(e.target) && container.has(e.target).length === 0)
-                {
-                    container.find('.editable-container').css({'border':'0'});
-                    container.find('.overlay-icon').hide();
-                    that.$el.find('.save-options').hide();
-                }
-                });
+        var that = this;
+            $(this.$el).on('click','.editable-field-input',function() {
+                var t = $(this);
+                var input = $('<input>').attr('class', 'savable').val( t.text() );
+                t.replaceWith( input );
+                input.focus();
+                that.$el.find('.save-options').show();
 
+            });
+
+            $(this.$el).on('blur','.savable',function() {
+                var input = $(this);
+                var value = input.val();
+                if(value.length <= 0) {
+                    alert('podaj wiecej znakow')
+                    return false;
+                }
+
+                var t = $('<span>').attr('class', 'editable-field-input').text( value );
+                var callback = that.options.action;
+                callback.call(that.options.obj, value)
+                input.replaceWith( t );
+                that.$el.find('.overlay-icon').hide();
+                that.$el.find('.save-options').hide();
+            });
         },
 
         render: function () {
+            this.options.id = this.options.id + '_field';
             this.$el.html(mustache.render(this.templates.editableContainer,this.options));
-
             // caching jQuery object is better than querying the DOM each time.
-            this.$content = this.$('.content');
             return this;
         },
         cancel: function (e) {
@@ -48,13 +59,11 @@ define('view/editable-input', ['jquery',  'backbone','underscore','js/mustache',
             $(e.currentTarget).find('.overlay-icon').show();
         },
         onEdit: function (e) {
+            console.log('onEdit')
             e.preventDefault();
-            this.$el.find('.save-options').show();
-            this.$el.find('.overlay-icon').hide();
         },
-        onEditDone: function () {
 
-        }
+
     });
 return ContentEditableView;
 
